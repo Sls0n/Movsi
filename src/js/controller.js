@@ -13,9 +13,13 @@ headerLogo.addEventListener('click', () => {
 // When the width of the screen is less than 768px, the left container is hidden
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth < 960) {
+  if (window.innerWidth <= 960) {
     leftContainer.classList.add('hidden');
     rightContainer.classList.add('margin-left');
-
   }
 });
+
+if (window.innerWidth <= 960) {
+  leftContainer.classList.add('hidden');
+  rightContainer.classList.add('margin-left');
+}
