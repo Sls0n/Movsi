@@ -1,0 +1,57 @@
+.header {
+  display: grid;
+
+  grid-auto-flow: column;
+  align-items: center;
+
+  width: 100%;
+  flex-basis: 8rem;
+  padding: $fs-1;
+  background-color: rgba($cp-1, 0.85);
+
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid $cp-2;
+  z-index: 100000;
+  
+
+  &__heading {
+    display: flex;
+    align-items: center;
+
+    &--text-1 {
+      color: $cs-3;
+      font-weight: 400 !important;
+      font-size: 3rem !important;
+    }
+  }
+
+  &__logo {
+    font-size: $fs-1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    cursor: pointer;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: $fs-3;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+
+    color: $cs-3;
+
+    display: flex;
+    gap: 0.6rem;
+
+    &:nth-child(4) {
+      flex: 1;
+    }
+  }
+}

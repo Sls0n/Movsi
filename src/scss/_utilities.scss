@@ -1,0 +1,48 @@
+.hidden {
+  display: none;
+}
+
+.icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  fill: $cs-2;
+  background: none;
+
+  &--menu {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+
+  &--link {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    fill: $cs-3;
+    background: none;
+
+    top: 0.15rem;
+  }
+
+  &--dropdown {
+    position: relative;
+    left: -2rem;
+    margin-top: 0.4rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.active {
+  fill: $cs-1;
+  color: $cs-1;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.margin-left {
+  margin-left: 0rem;
+}

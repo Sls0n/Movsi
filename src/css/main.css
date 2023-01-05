@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 60em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+body {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 400;
+  color: #fefefe;
+  background-color: #17171b;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 2rem;
+}
+
+.header {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  width: 100%;
+  flex-basis: 8rem;
+  padding: 2rem;
+  background-color: rgba(23, 23, 27, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #1c1c1f;
+  z-index: 100000;
+}
+.header__heading {
+  display: flex;
+  align-items: center;
+}
+.header__heading--text-1 {
+  color: #717376;
+  font-weight: 400 !important;
+  font-size: 3rem !important;
+}
+.header__logo {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
+.header__navigation {
+  display: flex;
+  gap: 3rem;
+}
+.header__link {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  color: #717376;
+  display: flex;
+  gap: 0.6rem;
+}
+.header__link:nth-child(4) {
+  flex: 1;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  margin-top: 8rem;
+}
+
+.main__right {
+  border-left: 2px solid #1c1c1f;
+  flex: 1;
+  padding: 2rem;
+  margin-left: 30rem;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 60em) {
+  .main__right {
+    margin-left: 0;
+  }
+}
+
+.main__trending {
+  padding: 2rem;
+}
+.main__trending--header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.main__trending--header--text-1 {
+  color: #fefefe;
+  font-size: 1.8rem !important;
+}
+.main__trending--header--text-2 {
+  font-size: 1.4rem !important;
+  color: #717376;
+  font-weight: 500 !important;
+  flex: 1;
+}
+.main__trending--header--text-3 {
+  color: #717376;
+  font-weight: 500 !important;
+  font-size: 1.6rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.movies {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+
+.movie {
+  background-color: #1c1c1f;
+  border-radius: 1rem;
+  position: relative;
+  max-height: 28rem;
+}
+.movie__image {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.movie__info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 6rem;
+  backdrop-filter: blur(20px);
+  flex: 1;
+  width: 100%;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+.movie__info--title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.movie__info--rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main__left {
+  height: 100vh;
+  width: 30rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  z-index: 1000;
+}
+
+.main__up {
+  padding: 2rem;
+  flex-basis: 60%;
+}
+@media only screen and (max-width: 60em) {
+  .main__up {
+    padding: 0;
+  }
+}
+
+.main__down {
+  padding: 2rem;
+  flex: 1;
+  background-color: #1c1c1f;
+  border-top: 1px solid #1c1c1f;
+  border-bottom: 1px solid #1c1c1f;
+}
+@media only screen and (max-width: 60em) {
+  .main__down {
+    padding: 0;
+  }
+}
+
+.h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.h3 {
+  font-size: 1.8rem;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+}
+
+.icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  fill: #c0c0c1;
+  background: none;
+}
+.icon--menu {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+.icon--link {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  fill: #717376;
+  background: none;
+  top: 0.15rem;
+}
+.icon--dropdown {
+  position: relative;
+  left: -2rem;
+  margin-top: 0.4rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.active {
+  fill: #fefefe;
+  color: #fefefe;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.margin-left {
+  margin-left: 0rem;
+}
+
+/*# sourceMappingURL=main.css.map */

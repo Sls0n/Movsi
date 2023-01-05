@@ -1,0 +1,83 @@
+// Variables
+$cp-1: #17171b;
+$cp-2: #1c1c1f;
+$cp-3: #262629;
+$cp-4: #3f4044;
+
+$cs-1: #fefefe;
+$cs-2: #c0c0c1;
+$cs-3: #717376;
+
+// Font sizes
+$fs-1: 2rem;
+$fs-2: 1.8rem;
+$fs-3: 1.6rem;
+$fs-4: 1.4rem;
+
+// Breakpoints
+$bp-large: 78.15em; // 1250px
+$bp-medium: 60em; // 960px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 55%;
+  }
+}
+
+body {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 400;
+  color: $cs-1;
+  background-color: $cp-1;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  font-size: $fs-1;
+
+ 
+}
