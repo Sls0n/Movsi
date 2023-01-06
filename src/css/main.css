@@ -89,6 +89,33 @@ h6 {
   font-size: 2rem;
 }
 
+.btn {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #c0c0c1;
+  background-color: transparent;
+  border: 1px solid #252528;
+  border-radius: 1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background-color: #2f2f34;
+  color: #fefefe;
+}
+.btn:active {
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.95);
+}
+.btn:first-child {
+  color: #fefefe;
+  border: none;
+  background-color: #2f2f34;
+}
+
 .header {
   display: grid;
   grid-auto-flow: column;
@@ -150,7 +177,7 @@ h6 {
   border-left: 2px solid #1c1c1f;
   flex: 1;
   padding: 2rem;
-  margin-left: 30rem;
+  margin-left: 35rem;
   display: flex;
   flex-direction: column;
 }
@@ -235,7 +262,7 @@ h6 {
 
 .main__left {
   height: 110vh;
-  width: 30rem;
+  width: 35rem;
   top: -1rem;
   position: fixed;
   display: flex;
@@ -255,12 +282,27 @@ h6 {
   position: relative;
   top: 11rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   flex-basis: 60%;
 }
 @media only screen and (max-width: 60.625em) {
   .main__up {
     padding: 0;
   }
+}
+
+.main__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
 }
 
 .main__down {
