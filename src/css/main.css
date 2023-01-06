@@ -38,6 +38,16 @@ html {
     font-size: 40%;
   }
 }
+@media only screen and (max-width: 25em) {
+  html {
+    font-size: 35%;
+  }
+}
+@media only screen and (max-width: 21.29em) {
+  html {
+    font-size: 29%;
+  }
+}
 
 body {
   font-family: "Inter Tight", sans-serif;
