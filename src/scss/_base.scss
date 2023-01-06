@@ -17,8 +17,10 @@ $fs-4: 1.4rem;
 // Breakpoints
 $bp-large: 78.15em; // 1250px
 $bp-medium: 60em; // 960px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; // 500px
+$bp-medium-small: 43.75em; // 700px
+$bp-small: 39.625em; // 634px
+$bp-smallest: 35em; // 560px
+$bp-smallest-small: 27.625em; // 442px
 
 * {
   margin: 0;
@@ -38,6 +40,24 @@ html {
   @media only screen and (max-width: $bp-medium) {
     font-size: 55%;
   }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 47%;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 45%;
+  }
+
+  @media only screen and (max-width: $bp-smallest-small) {
+    font-size: 40%;
+  }
+
+
 }
 
 body {
@@ -48,8 +68,6 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-
-
 
 input,
 button,
@@ -68,8 +86,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -78,6 +94,4 @@ h6 {
   min-height: 100vh;
 
   font-size: $fs-1;
-
- 
 }
