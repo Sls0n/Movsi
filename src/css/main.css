@@ -105,6 +105,11 @@ h6 {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 60em) {
+  .header__heading {
+    display: none;
+  }
+}
 .header__heading--text-1 {
   color: #717376;
   font-weight: 400 !important;
@@ -229,16 +234,21 @@ h6 {
 }
 
 .main__left {
-  height: 100vh;
+  height: 110vh;
   width: 30rem;
+  top: -1rem;
   position: fixed;
   display: flex;
   flex-direction: column;
   flex-basis: 25%;
+  background-color: rgba(23, 23, 27, 0.97);
+  backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
 .main__up {
+  position: relative;
+  top: 11rem;
   padding: 2rem;
   flex-basis: 60%;
 }

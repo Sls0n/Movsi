@@ -109,17 +109,23 @@
 }
 
 .main__left {
-  height: 100vh;
+  height: 110vh;
   width: 30rem;
+  top: -1rem;
   position: fixed;
   display: flex;
   flex-direction: column;
   flex-basis: 25%;
 
+  background-color: rgba($cp-1, 0.97);
+  backdrop-filter: blur(10px);
+
   z-index: 1000;
 }
 
 .main__up {
+  position: relative;
+  top: 11rem;
   padding: $fs-1;
 
   flex-basis: 60%;

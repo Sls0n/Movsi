@@ -23,3 +23,5 @@ if (window.innerWidth <= 960) {
   leftContainer.classList.add('hidden');
   rightContainer.classList.add('margin-left');
 }
+
+
