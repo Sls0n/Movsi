@@ -121,6 +121,11 @@
   backdrop-filter: blur(10px);
 
   z-index: 1000;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: $fs-1;
+
+  }
 }
 
 .main__up {

@@ -13,7 +13,7 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 60.625em) {
   html {
     font-size: 55%;
   }
@@ -28,7 +28,7 @@ html {
     font-size: 47%;
   }
 }
-@media only screen and (max-width: 35em) {
+@media only screen and (max-width: 37.5em) {
   html {
     font-size: 45%;
   }
@@ -105,7 +105,7 @@ h6 {
   display: flex;
   align-items: center;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 60.625em) {
   .header__heading {
     display: none;
   }
@@ -154,7 +154,7 @@ h6 {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 60.625em) {
   .main__right {
     margin-left: 0;
   }
@@ -245,6 +245,11 @@ h6 {
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
+@media only screen and (max-width: 60.625em) {
+  .main__left {
+    padding: 2rem;
+  }
+}
 
 .main__up {
   position: relative;
@@ -252,7 +257,7 @@ h6 {
   padding: 2rem;
   flex-basis: 60%;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 60.625em) {
   .main__up {
     padding: 0;
   }
@@ -265,7 +270,7 @@ h6 {
   border-top: 1px solid #1c1c1f;
   border-bottom: 1px solid #1c1c1f;
 }
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 60.625em) {
   .main__down {
     padding: 0;
   }
