@@ -17,6 +17,7 @@ headerLogo.addEventListener('click', () => {
   leftContainer.classList.toggle('hidden');
   rightContainer.style.filter = 'blur(5px) brightness(0.8)';
   movies.forEach(movie => (movie.style.pointerEvents = 'none'));
+  header.style.filter = 'blur(5px)';
 });
 
 rightContainer.addEventListener('click', () => {
@@ -24,6 +25,7 @@ rightContainer.addEventListener('click', () => {
     leftContainer.classList.add('hidden');
     rightContainer.style.filter = 'blur(0px) brightness(1)';
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
+    header.style.filter = 'blur(0px)';
   }
 });
 
@@ -31,6 +33,7 @@ crossMenu.addEventListener('click', () => {
   leftContainer.classList.toggle('hidden');
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
+  header.style.filter = 'blur(0px)';
 });
 
 // on pressing the escape key, the left container is hidden
@@ -39,6 +42,7 @@ document.addEventListener('keydown', e => {
     leftContainer.classList.add('hidden');
     rightContainer.style.filter = 'blur(0px) brightness(1)';
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
+    header.style.filter = 'blur(0px)';
   }
 });
 

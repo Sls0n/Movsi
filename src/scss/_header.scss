@@ -5,14 +5,12 @@
   align-items: center;
 
   width: 100%;
-  flex-basis: 8rem;
   padding: $fs-1;
   background-color: rgba($cp-1, 0.85);
 
   backdrop-filter: blur(10px);
   border-bottom: 2px solid $cp-2;
-  z-index: 100000; 
-
+  z-index: 100000;
 
   &__heading {
     display: flex;
@@ -40,8 +38,6 @@
   &__navigation {
     display: flex;
     gap: 3rem;
-
-
   }
 
   &__link {

@@ -134,7 +134,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   grid-auto-flow: column;
   align-items: center;
   width: 100%;
-  flex-basis: 8rem;
   padding: 2rem;
   background-color: rgba(23, 23, 27, 0.85);
   backdrop-filter: blur(10px);
