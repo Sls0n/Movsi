@@ -20,9 +20,6 @@ $bp-large: 78.15em; // 1250px
 $bp-medium: 60.625em; // 970px
 $bp-medium-small: 43.75em; // 700px
 $bp-small: 39.625em; // 634px
-$bp-smallest: 37.5em; // 600px
-$bp-smallest-small: 27.625em; // 442px
-$bp-smallest-smallest: 25em; // 400px
 $bp-very-small: 21.29em; // 340px
 $bp-tiny: 18em; // 288px
 
@@ -53,20 +50,8 @@ html {
     font-size: 47%;
   }
 
-  @media only screen and (max-width: $bp-smallest) {
-    font-size: 45%;
-  }
-
-  @media only screen and (max-width: $bp-smallest-small) {
-    font-size: 40%;
-  }
-
-  @media only screen and (max-width: $bp-smallest-smallest) {
-    font-size: 35%;
-  }
-
   @media only screen and (max-width: $bp-very-small) {
-    font-size: 29%;
+    font-size: 40%;
   }
 
   @media only screen and (max-width: $bp-tiny) {

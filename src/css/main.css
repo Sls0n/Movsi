@@ -28,24 +28,9 @@ html {
     font-size: 47%;
   }
 }
-@media only screen and (max-width: 37.5em) {
-  html {
-    font-size: 45%;
-  }
-}
-@media only screen and (max-width: 27.625em) {
-  html {
-    font-size: 40%;
-  }
-}
-@media only screen and (max-width: 25em) {
-  html {
-    font-size: 35%;
-  }
-}
 @media only screen and (max-width: 21.29em) {
   html {
-    font-size: 29%;
+    font-size: 40%;
   }
 }
 @media only screen and (max-width: 18em) {
@@ -97,7 +82,7 @@ h6 {
   background-color: transparent;
   border: 1px solid #252528;
   border-radius: 1rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -221,7 +206,7 @@ h6 {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .movie {
@@ -229,7 +214,7 @@ h6 {
   background-color: #1c1c1f;
   border-radius: 1rem;
   position: relative;
-  max-height: 28rem;
+  max-height: 40rem;
 }
 .movie__image {
   border-radius: 1rem;

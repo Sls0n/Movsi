@@ -60,7 +60,7 @@
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .movie {
@@ -69,7 +69,7 @@
   border-radius: 1rem;
   position: relative;
   // max-width: 18.6rem;
-  max-height: 28rem;
+  max-height: 40rem;
 
   &__image {
     // max-width: 18.6rem;
@@ -124,7 +124,6 @@
 
   @media only screen and (max-width: $bp-medium) {
     padding: $fs-1;
-
   }
 }
 
@@ -150,10 +149,9 @@
 }
 
 .main__buttons {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: .6rem;
-
+  gap: 0.6rem;
 }
 
 .main__down {
