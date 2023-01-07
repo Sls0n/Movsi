@@ -15,6 +15,8 @@
 
   display: flex;
   flex-direction: column;
+  transition: all 0.1s ease-in;
+
 
   @media only screen and (max-width: $bp-medium) {
     margin-left: 0;
@@ -111,7 +113,7 @@
 
     position: absolute;
 
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
     background-color: rgba($cp-2, 0.5);
     flex: 1;
     width: 100%;
@@ -169,18 +171,22 @@
 }
 
 .main__left {
-  height: 110vh;
+  height: 120vh;
   width: 35rem;
-  top: -1rem;
+  top: -10rem;
   position: fixed;
   display: flex;
   flex-direction: column;
   flex-basis: 25%;
 
-  background-color: rgba($cp-1, 0.97);
+  background-color: rgba($cp-2, 0.99);
+  box-shadow: 0 5rem 5rem rgba($cp-1, 1);
   backdrop-filter: blur(10px);
+  border-right: 2px solid $cp-2;
 
-  z-index: 10000;
+  z-index: 100000;
+  transition: all 0.2s cubic-bezier(0.47,0,0.75,0.72);
+
 
   @media only screen and (max-width: $bp-medium) {
     padding: $fs-1;
@@ -188,8 +194,10 @@
 }
 
 .main__up {
+  transition: all 0.2s cubic-bezier(0.47,0,0.75,0.72);
+
   position: relative;
-  top: 11rem;
+  top: 15rem;
   padding: $fs-1;
   display: flex;
   flex-direction: column;

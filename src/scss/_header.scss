@@ -11,8 +11,8 @@
 
   backdrop-filter: blur(10px);
   border-bottom: 2px solid $cp-2;
-  z-index: 100000;
-  
+  z-index: 100000; 
+
 
   &__heading {
     display: flex;
@@ -34,8 +34,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-
-    cursor: pointer;
+    z-index: 100000000000000;
   }
 
   &__navigation {

@@ -53,8 +53,6 @@ html {
   @media only screen and (max-width: $bp-very-small) {
     font-size: 43%;
   }
-
- 
 }
 
 body {
@@ -91,4 +89,43 @@ h6 {
   min-height: 100vh;
 
   font-size: $fs-1;
+}
+
+::selection {
+  background-color: $cp-4;
+  color: $cs-1;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: $cp-4 $cp-1;
+}
+
+body::-webkit-scrollbar {
+  width: 0.9rem;
+
+  &-track {
+    background: $cp-1;
+  }
+
+  &-thumb {
+    background-color: $cp-4;
+    border-radius: 0.3rem;
+  }
+
+  &-thumb:hover {
+    background-color: rgba($cp-4, 0.5);
+  }
+
+  &-thumb:active {
+    background-color: $cp-4;
+  }
+
+  &-thumb:window-inactive {
+    background-color: $cp-4;
+  }
+
+  &-thumb:window-inactive:hover {
+    background-color: $cp-3;
+  }
 }

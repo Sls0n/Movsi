@@ -69,6 +69,39 @@ h6 {
   font-size: 2rem;
 }
 
+::selection {
+  background-color: #3f4044;
+  color: #fefefe;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3f4044 #17171b;
+}
+
+body::-webkit-scrollbar {
+  width: 0.9rem;
+}
+body::-webkit-scrollbar-track {
+  background: #17171b;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #3f4044;
+  border-radius: 0.3rem;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(63, 64, 68, 0.5);
+}
+body::-webkit-scrollbar-thumb:active {
+  background-color: #3f4044;
+}
+body::-webkit-scrollbar-thumb:window-inactive {
+  background-color: #3f4044;
+}
+body::-webkit-scrollbar-thumb:window-inactive:hover {
+  background-color: #262629;
+}
+
 .btn {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -127,7 +160,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 2rem;
-  cursor: pointer;
+  z-index: 100000000000000;
 }
 .header__navigation {
   display: flex;
@@ -160,6 +193,7 @@ h6 {
   margin-left: 35rem;
   display: flex;
   flex-direction: column;
+  transition: all 0.1s ease-in;
 }
 @media only screen and (max-width: 60.625em) {
   .main__right {
@@ -242,7 +276,7 @@ h6 {
   display: flex;
   align-items: flex-end;
   position: absolute;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
   background-color: rgba(28, 28, 31, 0.5);
   flex: 1;
   width: 100%;
@@ -298,16 +332,19 @@ h6 {
 }
 
 .main__left {
-  height: 110vh;
+  height: 120vh;
   width: 35rem;
-  top: -1rem;
+  top: -10rem;
   position: fixed;
   display: flex;
   flex-direction: column;
   flex-basis: 25%;
-  background-color: rgba(23, 23, 27, 0.97);
+  background-color: rgba(28, 28, 31, 0.99);
+  box-shadow: 0 5rem 5rem #17171b;
   backdrop-filter: blur(10px);
-  z-index: 10000;
+  border-right: 2px solid #1c1c1f;
+  z-index: 100000;
+  transition: all 0.2s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 @media only screen and (max-width: 60.625em) {
   .main__left {
@@ -316,8 +353,9 @@ h6 {
 }
 
 .main__up {
+  transition: all 0.2s cubic-bezier(0.47, 0, 0.75, 0.72);
   position: relative;
-  top: 11rem;
+  top: 15rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -386,7 +424,20 @@ h6 {
   width: 2.3rem;
   height: 2.3rem;
   fill: #c0c0c1;
-  background: none;
+}
+.icon--main {
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  margin-top: -4.5rem;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 3rem;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--main {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
 }
 @media only screen and (max-width: 36.25em) {
   .icon--moon {
@@ -443,6 +494,7 @@ h6 {
   width: 3.5rem;
   height: 3.5rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 @media only screen and (max-width: 36.25em) {
   .icon--menu {
