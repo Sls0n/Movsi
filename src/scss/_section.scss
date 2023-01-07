@@ -70,6 +70,9 @@
   position: relative;
   // max-width: 18.6rem;
   max-height: 40rem;
+  overflow: hidden;
+
+  transition: all 0.2s;
 
   &__image {
     // max-width: 18.6rem;
@@ -79,31 +82,81 @@
     height: 100%;
   }
 
+  &__maximize {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: 1000;
+  }
+
+  &__heart {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      fill: $cs-1;
+    }
+  }
+
   &__info {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    height: 6rem;
+    align-items: flex-end;
 
-    backdrop-filter: blur(20px);
+    position: absolute;
+
+    backdrop-filter: blur(5px);
+    background-color: rgba($cp-2, 0.5);
     flex: 1;
     width: 100%;
-
-    border-top-left-radius: 3rem;
-    border-top-right-radius: 3rem;
+    height: 100%;
 
     &--title {
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -15%);
       display: flex;
+      justify-content: center;
       align-items: center;
+      text-align: center;
+      font-weight: 400;
       gap: 0.5rem;
+      font-size: 1.6rem;
+      background-color: $cp-3;
+      padding: 1rem;
+      min-width: 90%;
+      border-radius: 0.5rem;
+      min-height: 5rem;
+      color: $cs-2;
+
+      @media only screen and (max-width: 36.25em) {
+        font-size: 2rem;
+      }
     }
 
     &--rating {
       display: flex;
       align-items: center;
+      color: $cs-2;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      font-size: 1.6rem;
       gap: 0.5rem;
+      margin-bottom: 1rem;
+
+      @media only screen and (max-width: 36.25em) {
+        font-size: 2rem;
+      }
     }
   }
 }
@@ -120,7 +173,7 @@
   background-color: rgba($cp-1, 0.97);
   backdrop-filter: blur(10px);
 
-  z-index: 1000;
+  z-index: 10000;
 
   @media only screen and (max-width: $bp-medium) {
     padding: $fs-1;

@@ -23,19 +23,14 @@ html {
     font-size: 50%;
   }
 }
-@media only screen and (max-width: 39.625em) {
+@media only screen and (max-width: 39.7em) {
   html {
-    font-size: 47%;
+    font-size: 45%;
   }
 }
-@media only screen and (max-width: 21.29em) {
+@media only screen and (max-width: 29em) {
   html {
-    font-size: 40%;
-  }
-}
-@media only screen and (max-width: 18em) {
-  html {
-    font-size: 25%;
+    font-size: 43%;
   }
 }
 
@@ -215,34 +210,85 @@ h6 {
   border-radius: 1rem;
   position: relative;
   max-height: 40rem;
+  overflow: hidden;
+  transition: all 0.2s;
 }
 .movie__image {
   border-radius: 1rem;
   width: 100%;
   height: 100%;
 }
+.movie__maximize {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 1000;
+}
+.movie__heart {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.movie__heart:hover {
+  transform: scale(1.1);
+  fill: #fefefe;
+}
 .movie__info {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   position: absolute;
-  bottom: 0;
-  height: 6rem;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
+  background-color: rgba(28, 28, 31, 0.5);
   flex: 1;
   width: 100%;
-  border-top-left-radius: 3rem;
-  border-top-right-radius: 3rem;
+  height: 100%;
 }
 .movie__info--title {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -15%);
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  font-weight: 400;
   gap: 0.5rem;
+  font-size: 1.6rem;
+  background-color: #262629;
+  padding: 1rem;
+  min-width: 90%;
+  border-radius: 0.5rem;
+  min-height: 5rem;
+  color: #c0c0c1;
+}
+@media only screen and (max-width: 36.25em) {
+  .movie__info--title {
+    font-size: 2rem;
+  }
 }
 .movie__info--rating {
   display: flex;
   align-items: center;
+  color: #c0c0c1;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.6rem;
   gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+@media only screen and (max-width: 36.25em) {
+  .movie__info--rating {
+    font-size: 2rem;
+  }
 }
 
 .main__left {
@@ -255,7 +301,7 @@ h6 {
   flex-basis: 25%;
   background-color: rgba(23, 23, 27, 0.97);
   backdrop-filter: blur(10px);
-  z-index: 1000;
+  z-index: 10000;
 }
 @media only screen and (max-width: 60.625em) {
   .main__left {
@@ -320,6 +366,11 @@ h6 {
   letter-spacing: 0.3px;
   font-weight: 400;
 }
+@media only screen and (max-width: 36.25em) {
+  .h3 {
+    font-size: 2.1rem !important;
+  }
+}
 
 .hidden {
   display: none;
@@ -331,10 +382,67 @@ h6 {
   fill: #c0c0c1;
   background: none;
 }
+@media only screen and (max-width: 36.25em) {
+  .icon--moon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--search {
+    margin-right: -4rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--user {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+.icon--heart {
+  width: 2.3rem;
+  height: 2.3rem;
+  fill: #c0c0c1;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--heart {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+.icon--title {
+  width: 2.3rem;
+  height: 2.3rem;
+  fill: #c0c0c1;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--title {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+.icon--maximize {
+  width: 4rem;
+  height: 4rem;
+  fill: #c0c0c1;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--maximize {
+    width: 5rem;
+    height: 5rem;
+  }
+}
 .icon--menu {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   cursor: pointer;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--menu {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
 }
 .icon--link {
   position: relative;
@@ -346,10 +454,16 @@ h6 {
 }
 .icon--dropdown {
   position: relative;
-  left: -2rem;
+  left: -2.5rem;
   margin-top: 0.4rem;
   width: 2rem;
   height: 2rem;
+}
+@media only screen and (max-width: 36.25em) {
+  .icon--dropdown {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 
 .active {

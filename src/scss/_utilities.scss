@@ -8,10 +8,69 @@
   fill: $cs-2;
   background: none;
 
+  &--moon {
+    @media only screen and (max-width: 36.25em) {
+      display: none;
+    }
+  }
+
+  &--search {
+    @media only screen and (max-width: 36.25em) {
+      margin-right: -4rem;
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &--user {
+    @media only screen and (max-width: 36.25em) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &--heart {
+    width: 2.3rem;
+    height: 2.3rem;
+    fill: $cs-2;
+
+    @media only screen and (max-width: 36.25em) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  &--title {
+    width: 2.3rem;
+    height: 2.3rem;
+    fill: $cs-2;
+
+    @media only screen and (max-width: 36.25em) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  &--maximize {
+    width: 4rem;
+    height: 4rem;
+    fill: $cs-2;
+
+    @media only screen and (max-width: 36.25em) {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
   &--menu {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     cursor: pointer;
+
+    @media only screen and (max-width: 36.25em) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 
   &--link {
@@ -26,10 +85,15 @@
 
   &--dropdown {
     position: relative;
-    left: -2rem;
+    left: -2.5rem;
     margin-top: 0.4rem;
     width: 2rem;
     height: 2rem;
+
+    @media only screen and (max-width: 36.25em) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 }
 
