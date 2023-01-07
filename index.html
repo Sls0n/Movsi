@@ -24,8 +24,11 @@
       <header class="header fixed">
         <!-- 1st item -->
         <div class="header__logo">
-          <svg class="icon icon--menu">
+          <svg class="icon icon--menu mainMenu">
             <use xlink:href="src/img/sprite.svg#icon-menu"></use>
+          </svg>
+          <svg class="icon icon--menu hidden crossMenu">
+            <use xlink:href="src/img/sprite.svg#icon-x"></use>
           </svg>
           <div class="header__heading">
             <h1 class="header__heading--text-1 h1">| &nbsp;</h1>
@@ -88,7 +91,7 @@
       <!-- Container-2 -->
       <main class="main">
         <!-- Item 1 -->
-        <div class="main__left">
+        <div class="main__left hidden">
           <div class="main__up">
             <div class="main__header">
               <div class="main__trending--header--text-1 h3">Sort by</div>
@@ -118,7 +121,7 @@
           <!-- <div class="main__down">Down</div> -->
         </div>
         <!-- Item 2 -->
-        <div class="main__right">
+        <div class="main__right margin-left">
           <div class="main__trending">
             <!-- 1st item -->
             <div class="main__trending--header">
@@ -136,47 +139,170 @@
               <div class="movie">
                 <img class="movie__image" src="src/img/sample.jpg" alt="movie-1" />
 
-                <svg class="icon--heart movie__heart">
-                  <use xlink:href="src/img/sprite.svg#icon-heart"></use>
-                </svg>
-
-                <svg class="icon--maximize movie__maximize">
-                  <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
-                </svg>
-
                 <div class="movie__info">
-                  <div class="movie__info--title">Prey The way of water</div>
-                </div>
-
-                <div class="movie__info--rating">
-                  <svg class="icon icon--title">
-                    <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    7.6
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
                   </svg>
-                  7.6
+
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Avatar the way of water</div>
                 </div>
               </div>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" />
 
-              <div class="movie"><img class="movie__image" src="src/img/sample.jpg" alt="movie-1" /></div>
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    9.2
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Lord of the ring</div>
+                </div>
+              </div>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-3.jpg" alt="movie-1" /></div>
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample-3.jpg" alt="movie-1" />
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    5.7
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample.jpg" alt="movie-1" /></div>
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Avatar the way of water</div>
+                </div>
+              </div>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" />
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-3.jpg" alt="movie-1" /></div>
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    7.6
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Avatar</div>
+                </div>
+              </div>
 
-              <div class="movie"><img class="movie__image" src="src/img/sample.jpg" alt="movie-1" /></div>
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample.jpg" alt="movie-1" />
 
-              <div class="movie"><img class="movie__image" src="src/img/sample-2.jpg" alt="movie-1" /></div>
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    3.2
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
+
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Jungle cruise</div>
+                </div>
+              </div>
+
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample-3.jpg" alt="movie-1" />
+
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    3.2
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
+
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Jungle cruise 2</div>
+                </div>
+              </div>
+
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample.jpg" alt="movie-1" />
+
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    3.2
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
+
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Jungle cruise</div>
+                </div>
+              </div>
+
+              <div class="movie">
+                <img class="movie__image" src="src/img/sample.jpg" alt="movie-1" />
+
+                <div class="movie__info">
+                  <div class="movie__info--rating">
+                    <svg class="icon icon--title">
+                      <use xlink:href="src/img/sprite.svg#icon-star"></use>
+                    </svg>
+                    7.6
+                  </div>
+                  <svg class="icon--heart movie__heart">
+                    <use xlink:href="src/img/sprite.svg#icon-heart"></use>
+                  </svg>
+
+                  <svg class="icon--maximize movie__maximize">
+                    <use xlink:href="src/img/sprite.svg#icon-maximize"></use>
+                  </svg>
+                  <div class="movie__info--title">Avatar the way of water</div>
+                </div>
+              </div>
             </div>
           </div>
 
