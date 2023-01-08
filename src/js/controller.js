@@ -18,6 +18,7 @@ headerLogo.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(5px) brightness(0.8)';
   movies.forEach(movie => (movie.style.pointerEvents = 'none'));
   header.style.filter = 'blur(5px)';
+  navigation.style.pointerEvents = 'none';
 });
 
 rightContainer.addEventListener('click', () => {
@@ -26,6 +27,7 @@ rightContainer.addEventListener('click', () => {
     rightContainer.style.filter = 'blur(0px) brightness(1)';
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
+    navigation.style.pointerEvents = 'auto';
   }
 });
 
@@ -34,6 +36,7 @@ crossMenu.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
+  navigation.style.pointerEvents = 'auto';
 });
 
 // on pressing the escape key, the left container is hidden
@@ -43,7 +46,18 @@ document.addEventListener('keydown', e => {
     rightContainer.style.filter = 'blur(0px) brightness(1)';
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
+    navigation.style.pointerEvents = 'auto';
   }
+});
+
+header.addEventListener('click', e => {
+  if (leftContainer.classList.contains('hidden')) return;
+  if (e.target === headerLogo) return;
+  leftContainer.classList.add('hidden');
+  rightContainer.style.filter = 'blur(0px) brightness(1)';
+  movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
+  header.style.filter = 'blur(0px)';
+  navigation.style.pointerEvents = 'auto';
 });
 
 // When the width of the screen is less than 768px, the left container is hidden

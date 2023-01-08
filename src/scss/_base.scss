@@ -23,6 +23,8 @@ $bp-small: 39.7em; // 634px
 $bp-very-small: 29em; // 464px
 $bp-tiny: 18em; // 288px
 
+$ts-1: cubic-bezier(0.22, 1, 0.36, 1);
+
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +39,8 @@ $bp-tiny: 18em; // 288px
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 55%;

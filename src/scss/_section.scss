@@ -15,7 +15,9 @@
 
   display: flex;
   flex-direction: column;
-  transition: all 0.1s ease-in;
+  
+  transition: all 0.3s $ts-1;
+  
 
 
   @media only screen and (max-width: $bp-medium) {
@@ -74,7 +76,7 @@
   max-height: 40rem;
   overflow: hidden;
 
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in-out;
 
   &__image {
     // max-width: 18.6rem;
@@ -171,8 +173,8 @@
 }
 
 .main__left {
-  height: 120vh;
-  width: 35rem;
+  height: 122vh;
+  width: 37rem;
   top: -10rem;
   position: fixed;
   display: flex;
@@ -185,7 +187,8 @@
   border-right: 2px solid $cp-2;
 
   z-index: 100000;
-  transition: all 0.2s cubic-bezier(0.47,0,0.75,0.72);
+  transition: all 0.3s $ts-1;
+
 
 
   @media only screen and (max-width: $bp-medium) {
@@ -194,8 +197,6 @@
 }
 
 .main__up {
-  transition: all 0.2s cubic-bezier(0.47,0,0.75,0.72);
-
   position: relative;
   top: 15rem;
   padding: $fs-1;

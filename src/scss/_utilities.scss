@@ -1,48 +1,91 @@
 .hidden {
-  display: none;
+  // display: none;
+  transition: all 0.2s $ts-1;
+  transform: translateX(-50rem);
 }
 
 .icon {
   width: 2.3rem;
   height: 2.3rem;
   fill: $cs-2;
+  transition: all 0.2s;
 
   &--main {
     width: 3.5rem;
     height: 3.5rem;
     cursor: pointer;
     margin-top: -4.5rem;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s $ts-1;
     margin-bottom: 3rem;
+    transition: all 0.3s;
 
     @media only screen and (max-width: 36.25em) {
       width: 4.5rem;
       height: 4.5rem;
     }
+
+    &:hover {
+      fill: $cs-1;
+    }
+  
+    &:active {
+      fill: $cs-1;
+      transform: rotate(90deg);
+    }
   }
 
   &--moon {
+    transition: all 0.3s;
     @media only screen and (max-width: 36.25em) {
       display: none;
+    }
+    &:hover {
+      fill: $cs-1;
+    }
+
+    &:active {
+      fill: $cs-1;
+      transform: scale(1.05) rotate(45deg);
     }
   }
 
   &--search {
+    transition: all 0.3s;
     @media only screen and (max-width: 36.25em) {
       margin-right: -4rem;
       width: 3rem;
       height: 3rem;
     }
+
+    &:hover {
+      fill: $cs-1;
+    }
+
+    &:active {
+      fill: $cs-1;
+      transform: scale(1.05) rotate(45deg);
+    }
   }
 
   &--user {
+    transition: all 0.3s;
     @media only screen and (max-width: 36.25em) {
       width: 3rem;
       height: 3rem;
     }
+
+    &:hover {
+      fill: $cs-1;
+    }
+
+    &:active {
+      fill: $cs-1;
+      transform: scale(1.05) rotate(180deg);
+    }
   }
 
   &--heart {
+    transition: all 0.3s;
     width: 2.3rem;
     height: 2.3rem;
     fill: $cs-2;
@@ -76,18 +119,29 @@
   }
 
   &--menu {
+    transition: all 0.3s;
     width: 3.5rem;
     height: 3.5rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s $ts-1;
 
     @media only screen and (max-width: 36.25em) {
       width: 4.5rem;
       height: 4.5rem;
     }
+
+    &:hover {
+      fill: $cs-1;
+    }
+  
+    &:active {
+      fill: $cs-1;
+      transform: rotateY(45deg);
+    }
   }
 
   &--link {
+    transition: all 0.3s;
     position: relative;
     width: 2rem;
     height: 2rem;
@@ -98,8 +152,6 @@
   }
 
   &--dropdown {
-    position: relative;
-    left: -2.5rem;
     margin-top: 0.4rem;
     width: 2rem;
     height: 2rem;
@@ -124,4 +176,3 @@
 .margin-left {
   margin-left: 0rem;
 }
-

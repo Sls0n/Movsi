@@ -12,6 +12,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 @media only screen and (max-width: 60.625em) {
   html {
@@ -192,7 +193,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   margin-left: 35rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.1s ease-in;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media only screen and (max-width: 60.625em) {
   .main__right {
@@ -244,7 +245,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   position: relative;
   max-height: 40rem;
   overflow: hidden;
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in-out;
 }
 .movie__image {
   border-radius: 1rem;
@@ -331,8 +332,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 
 .main__left {
-  height: 120vh;
-  width: 35rem;
+  height: 122vh;
+  width: 37rem;
   top: -10rem;
   position: fixed;
   display: flex;
@@ -343,7 +344,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   backdrop-filter: blur(10px);
   border-right: 2px solid #1c1c1f;
   z-index: 100000;
-  transition: all 0.2s cubic-bezier(0.47, 0, 0.75, 0.72);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media only screen and (max-width: 60.625em) {
   .main__left {
@@ -352,7 +353,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 
 .main__up {
-  transition: all 0.2s cubic-bezier(0.47, 0, 0.75, 0.72);
   position: relative;
   top: 15rem;
   padding: 2rem;
@@ -416,21 +416,24 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 
 .hidden {
-  display: none;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(-50rem);
 }
 
 .icon {
   width: 2.3rem;
   height: 2.3rem;
   fill: #c0c0c1;
+  transition: all 0.2s;
 }
 .icon--main {
   width: 3.5rem;
   height: 3.5rem;
   cursor: pointer;
   margin-top: -4.5rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   margin-bottom: 3rem;
+  transition: all 0.3s;
 }
 @media only screen and (max-width: 36.25em) {
   .icon--main {
@@ -438,10 +441,30 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
     height: 4.5rem;
   }
 }
+.icon--main:hover {
+  fill: #fefefe;
+}
+.icon--main:active {
+  fill: #fefefe;
+  transform: rotate(90deg);
+}
+.icon--moon {
+  transition: all 0.3s;
+}
 @media only screen and (max-width: 36.25em) {
   .icon--moon {
     display: none;
   }
+}
+.icon--moon:hover {
+  fill: #fefefe;
+}
+.icon--moon:active {
+  fill: #fefefe;
+  transform: scale(1.05) rotate(45deg);
+}
+.icon--search {
+  transition: all 0.3s;
 }
 @media only screen and (max-width: 36.25em) {
   .icon--search {
@@ -450,13 +473,31 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
     height: 3rem;
   }
 }
+.icon--search:hover {
+  fill: #fefefe;
+}
+.icon--search:active {
+  fill: #fefefe;
+  transform: scale(1.05) rotate(45deg);
+}
+.icon--user {
+  transition: all 0.3s;
+}
 @media only screen and (max-width: 36.25em) {
   .icon--user {
     width: 3rem;
     height: 3rem;
   }
 }
+.icon--user:hover {
+  fill: #fefefe;
+}
+.icon--user:active {
+  fill: #fefefe;
+  transform: scale(1.05) rotate(180deg);
+}
 .icon--heart {
+  transition: all 0.3s;
   width: 2.3rem;
   height: 2.3rem;
   fill: #c0c0c1;
@@ -490,10 +531,11 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   }
 }
 .icon--menu {
+  transition: all 0.3s;
   width: 3.5rem;
   height: 3.5rem;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media only screen and (max-width: 36.25em) {
   .icon--menu {
@@ -501,7 +543,15 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
     height: 4.5rem;
   }
 }
+.icon--menu:hover {
+  fill: #fefefe;
+}
+.icon--menu:active {
+  fill: #fefefe;
+  transform: rotateY(45deg);
+}
 .icon--link {
+  transition: all 0.3s;
   position: relative;
   width: 2rem;
   height: 2rem;
@@ -510,8 +560,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   top: 0.15rem;
 }
 .icon--dropdown {
-  position: relative;
-  left: -2.5rem;
   margin-top: 0.4rem;
   width: 2rem;
   height: 2rem;
