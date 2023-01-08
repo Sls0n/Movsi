@@ -19,7 +19,7 @@
     margin-bottom: 3rem;
     transition: all 0.3s;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 4.5rem;
       height: 4.5rem;
     }
@@ -27,7 +27,7 @@
     &:hover {
       fill: $cs-1;
     }
-  
+
     &:active {
       fill: $cs-1;
       transform: rotate(90deg);
@@ -36,7 +36,7 @@
 
   &--moon {
     transition: all 0.3s;
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       display: none;
     }
     &:hover {
@@ -51,7 +51,7 @@
 
   &--search {
     transition: all 0.3s;
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       margin-right: -4rem;
       width: 3rem;
       height: 3rem;
@@ -69,7 +69,7 @@
 
   &--user {
     transition: all 0.3s;
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 3rem;
       height: 3rem;
     }
@@ -90,7 +90,7 @@
     height: 2.3rem;
     fill: $cs-2;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 3.5rem;
       height: 3.5rem;
     }
@@ -101,7 +101,7 @@
     height: 2.3rem;
     fill: $cs-2;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 3.5rem;
       height: 3.5rem;
     }
@@ -112,7 +112,7 @@
     height: 4rem;
     fill: $cs-2;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 5rem;
       height: 5rem;
     }
@@ -125,7 +125,7 @@
     cursor: pointer;
     transition: all 0.2s $ts-1;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 4.5rem;
       height: 4.5rem;
     }
@@ -133,7 +133,7 @@
     &:hover {
       fill: $cs-1;
     }
-  
+
     &:active {
       fill: $cs-1;
       transform: rotateY(45deg);
@@ -156,7 +156,7 @@
     width: 2rem;
     height: 2rem;
 
-    @media only screen and (max-width: 36.25em) {
+    @media only screen and (max-width: $bp-small) {
       width: 2.5rem;
       height: 2.5rem;
     }

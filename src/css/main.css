@@ -19,7 +19,7 @@ html {
     font-size: 55%;
   }
 }
-@media only screen and (max-width: 43.75em) {
+@media only screen and (max-width: 45em) {
   html {
     font-size: 50%;
   }
@@ -306,7 +306,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   min-height: 5rem;
   color: #c0c0c1;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .movie__info--title {
     font-size: 2rem;
   }
@@ -325,7 +325,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .movie__info--rating {
     font-size: 2rem;
   }
@@ -435,7 +435,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   margin-bottom: 3rem;
   transition: all 0.3s;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--main {
     width: 4.5rem;
     height: 4.5rem;
@@ -451,7 +451,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .icon--moon {
   transition: all 0.3s;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--moon {
     display: none;
   }
@@ -466,7 +466,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .icon--search {
   transition: all 0.3s;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--search {
     margin-right: -4rem;
     width: 3rem;
@@ -483,7 +483,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .icon--user {
   transition: all 0.3s;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--user {
     width: 3rem;
     height: 3rem;
@@ -502,7 +502,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   height: 2.3rem;
   fill: #c0c0c1;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--heart {
     width: 3.5rem;
     height: 3.5rem;
@@ -513,7 +513,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   height: 2.3rem;
   fill: #c0c0c1;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--title {
     width: 3.5rem;
     height: 3.5rem;
@@ -524,7 +524,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   height: 4rem;
   fill: #c0c0c1;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--maximize {
     width: 5rem;
     height: 5rem;
@@ -537,7 +537,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--menu {
     width: 4.5rem;
     height: 4.5rem;
@@ -564,7 +564,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   width: 2rem;
   height: 2rem;
 }
-@media only screen and (max-width: 36.25em) {
+@media only screen and (max-width: 39.7em) {
   .icon--dropdown {
     width: 2.5rem;
     height: 2.5rem;
