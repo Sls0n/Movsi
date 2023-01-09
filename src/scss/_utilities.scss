@@ -18,7 +18,6 @@
   height: 2.3rem;
   fill: $cs-2;
   transition: all 0.2s;
-  
 
   &--x-2 {
     transition: all 0.3s;
@@ -28,8 +27,8 @@
     cursor: pointer;
 
     @media only screen and (max-width: $bp-small) {
-      width: 4rem;
-      height: 4rem;
+      width: 4.5rem;
+      height: 4.5rem;
     }
 
     &:hover {
@@ -49,8 +48,8 @@
     cursor: pointer;
     fill: $cs-2;
     @media only screen and (max-width: $bp-small) {
-      width: 4rem;
-      height: 4rem;
+      width: 4.5rem;
+      height: 4.5rem;
     }
 
     &:hover {
@@ -106,8 +105,8 @@
     transition: all 0.3s;
     @media only screen and (max-width: $bp-small) {
       margin-right: -4rem;
-      width: 3rem;
-      height: 3rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
 
     &:hover {
@@ -123,8 +122,8 @@
   &--user {
     transition: all 0.3s;
     @media only screen and (max-width: $bp-small) {
-      width: 3rem;
-      height: 3rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
 
     &:hover {
@@ -133,7 +132,7 @@
 
     &:active {
       fill: $cs-1;
-      transform: scale(1.05) rotate(180deg);
+      transform: scale(1.05);
     }
   }
 
@@ -186,11 +185,6 @@
     &:hover {
       fill: $cs-1;
     }
-
-    &:active {
-      fill: $cs-1;
-      transform: scale(1.1);
-    }
   }
 
   &--link {
@@ -204,14 +198,15 @@
     top: 0.15rem;
   }
 
-  &--dropdown {
-    margin-top: 0.4rem;
-    width: 2rem;
-    height: 2rem;
+  &--chevron {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: $cs-3;
+    cursor: pointer;
+    transition: all 0.3s;
 
-    @media only screen and (max-width: $bp-small) {
-      width: 2.5rem;
-      height: 2.5rem;
+    &:hover {
+      fill: $cs-1;
     }
   }
 }
@@ -230,3 +225,9 @@
   margin-left: 0rem;
 }
 
+.nav-control {
+
+  @media only screen and (max-width: $bp-medium-small) {
+    display: none;
+  }
+}

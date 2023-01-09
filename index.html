@@ -26,7 +26,7 @@
             <svg class="icon icon--x-2">
               <use xlink:href="src/img/sprite.svg#icon-x"></use>
             </svg>
-            <input type="text" class="search__input" placeholder="Search for a movie, tv show, person..." />
+            <input type="text" class="search__input" placeholder="Search for a movie, tv show..." />
             <svg class="icon icon--search-2">
               <use xlink:href="src/img/sprite.svg#icon-search"></use>
             </svg>
@@ -51,25 +51,25 @@
 
         <!-- 2nd item -->
         <nav class="header__navigation">
-          <a href="#" class="header__link active">
+          <a href="#" class="header__link active nav-control">
             <svg class="icon--link active">
               <use xlink:href="src/img/sprite.svg#icon-home"></use>
             </svg>
             Home
           </a>
-          <a href="#" class="header__link">
+          <a href="#" class="header__link nav-control">
             <svg class="icon--link">
               <use xlink:href="src/img/sprite.svg#icon-star"></use>
             </svg>
             Trending</a
           >
-          <a href="#" class="header__link">
+          <a href="#" class="header__link nav-control">
             <svg class="icon--link">
               <use xlink:href="src/img/sprite.svg#icon-film"></use>
             </svg>
             Movies</a
           >
-          <a href="#" class="header__link">
+          <a href="#" class="header__link nav-control">
             <svg class="icon--link">
               <use xlink:href="src/img/sprite.svg#icon-tv"></use>
             </svg>
@@ -90,10 +90,7 @@
 
           <a href="#" class="header__link header__settings">
             <svg class="icon icon--user">
-              <use xlink:href="src/img/sprite.svg#icon-settings"></use>
-            </svg>
-            <svg class="icon icon--dropdown">
-              <use xlink:href="src/img/sprite.svg#icon-chevron-down"></use>
+              <use xlink:href="src/img/sprite.svg#icon-bookmark"></use>
             </svg>
           </a>
         </nav>
@@ -127,8 +124,31 @@
               <button class="main__button btn">Family</button>
               <button class="main__button btn">History</button>
               <button class="main__button btn">Western</button>
-              <button class="main__button btn">Documentary</button>
               <button class="main__button btn">Film-Noir</button>
+              <button class="main__button btn">War</button>
+            </div>
+
+            <div class="main__header main__header-2">
+              <div class="main__trending--header--text-1 h3">Sort by</div>
+              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;Ratings</div>
+            </div>
+
+            <div class="main__slider">
+              <div class="main__slider--range">
+                <input class="main__input" type="range" min="0" max="10" value="5" class="slider" id="myRange" />
+              </div>
+
+              <div class="main__slider--number">
+                <svg class="icon icon--chevron up">
+                  <use xlink:href="src/img/sprite.svg#icon-chevron-left"></use>
+                </svg>
+
+                <div class="main__slider--text"> </div>
+
+                <svg class="icon icon--chevron down">
+                  <use xlink:href="src/img/sprite.svg#icon-chevron-right"></use>
+                </svg>
+              </div>
             </div>
           </div>
           <!-- <div class="main__down">Down</div> -->

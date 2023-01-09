@@ -10,18 +10,21 @@
 .main__right {
   border-left: 2px solid $cp-2;
   flex: 1;
-  padding: $fs-1;
+  padding: 2.5rem;
   margin-left: 35rem;
 
   display: flex;
   flex-direction: column;
-  
-  transition: all 0.3s $ts-1;
-  
 
+  transition: all 0.3s $ts-1;
 
   @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
     margin-left: 0;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem;
   }
 }
 
@@ -40,7 +43,7 @@
     }
 
     &--text-2 {
-      font-size: $fs-4 !important;
+      font-size: $fs-3 !important;
       color: $cs-3;
       font-weight: 500 !important;
       flex: 1;
@@ -189,8 +192,6 @@
   z-index: 100000;
   transition: all 0.3s $ts-1;
 
-
-
   @media only screen and (max-width: $bp-medium) {
     padding: $fs-1;
   }
@@ -215,6 +216,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  &-2 {
+    margin-top: 2rem;
+  }
 }
 
 .main__buttons {
@@ -234,5 +239,51 @@
 
   @media only screen and (max-width: $bp-medium) {
     padding: 0;
+  }
+}
+
+.main__slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+
+  &--range {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    input {
+      width: 100%;
+      margin-right: 2rem;
+      height: 0.8rem;
+      -webkit-appearance: none;
+      background: $cs-3;
+      outline: none;
+      border: none;
+      border-radius: 0.5rem;
+
+      &::-moz-range-progress {
+        height: 100%;
+        background: lighten($cs-2, 50%);
+        border-radius: 0.5rem;
+      }
+
+      &::-moz-range-thumb {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background: darken($cp-4, 10%);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--number {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $cs-2;
   }
 }

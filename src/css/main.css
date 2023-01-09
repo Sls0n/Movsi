@@ -34,6 +34,11 @@ html {
     font-size: 43%;
   }
 }
+@media only screen and (max-width: 18em) {
+  html {
+    font-size: 38%;
+  }
+}
 
 body {
   font-family: "Inter Tight", sans-serif;
@@ -140,6 +145,11 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   backdrop-filter: blur(10px);
   border-bottom: 2px solid #1c1c1f;
   z-index: 100000;
+}
+@media only screen and (max-width: 45em) {
+  .header {
+    justify-content: space-between;
+  }
 }
 .header__heading {
   display: flex;
@@ -275,7 +285,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .main__right {
   border-left: 2px solid #1c1c1f;
   flex: 1;
-  padding: 2rem;
+  padding: 2.5rem;
   margin-left: 35rem;
   display: flex;
   flex-direction: column;
@@ -283,7 +293,13 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 @media only screen and (max-width: 60.625em) {
   .main__right {
+    padding: 2rem;
     margin-left: 0;
+  }
+}
+@media only screen and (max-width: 39.7em) {
+  .main__right {
+    padding: 1rem;
   }
 }
 
@@ -301,7 +317,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   font-size: 1.8rem !important;
 }
 .main__trending--header--text-2 {
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   color: #717376;
   font-weight: 500 !important;
   flex: 1;
@@ -458,6 +474,9 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   align-items: center;
   gap: 1rem;
 }
+.main__header-2 {
+  margin-top: 2rem;
+}
 
 .main__buttons {
   display: grid;
@@ -476,6 +495,47 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   .main__down {
     padding: 0;
   }
+}
+
+.main__slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+}
+.main__slider--range {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.main__slider--range input {
+  width: 100%;
+  margin-right: 2rem;
+  height: 0.8rem;
+  -webkit-appearance: none;
+  background: #717376;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+}
+.main__slider--range input::-moz-range-progress {
+  height: 100%;
+  background: white;
+  border-radius: 0.5rem;
+}
+.main__slider--range input::-moz-range-thumb {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: #26272a;
+  cursor: pointer;
+}
+.main__slider--number {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #c0c0c1;
 }
 
 .h1 {
@@ -530,8 +590,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 @media only screen and (max-width: 39.7em) {
   .icon--x-2 {
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
 .icon--x-2:hover {
@@ -550,8 +610,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 @media only screen and (max-width: 39.7em) {
   .icon--search-2 {
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
 .icon--search-2:hover {
@@ -604,8 +664,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 @media only screen and (max-width: 39.7em) {
   .icon--search {
     margin-right: -4rem;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
 .icon--search:hover {
@@ -620,8 +680,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 @media only screen and (max-width: 39.7em) {
   .icon--user {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
 .icon--user:hover {
@@ -629,7 +689,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 .icon--user:active {
   fill: #fefefe;
-  transform: scale(1.05) rotate(180deg);
+  transform: scale(1.05);
 }
 .icon--heart {
   transition: all 0.3s;
@@ -681,10 +741,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .icon--menu:hover {
   fill: #fefefe;
 }
-.icon--menu:active {
-  fill: #fefefe;
-  transform: scale(1.1);
-}
 .icon--link {
   transition: all 0.3s;
   position: relative;
@@ -694,16 +750,15 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background: none;
   top: 0.15rem;
 }
-.icon--dropdown {
-  margin-top: 0.4rem;
-  width: 2rem;
-  height: 2rem;
+.icon--chevron {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #717376;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-@media only screen and (max-width: 39.7em) {
-  .icon--dropdown {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+.icon--chevron:hover {
+  fill: #fefefe;
 }
 
 .active {
@@ -718,6 +773,12 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 
 .margin-left {
   margin-left: 0rem;
+}
+
+@media only screen and (max-width: 45em) {
+  .nav-control {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

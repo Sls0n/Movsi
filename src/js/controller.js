@@ -16,6 +16,28 @@ const searchIcon = document.querySelector('.icon--search');
 const searchIcon_2 = document.querySelector('.icon--search-2');
 const crossMenu = document.querySelector('.icon--main');
 const crossMenu_2 = document.querySelector('.icon--x-2');
+const inputSlider = document.querySelector('.main__input');
+const sliderValue = document.querySelector('.main__slider--text');
+const chevronIcon = document.querySelectorAll('.icon--chevron');
+
+sliderValue.textContent = inputSlider.value;
+
+inputSlider.addEventListener('input', () => {
+  sliderValue.textContent = inputSlider.value;
+});
+
+// On pressing the chevronIcon the sliderValue should be incremented or decremented
+chevronIcon.forEach(chevron => {
+  chevron.addEventListener('click', e => {
+    if (e.target.classList.contains('up')) {
+      inputSlider.value--;
+      sliderValue.textContent = inputSlider.value;
+    } else if (e.target.classList.contains('down')) {
+      inputSlider.value++;
+      sliderValue.textContent = inputSlider.value;
+    }
+  });
+});
 
 searchIcon.addEventListener('click', () => {
   searchModal.classList.remove('search-hidden');
