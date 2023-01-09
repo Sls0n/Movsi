@@ -91,6 +91,8 @@ searchIcon.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(10px) brightness(0.5)';
   movies.forEach(movie => (movie.style.pointerEvents = 'none'));
   header.style.filter = 'blur(10px)';
+  floatingNav.style.pointerEvents = 'none';
+  floatingNav.style.filter = 'blur(5px)';
   navigation.style.pointerEvents = 'none';
 });
 
@@ -100,6 +102,8 @@ crossMenu_2.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
+  floatingNav.style.pointerEvents = 'auto';
+  floatingNav.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
 });
 
@@ -109,6 +113,8 @@ searchIcon_2.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
+  floatingNav.style.pointerEvents = 'auto';
+  floatingNav.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
 });
 
@@ -120,6 +126,8 @@ document.addEventListener('keydown', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
+    floatingNav.style.pointerEvents = 'auto';
+    floatingNav.style.filter = 'blur(0px)';
   }
 });
 
@@ -132,6 +140,8 @@ window.addEventListener('click', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
+    floatingNav.style.pointerEvents = 'auto';
+    floatingNav.style.filter = 'blur(0px)';
   }
 });
 
@@ -141,6 +151,8 @@ headerLogo.addEventListener('click', () => {
   movies.forEach(movie => (movie.style.pointerEvents = 'none'));
   header.style.filter = 'blur(5px)';
   navigation.style.pointerEvents = 'none';
+  floatingNav.style.pointerEvents = 'none';
+  floatingNav.style.filter = 'blur(5px)';
 });
 
 rightContainer.addEventListener('click', () => {
@@ -150,6 +162,8 @@ rightContainer.addEventListener('click', () => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
+    floatingNav.style.pointerEvents = 'auto';
+    floatingNav.style.filter = 'blur(0px)';
   }
 });
 
@@ -159,6 +173,8 @@ crossMenu.addEventListener('click', () => {
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
+  floatingNav.style.pointerEvents = 'auto';
+  floatingNav.style.filter = 'blur(0px)';
 });
 
 // on pressing the escape key, the left container is hidden
@@ -169,6 +185,8 @@ document.addEventListener('keydown', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
+    floatingNav.style.pointerEvents = 'auto';
+    floatingNav.style.filter = 'blur(0px)';
   }
 });
 
@@ -180,6 +198,8 @@ header.addEventListener('click', e => {
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
+  floatingNav.style.pointerEvents = 'auto';
+  floatingNav.style.filter = 'blur(0px)';
 });
 
 // When the width of the screen is less than 768px, the left container is hidden

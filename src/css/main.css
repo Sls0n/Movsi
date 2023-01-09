@@ -155,9 +155,9 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgba(38, 38, 41, 0.8);
+  background-color: rgba(28, 28, 31, 0.8);
   border: 1px solid rgba(63, 64, 68, 0.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   padding: 2rem 2rem;
   border-radius: 10rem;
   box-shadow: 0 0 3rem rgba(38, 38, 41, 0.5);
@@ -580,6 +580,26 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background: #26272a;
   cursor: pointer;
 }
+.main__slider--range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: #26272a;
+  cursor: pointer;
+}
+.main__slider--range input::-webkit-slider-runnable-track {
+  height: 100%;
+  background: white;
+  border-radius: 0.5rem;
+}
+.main__slider--range input::-ms-thumb {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: #26272a;
+  cursor: pointer;
+}
 .main__slider--number {
   display: flex;
   align-items: center;
@@ -833,9 +853,12 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .floating-navbar__icon {
   width: 2.5rem;
   height: 2.5rem;
-  fill: #c0c0c1;
+  fill: #808082;
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media only screen and (max-width: 45em) {
   .floating-navbar__icon {
@@ -864,8 +887,12 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   padding: 2rem 2rem;
   border-radius: 50%;
   background-color: #5a5a5b;
-  box-sizing: border-box;
+  transition: all 0.3s;
   box-shadow: 0 0 3rem rgba(113, 115, 118, 0.2);
+  fill: #fefefe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .floating-active svg {
   fill: #fefefe;

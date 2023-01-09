@@ -234,9 +234,13 @@
 .floating-navbar__icon {
   width: 2.5rem;
   height: 2.5rem;
-  fill: $cs-2;
+  fill: darken($cs-2, 25%);
   transition: all 0.2s $ts-1;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 
   @media only screen and (max-width: $bp-medium-small) {
     width: 2.5rem;
@@ -263,9 +267,13 @@
   padding: 2rem 2rem;
   border-radius: 50%;
   background-color: darken($cs-2, 40%);
-  box-sizing: border-box;
-  // transition: all .05s $ts-1;
+  transition: all 0.3s;
   box-shadow: 0 0 3rem rgba($cs-3, 0.2);
+  fill: $cs-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 
   svg {
     fill: $cs-1;

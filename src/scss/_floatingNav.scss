@@ -10,6 +10,7 @@
   left: 0;
   display: none;
 
+  // background-color: rgba($cp-2, 1);
 
   @media only screen and (max-width: $bp-medium-small) {
     display: flex;
@@ -19,10 +20,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgba($cp-3, 0.8);
+    background-color: rgba($cp-2, 0.8);
     border: 1px solid rgba($cp-4, 0.4);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     padding: 2rem 2rem;
     border-radius: 10rem;
     box-shadow: 0 0 3rem rgba($cp-3, 0.5);
