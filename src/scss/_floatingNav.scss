@@ -8,8 +8,8 @@
   z-index: 100000;
   bottom: 0;
   left: 0;
-  transition: all 0.3s $ts-1;
   display: none;
+
 
   @media only screen and (max-width: $bp-medium-small) {
     display: flex;
@@ -28,7 +28,7 @@
     box-shadow: 0 0 3rem rgba($cp-3, 0.5);
     margin-bottom: 3rem;
     width: 60%;
-    transition: all 0.2s $ts-1;
+    height: 12rem;
     gap: 3rem;
 
     @media only screen and (max-width: $bp-medium-small) {

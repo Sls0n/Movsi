@@ -19,6 +19,52 @@ const crossMenu_2 = document.querySelector('.icon--x-2');
 const inputSlider = document.querySelector('.main__input');
 const sliderValue = document.querySelector('.main__slider--text');
 const chevronIcon = document.querySelectorAll('.icon--chevron');
+const floatingNav = document.querySelector('.floating-navbar__container');
+const home = document.querySelector('.home');
+const trending = document.querySelector('.trending');
+const movie = document.querySelector('.film');
+const tv = document.querySelector('.tv');
+const bookmark = document.querySelector('.bookmark');
+
+home.addEventListener('click', () => {
+  home.classList.add('floating-active');
+  trending.classList.remove('floating-active');
+  movie.classList.remove('floating-active');
+  tv.classList.remove('floating-active');
+  bookmark.classList.remove('floating-active');
+});
+
+trending.addEventListener('click', () => {
+  home.classList.remove('floating-active');
+  trending.classList.add('floating-active');
+  movie.classList.remove('floating-active');
+  tv.classList.remove('floating-active');
+  bookmark.classList.remove('floating-active');
+});
+
+movie.addEventListener('click', () => {
+  home.classList.remove('floating-active');
+  trending.classList.remove('floating-active');
+  movie.classList.add('floating-active');
+  tv.classList.remove('floating-active');
+  bookmark.classList.remove('floating-active');
+});
+
+tv.addEventListener('click', () => {
+  home.classList.remove('floating-active');
+  trending.classList.remove('floating-active');
+  movie.classList.remove('floating-active');
+  tv.classList.add('floating-active');
+  bookmark.classList.remove('floating-active');
+});
+
+bookmark.addEventListener('click', () => {
+  home.classList.remove('floating-active');
+  trending.classList.remove('floating-active');
+  movie.classList.remove('floating-active');
+  tv.classList.remove('floating-active');
+  bookmark.classList.add('floating-active');
+});
 
 sliderValue.textContent = inputSlider.value;
 
