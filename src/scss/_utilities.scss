@@ -226,8 +226,46 @@
 }
 
 .nav-control {
-
   @media only screen and (max-width: $bp-medium-small) {
     display: none;
+  }
+}
+
+.floating-navbar__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: $cs-2;
+  transition: all 0.2s $ts-1;
+  cursor: pointer;
+
+  @media only screen and (max-width: $bp-medium-small) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  @media only screen and (max-width: 43em) {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &:hover {
+    fill: $cs-1;
+  }
+}
+
+.floating-active {
+  padding: 2rem;
+  border-radius: 50%;
+  background-color: darken($cs-2, 40%);
+  transition: all 0.2s $ts-1;
+  box-shadow:  0 0 3rem rgba($cs-3, .2);
+
+  svg {
+    fill: $cs-1;
   }
 }

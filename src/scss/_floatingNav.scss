@@ -1,0 +1,44 @@
+.floating-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  position: fixed;
+  width: 100vw;
+  z-index: 100000;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s $ts-1;
+  display: none;
+
+  @media only screen and (max-width: $bp-medium-small) {
+    display: flex;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba($cp-3, 0.8);
+    border: 1px solid rgba($cp-4, 0.4);
+
+    backdrop-filter: blur(10px);
+    padding: 2rem 2rem;
+    border-radius: 10rem;
+    box-shadow: 0 0 3rem rgba($cp-3, 0.5);
+    margin-bottom: 3rem;
+    width: 60%;
+    transition: all 0.2s $ts-1;
+    gap: 3rem;
+
+    @media only screen and (max-width: $bp-medium-small) {
+      gap: 3rem;
+    }
+
+    @media only screen and (max-width: 33em) {
+      padding: 2.5rem 2.5rem;
+      gap: 4rem;
+      width: 80%;
+    }
+  }
+}
