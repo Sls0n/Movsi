@@ -40,7 +40,6 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
-  
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 55%;
@@ -55,7 +54,7 @@ html {
   }
 
   @media only screen and (max-width: $bp-very-small) {
-    font-size: 43%;
+    font-size: 44%;
   }
 
   @media only screen and (max-width: $bp-tiny) {
