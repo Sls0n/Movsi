@@ -585,19 +585,12 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  background: #26272a;
   cursor: pointer;
-}
-.main__slider--range input::-webkit-slider-runnable-track {
-  height: 100%;
-  background: white;
-  border-radius: 0.5rem;
 }
 .main__slider--range input::-ms-thumb {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  background: #26272a;
   cursor: pointer;
 }
 .main__slider--number {

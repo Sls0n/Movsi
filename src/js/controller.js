@@ -1,6 +1,3 @@
-import icons from 'url:../img/sprite.svg';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 
 const container = document.querySelector('.container');
 const header = document.querySelector('.header');
