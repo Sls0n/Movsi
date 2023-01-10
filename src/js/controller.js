@@ -2,6 +2,7 @@ import floatingView from './views/floatingView.js';
 import navigationView from './views/navigationView.js';
 import sidebarView from './views/sidebarView.js';
 import containerView from './views/containerView.js';
+import searchView from './views/searchView.js';
 
 const header = document.querySelector('.header');
 const headerLogo = document.querySelector('.header__logo');
@@ -24,6 +25,7 @@ const init = function () {
   navigationView.init();
   sidebarView.init();
   containerView.init();
+  searchView.init();
 };
 
 init();
