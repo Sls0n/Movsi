@@ -2,3 +2,4 @@ node_modules
 dist
 .parcel-cache
 .prettierrc
+API_KEY.js
