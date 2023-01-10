@@ -287,21 +287,13 @@
         height: 2rem;
         width: 2rem;
         border-radius: 50%;
-        background: darken($cp-4, 10%);
         cursor: pointer;
-      }
-
-      &::-webkit-slider-runnable-track {
-        height: 100%;
-        background: lighten($cs-2, 50%);
-        border-radius: 0.5rem;
       }
 
       &::-ms-thumb {
         height: 2rem;
         width: 2rem;
         border-radius: 50%;
-        background: darken($cp-4, 10%);
         cursor: pointer;
       }
     }
