@@ -1,4 +1,3 @@
-
 const container = document.querySelector('.container');
 const header = document.querySelector('.header');
 const searchModal = document.querySelector('.search');
@@ -16,51 +15,27 @@ const crossMenu_2 = document.querySelector('.icon--x-2');
 const inputSlider = document.querySelector('.main__input');
 const sliderValue = document.querySelector('.main__slider--text');
 const chevronIcon = document.querySelectorAll('.icon--chevron');
-const floatingNav = document.querySelector('.floating-navbar__container');
-const home = document.querySelector('.home');
-const trending = document.querySelector('.trending');
-const movie = document.querySelector('.film');
-const tv = document.querySelector('.tv');
-const bookmark = document.querySelector('.bookmark');
+const floatingContainer = document.querySelector('.floating-navbar__container');
+const floatingItems = document.querySelectorAll('.floating-navbar__item');
 
-home.addEventListener('click', () => {
-  home.classList.add('floating-active');
-  trending.classList.remove('floating-active');
-  movie.classList.remove('floating-active');
-  tv.classList.remove('floating-active');
-  bookmark.classList.remove('floating-active');
+
+floatingItems.forEach(item => {
+  item.addEventListener('click', e => {
+    if (e.target.classList.contains('floating-navbar__icon')) {
+      floatingItems.forEach(el => el.classList.remove('floating-active'));
+      e.target.closest('.floating-navbar__item').classList.add('floating-active');
+    }
+  });
 });
 
-trending.addEventListener('click', () => {
-  home.classList.remove('floating-active');
-  trending.classList.add('floating-active');
-  movie.classList.remove('floating-active');
-  tv.classList.remove('floating-active');
-  bookmark.classList.remove('floating-active');
-});
-
-movie.addEventListener('click', () => {
-  home.classList.remove('floating-active');
-  trending.classList.remove('floating-active');
-  movie.classList.add('floating-active');
-  tv.classList.remove('floating-active');
-  bookmark.classList.remove('floating-active');
-});
-
-tv.addEventListener('click', () => {
-  home.classList.remove('floating-active');
-  trending.classList.remove('floating-active');
-  movie.classList.remove('floating-active');
-  tv.classList.add('floating-active');
-  bookmark.classList.remove('floating-active');
-});
-
-bookmark.addEventListener('click', () => {
-  home.classList.remove('floating-active');
-  trending.classList.remove('floating-active');
-  movie.classList.remove('floating-active');
-  tv.classList.remove('floating-active');
-  bookmark.classList.add('floating-active');
+headerLogo.addEventListener('click', () => {
+  leftContainer.classList.toggle('hidden');
+  rightContainer.style.filter = 'blur(5px) brightness(0.8)';
+  movies.forEach(movie => (movie.style.pointerEvents = 'none'));
+  header.style.filter = 'blur(5px)';
+  navigation.style.pointerEvents = 'none';
+  floatingContainer.style.pointerEvents = 'none';
+  floatingContainer.style.filter = 'blur(5px)';
 });
 
 sliderValue.textContent = inputSlider.value;
@@ -88,8 +63,8 @@ searchIcon.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(10px) brightness(0.5)';
   movies.forEach(movie => (movie.style.pointerEvents = 'none'));
   header.style.filter = 'blur(10px)';
-  floatingNav.style.pointerEvents = 'none';
-  floatingNav.style.filter = 'blur(5px)';
+  floatingContainer.style.pointerEvents = 'none';
+  floatingContainer.style.filter = 'blur(5px)';
   navigation.style.pointerEvents = 'none';
 });
 
@@ -99,8 +74,8 @@ crossMenu_2.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
-  floatingNav.style.pointerEvents = 'auto';
-  floatingNav.style.filter = 'blur(0px)';
+  floatingContainer.style.pointerEvents = 'auto';
+  floatingContainer.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
 });
 
@@ -110,8 +85,8 @@ searchIcon_2.addEventListener('click', () => {
   rightContainer.style.filter = 'blur(0px) brightness(1)';
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
-  floatingNav.style.pointerEvents = 'auto';
-  floatingNav.style.filter = 'blur(0px)';
+  floatingContainer.style.pointerEvents = 'auto';
+  floatingContainer.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
 });
 
@@ -123,8 +98,8 @@ document.addEventListener('keydown', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
-    floatingNav.style.pointerEvents = 'auto';
-    floatingNav.style.filter = 'blur(0px)';
+    floatingContainer.style.pointerEvents = 'auto';
+    floatingContainer.style.filter = 'blur(0px)';
   }
 });
 
@@ -137,19 +112,9 @@ window.addEventListener('click', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
-    floatingNav.style.pointerEvents = 'auto';
-    floatingNav.style.filter = 'blur(0px)';
+    floatingContainer.style.pointerEvents = 'auto';
+    floatingContainer.style.filter = 'blur(0px)';
   }
-});
-
-headerLogo.addEventListener('click', () => {
-  leftContainer.classList.toggle('hidden');
-  rightContainer.style.filter = 'blur(5px) brightness(0.8)';
-  movies.forEach(movie => (movie.style.pointerEvents = 'none'));
-  header.style.filter = 'blur(5px)';
-  navigation.style.pointerEvents = 'none';
-  floatingNav.style.pointerEvents = 'none';
-  floatingNav.style.filter = 'blur(5px)';
 });
 
 rightContainer.addEventListener('click', () => {
@@ -159,8 +124,8 @@ rightContainer.addEventListener('click', () => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
-    floatingNav.style.pointerEvents = 'auto';
-    floatingNav.style.filter = 'blur(0px)';
+    floatingContainer.style.pointerEvents = 'auto';
+    floatingContainer.style.filter = 'blur(0px)';
   }
 });
 
@@ -170,8 +135,8 @@ crossMenu.addEventListener('click', () => {
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
-  floatingNav.style.pointerEvents = 'auto';
-  floatingNav.style.filter = 'blur(0px)';
+  floatingContainer.style.pointerEvents = 'auto';
+  floatingContainer.style.filter = 'blur(0px)';
 });
 
 // on pressing the escape key, the left container is hidden
@@ -182,8 +147,8 @@ document.addEventListener('keydown', e => {
     movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
     header.style.filter = 'blur(0px)';
     navigation.style.pointerEvents = 'auto';
-    floatingNav.style.pointerEvents = 'auto';
-    floatingNav.style.filter = 'blur(0px)';
+    floatingContainer.style.pointerEvents = 'auto';
+    floatingContainer.style.filter = 'blur(0px)';
   }
 });
 
@@ -195,8 +160,8 @@ header.addEventListener('click', e => {
   movies.forEach(movie => (movie.style.pointerEvents = 'auto'));
   header.style.filter = 'blur(0px)';
   navigation.style.pointerEvents = 'auto';
-  floatingNav.style.pointerEvents = 'auto';
-  floatingNav.style.filter = 'blur(0px)';
+  floatingContainer.style.pointerEvents = 'auto';
+  floatingContainer.style.filter = 'blur(0px)';
 });
 
 // When the width of the screen is less than 768px, the left container is hidden

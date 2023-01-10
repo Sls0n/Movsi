@@ -263,11 +263,10 @@
 }
 
 .floating-active {
-  transition: all 0.3s $ts-1;
+  transition: all 0.1s $ts-1;
   padding: 2rem 2rem;
   border-radius: 50%;
   background-color: darken($cs-2, 40%);
-  transition: all 0.3s;
   box-shadow: 0 0 3rem rgba($cs-3, 0.2);
   fill: $cs-1;
   display: flex;
@@ -276,6 +275,10 @@
 
 
   svg {
+    fill: $cs-1;
+  }
+
+  use {
     fill: $cs-1;
   }
 }

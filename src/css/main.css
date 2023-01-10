@@ -876,11 +876,10 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 
 .floating-active {
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
   padding: 2rem 2rem;
   border-radius: 50%;
   background-color: #5a5a5b;
-  transition: all 0.3s;
   box-shadow: 0 0 3rem rgba(113, 115, 118, 0.2);
   fill: #fefefe;
   display: flex;
@@ -888,6 +887,9 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   justify-content: center;
 }
 .floating-active svg {
+  fill: #fefefe;
+}
+.floating-active use {
   fill: #fefefe;
 }
 
