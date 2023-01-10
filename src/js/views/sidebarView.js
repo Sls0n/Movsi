@@ -7,6 +7,8 @@ import moviesView from './moviesView.js';
 class SidebarView extends View {
   _parentElement = document.querySelector('.main__left');
   _crossMenu = document.querySelector('.icon--main');
+  _slider = document.querySelector('.main__input');
+  _value = document.querySelector('.main__slider--text');
 
   _removeSidebar(e) {
     if ((e.key === 'Escape' && !this._parentElement.classList.contains('hidden')) || e.target === this._crossMenu) {
@@ -20,9 +22,25 @@ class SidebarView extends View {
     }
   }
 
+  _updateSlider(e) {
+    this._value.textContent = this._slider.value;
+  }
+
+  _changeSliderValue(e) {
+    if (e.target.classList.contains('up')) {
+      this._slider.value--;
+      this._value.textContent = this._slider.value;
+    } else if (e.target.classList.contains('down')) {
+      this._slider.value++;
+      this._value.textContent = this._slider.value;
+    }
+  }
+
   init() {
     document.addEventListener('keydown', this._removeSidebar.bind(this));
     this._crossMenu.addEventListener('click', this._removeSidebar.bind(this));
+    this._slider.addEventListener('input', this._updateSlider.bind(this));
+    document.querySelectorAll('.icon--chevron').forEach(chevron => chevron.addEventListener('click', this._changeSliderValue.bind(this)));
   }
 }
 
