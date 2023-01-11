@@ -19,6 +19,26 @@
   fill: $cs-2;
   transition: all 0.2s;
 
+  &--social {
+    width: 3rem;
+    height: 3rem;
+    fill: $cs-2;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+
+    &:hover {
+      fill: $cs-1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
+  }
+
   &--x-2 {
     transition: all 0.3s;
     width: 3.5rem;
@@ -240,7 +260,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
 
   @media only screen and (max-width: $bp-medium-small) {
     width: 2.5rem;
@@ -272,7 +291,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 
   svg {
     fill: $cs-1;

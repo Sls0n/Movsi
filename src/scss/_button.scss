@@ -29,3 +29,30 @@
     background-color: #2f2f34;
   }
 }
+
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: $cp-2;
+  border: 1px solid #252528;
+  color: $cs-1;
+
+  svg {
+    fill: $cs-3;
+  }
+
+  &:hover {
+    background-color: #2f2f34;
+  }
+
+  &:active {
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.95);
+  }
+}

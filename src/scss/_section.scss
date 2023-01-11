@@ -306,3 +306,31 @@
     color: $cs-2;
   }
 }
+
+.pagination {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  color: $cs-2;
+}
+
+footer {
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.6rem;
+  color: $cs-2;
+  background-color: $cp-2;
+  border-top: 1px solid $cp-2;
+  width: 100%;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 2rem;
+  }
+}

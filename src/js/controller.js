@@ -10,13 +10,10 @@ import searchView from './views/searchView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
 
-const movieContainer = document.querySelector('.movies');
-
 const controlTheatreMovie = async function () {
   await model.loadTheatreMovies();
 
   model.state.resultArray.results.forEach(result => {
-    const poster = `${IMAGE_PATH}${result.posterPath}`;
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
     if (title.length > 45) {
@@ -24,7 +21,6 @@ const controlTheatreMovie = async function () {
     }
 
     containerView.render(result);
-    
   });
 };
 

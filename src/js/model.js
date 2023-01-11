@@ -1,16 +1,15 @@
-import { API_LINK_POPULAR, IMAGE_PATH } from './config.js';
+import { API_LINK_THEATRE, IMAGE_PATH } from './config.js';
 
 export const state = {
   result: {},
   resultArray: {
     results: [],
   },
-  
 };
 
 export const loadTheatreMovies = async function () {
   try {
-    const response = await fetch(`${API_LINK_POPULAR}&language=en-US&page=1`);
+    const response = await fetch(`${API_LINK_THEATRE}&language=en-US&page=1`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
 
     const data = await response.json();

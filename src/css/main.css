@@ -135,6 +135,30 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background-color: #2f2f34;
 }
 
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #1c1c1f;
+  border: 1px solid #252528;
+  color: #fefefe;
+}
+.pagination-btn svg {
+  fill: #717376;
+}
+.pagination-btn:hover {
+  background-color: #2f2f34;
+}
+.pagination-btn:active {
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.95);
+}
+
 .floating-navbar {
   display: flex;
   justify-content: center;
@@ -600,6 +624,35 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   color: #c0c0c1;
 }
 
+.pagination {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  color: #c0c0c1;
+}
+
+footer {
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.6rem;
+  color: #c0c0c1;
+  background-color: #1c1c1f;
+  border-top: 1px solid #1c1c1f;
+  width: 100%;
+}
+@media only screen and (max-width: 60.625em) {
+  footer {
+    font-size: 2rem;
+  }
+}
+
 .h1 {
   font-size: 2.5rem;
   font-weight: 600;
@@ -642,6 +695,24 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   height: 2.3rem;
   fill: #c0c0c1;
   transition: all 0.2s;
+}
+.icon--social {
+  width: 3rem;
+  height: 3rem;
+  fill: #c0c0c1;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.icon--social:not(:first-child) {
+  margin-left: 2rem;
+}
+.icon--social:hover {
+  fill: #fefefe;
+}
+@media only screen and (max-width: 39.7em) {
+  .icon--social {
+    display: none;
+  }
 }
 .icon--x-2 {
   transition: all 0.3s;
