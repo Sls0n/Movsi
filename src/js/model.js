@@ -5,6 +5,7 @@ export const state = {
   resultArray: {
     results: [],
   },
+  
 };
 
 export const loadTheatreMovies = async function () {
