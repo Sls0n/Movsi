@@ -10,8 +10,8 @@ import searchView from './views/searchView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
 
-const controlTheatreMovie = async function () {
-  await model.loadTheatreMovies();
+const controlTheatreMovie = async function (page) {
+  await model.loadTheatreMovies(page);
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
@@ -19,7 +19,6 @@ const controlTheatreMovie = async function () {
     if (title.length > 45) {
       title = title.slice(0, 45) + '...';
     }
-
     containerView.render(result);
   });
 };
@@ -35,3 +34,13 @@ const init = function () {
 };
 
 init();
+
+const paginationBtn = document.querySelectorAll('.pagination-btn');
+
+paginationBtn.forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('p-btn')) return;
+    paginationBtn.forEach(btn => btn.classList.remove('active-pagination'));
+    e.target.classList.add('active-pagination');
+  });
+});

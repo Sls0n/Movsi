@@ -9,10 +9,13 @@ class ContainerView extends View {
   _parentElement = document.querySelector('.main__right');
   _data;
 
+  clear() {
+    this._parentElement.querySelector('.movies').innerHTML = '';
+  }
+
   render(data) {
     this._data = data;
     const markup = this._generateMarkup();
-    this._parentElement.querySelector('.movies').innerHTML;
     this._parentElement.querySelector('.movies').insertAdjacentHTML('beforeend', markup);
   }
 

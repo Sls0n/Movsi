@@ -964,4 +964,9 @@ footer {
   fill: #fefefe;
 }
 
+.active-pagination {
+  fill: #fefefe;
+  background-color: #3f4044;
+}
+
 /*# sourceMappingURL=main.css.map */
