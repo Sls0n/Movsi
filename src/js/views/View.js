@@ -1,1 +1,5 @@
-export default class View {}
+export default class View {
+  clear() {
+    this._parentElement.innerHTML = '';
+  }
+}

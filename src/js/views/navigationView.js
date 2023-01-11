@@ -21,8 +21,6 @@ class NavigationView extends View {
   }
 
   _removeSidebar(e) {
-
- 
     if (sidebarView._parentElement.classList.contains('hidden')) return;
     if (e.target === this._headerLogo) return;
     sidebarView._parentElement.classList.toggle('hidden');

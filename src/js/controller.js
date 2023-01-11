@@ -1,19 +1,34 @@
+import icons from 'url:../img/sprite.svg';
+import * as model from './model.js';
+import { IMAGE_PATH } from './config.js';
+
 import floatingView from './views/floatingView.js';
 import navigationView from './views/navigationView.js';
 import sidebarView from './views/sidebarView.js';
 import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
-import { API_KEY } from './API_KEY.js';
+import moviesView from './views/moviesView.js';
+import { async } from 'regenerator-runtime';
 
-const getMovie = async function () {
-  const response = await fetch(`https://api.themoviedb.org/3/movie/361743?api_key=${API_KEY}`);
-  if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
+const movieContainer = document.querySelector('.movies');
 
-  const data = await response.json();
-  console.log(data);
+const controlTheatreMovie = async function () {
+  await model.loadTheatreMovies();
+
+  model.state.resultArray.results.forEach(result => {
+    const poster = `${IMAGE_PATH}${result.posterPath}`;
+    let title = result.title;
+    // if the title is more then 45 characters, cut it off and add `...'
+    if (title.length > 45) {
+      title = title.slice(0, 45) + '...';
+    }
+
+    containerView.render(result);
+    
+  });
 };
 
-getMovie();
+controlTheatreMovie();
 
 const init = function () {
   floatingView.init();
