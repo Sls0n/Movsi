@@ -7,6 +7,7 @@ import navigationView from './views/navigationView.js';
 import sidebarView from './views/sidebarView.js';
 import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
+import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
 import 'core-js/stable';
@@ -32,19 +33,8 @@ const init = function () {
   floatingView.init();
   navigationView.init();
   sidebarView.init();
-  // containerView.init();
   searchView.init();
+  showbtnView.addHandlerPage(controlTheatreMovie);
 };
 
 init();
-
-const showMoreBtn = document.querySelector('.showMore-btn');
-let page = 1;
-
-showMoreBtn.addEventListener('click', function (e) {
-  // increase page on each click
-  page = page + 1;
-  console.log(page);
-
-  controlTheatreMovie(page);
-});
