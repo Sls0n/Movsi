@@ -9,6 +9,14 @@ class ContainerView extends View {
   _parentElement = document.querySelector('.main__right');
   _data;
 
+  renderSpinner() {
+    document.querySelector('.spinner').classList.remove('spinner-hidden');
+  }
+
+  removeSpinner() {
+    document.querySelector('.spinner').classList.add('spinner-hidden');
+  }
+
   clear() {
     this._parentElement.innerHTML = '';
   }

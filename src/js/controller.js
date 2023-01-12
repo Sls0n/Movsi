@@ -14,6 +14,8 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 const controlTheatreMovie = async function (page) {
+  containerView.renderSpinner();
+
   await model.loadTheatreMovies(page);
 
   model.state.resultArray.results.forEach(result => {
@@ -22,9 +24,9 @@ const controlTheatreMovie = async function (page) {
     if (title.length > 40) {
       title = title.slice(0, 40) + '...';
     }
-
     containerView.render({ ...result, title });
   });
+  containerView.removeSpinner();
 };
 
 controlTheatreMovie();

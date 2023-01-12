@@ -327,3 +327,34 @@
   }
 }
 
+.spinner {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.icon--spinner {
+  width: 10rem;
+  height: 10rem;
+  fill: $cs-2;
+  animation: spin 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-hidden {
+  display: none;
+}
