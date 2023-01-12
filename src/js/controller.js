@@ -9,12 +9,8 @@ import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
-
-const sort = document.querySelector('.sort');
-const main = document.querySelector('.main__left');
-
-// when clicked on sort button it should toggle on sidebar
-
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 const controlTheatreMovie = async function (page) {
   await model.loadTheatreMovies(page);
