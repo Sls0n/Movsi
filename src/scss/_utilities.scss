@@ -208,12 +208,13 @@
   }
 
   &--link {
-    transition: all 0.3s;
+    transition: all 0.3s $ts-1;
     position: relative;
     width: 2rem;
     height: 2rem;
     fill: $cs-3;
     background: none;
+    pointer-events: none;
 
     top: 0.15rem;
   }
@@ -232,6 +233,8 @@
 }
 
 .active {
+  transition: all 0.3s $ts-1;
+
   fill: $cs-1;
   color: $cs-1;
 }
@@ -274,6 +277,11 @@
   @media only screen and (max-width: $bp-small) {
     width: 3rem;
     height: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-very-small) {
+    width: 2.9rem;
+    height: 2.9rem;
   }
 
   &:hover {

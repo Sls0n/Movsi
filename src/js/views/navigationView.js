@@ -12,6 +12,18 @@ class NavigationView extends View {
   _sort = document.querySelector('.sort');
   _crossIcon = document.querySelector('.icon--main');
   _footer = document.querySelector('footer');
+  _links = document.querySelectorAll('.header__link');
+  _iconLinks = document.querySelectorAll('.icon--link');
+
+  _toggleActive(e) {
+    this._links.forEach(link => link.classList.remove('active'));
+    this._iconLinks.forEach(icon => icon.classList.remove('active'));
+    e.target.classList.add('active');
+    // If _links is clicked then the svg inside link should also have active class
+    if (e.target.classList.contains('header__link')) {
+      e.target.querySelector('.icon--link').classList.add('active');
+    }
+  }
 
   _toggleSidebar() {
     this._parentElement.style.filter = 'blur(5px)';
@@ -97,6 +109,10 @@ class NavigationView extends View {
     this._searchIcon.addEventListener('click', this._toggleSearchModal.bind(this));
     document.addEventListener('keydown', this._removeSearchModal.bind(this));
     window.addEventListener('click', this._removeSearchModal.bind(this));
+
+    this._links.forEach(link => {
+      link.addEventListener('click', this._toggleActive.bind(this));
+    });
   }
 }
 

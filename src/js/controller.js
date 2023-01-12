@@ -24,6 +24,7 @@ const controlTheatreMovie = async function (page) {
     if (title.length > 40) {
       title = title.slice(0, 40) + '...';
     }
+
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();

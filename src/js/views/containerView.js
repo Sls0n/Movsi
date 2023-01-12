@@ -18,12 +18,14 @@ class ContainerView extends View {
   }
 
   clear() {
-    this._parentElement.innerHTML = '';
+    this._parentElement.querySelector('.movies').innerHTML += '';
+
   }
 
   render(data) {
     this._data = data;
     const markup = this._generateMarkup();
+    this.clear();
     this._parentElement.querySelector('.movies').insertAdjacentHTML('beforeend', markup);
   }
 

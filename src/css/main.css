@@ -31,12 +31,27 @@ html {
 }
 @media only screen and (max-width: 29em) {
   html {
-    font-size: 44%;
+    font-size: 42%;
   }
 }
 @media only screen and (max-width: 18em) {
   html {
-    font-size: 38%;
+    font-size: 36%;
+  }
+}
+@media only screen and (max-width: 20em) {
+  html {
+    font-size: 30%;
+  }
+}
+@media only screen and (max-width: 16em) {
+  html {
+    font-size: 25%;
+  }
+}
+@media only screen and (max-width: 14em) {
+  html {
+    font-size: 20%;
   }
 }
 
@@ -864,12 +879,13 @@ footer {
   fill: #fefefe;
 }
 .icon--link {
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   width: 2rem;
   height: 2rem;
   fill: #717376;
   background: none;
+  pointer-events: none;
   top: 0.15rem;
 }
 .icon--chevron {
@@ -884,6 +900,7 @@ footer {
 }
 
 .active {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   fill: #fefefe;
   color: #fefefe;
 }
@@ -929,6 +946,12 @@ footer {
   .floating-navbar__icon {
     width: 3rem;
     height: 3rem;
+  }
+}
+@media only screen and (max-width: 29em) {
+  .floating-navbar__icon {
+    width: 2.9rem;
+    height: 2.9rem;
   }
 }
 .floating-navbar__icon:hover {
