@@ -135,7 +135,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background-color: #2f2f34;
 }
 
-.pagination-btn {
+.showMore-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,20 +143,23 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   transition: all 0.2s;
   border-radius: 1rem;
   padding: 1rem;
-  background-color: #1c1c1f;
+  background-color: #2f2f34;
   border: 1px solid #252528;
   color: #fefefe;
 }
-.pagination-btn svg {
-  fill: #717376;
+.showMore-btn svg {
+  fill: #c0c0c1;
 }
-.pagination-btn:hover {
-  background-color: #2f2f34;
+.showMore-btn:hover {
+  background-color: #1c1c1f;
+  fill: #fefefe;
 }
-.pagination-btn:active {
+.showMore-btn:active {
   position: relative;
   overflow: hidden;
   transform: scale(0.95);
+  fill: #fefefe;
+  background-color: #3f4044;
 }
 
 .floating-navbar {
@@ -586,7 +589,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   width: 100%;
   margin-right: 2rem;
   height: 0.8rem;
-  -webkit-appearance: none;
   background: #717376;
   outline: none;
   border: none;
@@ -602,19 +604,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   width: 2rem;
   border-radius: 50%;
   background: #26272a;
-  cursor: pointer;
-}
-.main__slider--range input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.main__slider--range input::-ms-thumb {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
   cursor: pointer;
 }
 .main__slider--number {
@@ -860,8 +849,8 @@ footer {
 }
 .icon--menu {
   transition: all 0.3s;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.8rem;
+  height: 3.8rem;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -967,6 +956,27 @@ footer {
 .active-pagination {
   fill: #fefefe;
   background-color: #3f4044;
+}
+
+.icon--menu {
+  pointer-events: none;
+}
+
+.mainMenu,
+.sort {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mainMenu svg,
+.sort svg {
+  pointer-events: none;
+}
+.mainMenu:active,
+.sort:active {
+  transform: scale(1.05) rotateY(45deg);
 }
 
 /*# sourceMappingURL=main.css.map */

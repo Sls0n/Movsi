@@ -7,7 +7,7 @@
 
   border: 1px solid #252528;
   border-radius: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
 
   cursor: pointer;
   transition: all 0.2s;
@@ -30,7 +30,7 @@
   }
 }
 
-.pagination-btn {
+.showMore-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,21 +38,24 @@
   transition: all 0.2s;
   border-radius: 1rem;
   padding: 1rem;
-  background-color: $cp-2;
+  background-color: #2f2f34;
   border: 1px solid #252528;
   color: $cs-1;
 
   svg {
-    fill: $cs-3;
+    fill: $cs-2;
   }
 
   &:hover {
-    background-color: #2f2f34;
+    background-color: $cp-2;
+    fill: $cs-1;
   }
 
   &:active {
     position: relative;
     overflow: hidden;
     transform: scale(0.95);
+    fill: $cs-1;
+    background-color: $cp-4;
   }
 }

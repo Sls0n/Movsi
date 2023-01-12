@@ -7,9 +7,9 @@ export const state = {
   },
 };
 
-export const loadTheatreMovies = async function () {
+export const loadTheatreMovies = async function (page) {
   try {
-    const response = await fetch(`${API_LINK_THEATRE}&language=en-US&page=1`);
+    const response = await fetch(`${API_LINK_THEATRE}&language=en-US&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
 
     const data = await response.json();

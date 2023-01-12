@@ -9,6 +9,9 @@ class NavigationView extends View {
   _headerLogo = document.querySelector('.mainMenu');
   _searchIcon = document.querySelector('.icon--search');
   _searchModal = document.querySelector('.search');
+  _sort = document.querySelector('.sort');
+  _crossIcon = document.querySelector('.icon--main');
+  _footer = document.querySelector('footer');
 
   _toggleSidebar() {
     this._parentElement.style.filter = 'blur(5px)';
@@ -18,11 +21,14 @@ class NavigationView extends View {
     sidebarView._parentElement.classList.toggle('hidden');
     containerView._parentElement.style.filter = 'blur(5px) brightness(0.8)';
     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'none'));
+    this._footer.style.filter = 'blur(5px) brightness(0.8)';
   }
 
-  _removeSidebar(e) {
-    if (sidebarView._parentElement.classList.contains('hidden')) return;
-    if (e.target === this._headerLogo) return;
+  _sortSidebar() {
+    this._toggleSidebar();
+  }
+
+  _removeSidebar() {
     sidebarView._parentElement.classList.toggle('hidden');
     containerView._parentElement.style.filter = 'blur(0px) brightness(1)';
     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'auto'));
@@ -30,6 +36,26 @@ class NavigationView extends View {
     this._parentElement.querySelector('.header__navigation').style.pointerEvents = 'auto';
     floatingView._parentElement.style.pointerEvents = 'auto';
     floatingView._parentElement.style.filter = 'blur(0px)';
+    this._footer.style.filter = 'blur(0px) brightness(1)';
+  }
+
+  _removeSidebarOnClick(e) {
+    if (e.target === this._sort) return;
+    if (sidebarView._parentElement.classList.contains('hidden')) return;
+    if (e.target === this._headerLogo) return;
+    this._removeSidebar();
+  }
+
+  _removeSidebarOnLogo(e) {
+    if (e.target === this._crossIcon) {
+      this._removeSidebar();
+    }
+  }
+
+  _removeSidebarOnEsc(e) {
+    if (e.key === 'Escape') {
+      this._removeSidebar();
+    }
   }
 
   _toggleSearchModal() {
@@ -41,6 +67,7 @@ class NavigationView extends View {
     floatingView._parentElement.style.pointerEvents = 'none';
     floatingView._parentElement.style.filter = 'blur(5px)';
     this._parentElement.querySelector('.header__navigation').style.pointerEvents = 'none';
+    this._footer.style.filter = 'blur(10px) brightness(0.5)';
   }
 
   _removeSearchModal(e) {
@@ -53,12 +80,20 @@ class NavigationView extends View {
       this._parentElement.querySelector('.header__navigation').style.pointerEvents = 'auto';
       floatingView._parentElement.style.pointerEvents = 'auto';
       floatingView._parentElement.style.filter = 'blur(0px)';
+      this._footer.style.filter = 'blur(0px) brightness(1)';
     }
   }
 
   init() {
+    this._sort.addEventListener('click', this._sortSidebar.bind(this));
     this._headerLogo.addEventListener('click', this._toggleSidebar.bind(this));
-    this._parentElement.addEventListener('click', this._removeSidebar.bind(this));
+
+    this._crossIcon.addEventListener('click', this._removeSidebarOnLogo.bind(this));
+    document.addEventListener('keydown', this._removeSidebarOnEsc.bind(this));
+    this._parentElement.addEventListener('click', this._removeSidebarOnClick.bind(this));
+    containerView._parentElement.addEventListener('click', this._removeSidebarOnClick.bind(this));
+    this._footer.addEventListener('click', this._removeSidebarOnClick.bind(this));
+
     this._searchIcon.addEventListener('click', this._toggleSearchModal.bind(this));
     document.addEventListener('keydown', this._removeSearchModal.bind(this));
     window.addEventListener('click', this._removeSearchModal.bind(this));

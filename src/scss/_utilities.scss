@@ -192,8 +192,8 @@
 
   &--menu {
     transition: all 0.3s;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.8rem;
+    height: 3.8rem;
     cursor: pointer;
     transition: all 0.2s $ts-1;
 
@@ -305,3 +305,25 @@
   fill: $cs-1;
   background-color: $cp-4;
 }
+
+.icon--menu {
+  pointer-events: none;
+}
+
+.mainMenu,
+.sort {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s $ts-1;
+
+  svg {
+    pointer-events: none;
+  }
+
+  &:active {
+    transform: scale(1.05) rotateY(45deg);
+  }
+}
+

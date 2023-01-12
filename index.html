@@ -70,9 +70,12 @@
       <header class="header fixed">
         <!-- 1st item -->
         <div class="header__logo">
-          <svg class="icon icon--menu mainMenu">
-            <use class="mainMenu" xlink:href="src/img/sprite.svg#icon-menu"></use>
-          </svg>
+          <div class="mainMenu">
+            <svg class="icon icon--menu">
+              <use xlink:href="src/img/sprite.svg#icon-align-left"></use>
+            </svg>
+          </div>
+
           <div class="header__heading">
             <h1 class="header__heading--text-1 h1">| &nbsp;</h1>
             <h1 class="header__heading--text h1">MOVSI</h1>
@@ -133,6 +136,7 @@
             <svg class="icon icon--main">
               <use xlink:href="src/img/sprite.svg#icon-x"></use>
             </svg>
+
             <div class="main__header">
               <div class="main__trending--header--text-1 h3">Sort by</div>
               <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;Genre</div>
@@ -190,12 +194,14 @@
             <div class="main__trending--header">
               <div class="main__trending--header--text-1 h3">Discover movies</div>
               <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;2023</div>
-              <a href="#" class="main__trending--header--text-3 h3">
-                View all
-                <svg class="icon icon--link">
-                  <use xlink:href="src/img/sprite.svg#icon-chevron-right"></use>
-                </svg>
-              </a>
+              <div class="main__trending--header--text-3 sortby-btn h3">
+                <div class="sort">
+                  Sort by &nbsp;
+                  <svg class="icon icon--link">
+                    <use xlink:href="src/img/sprite.svg#icon-sliders"></use>
+                  </svg>
+                </div>
+              </div>
             </div>
             <!-- 2nd item -->
             <div class="movies">
@@ -221,7 +227,7 @@
               </div> -->
             </div>
             <div class="pagination">
-              <button class="pagination-btn pagination-first">
+              <!-- <button class="pagination-btn pagination-first">
                 <svg class="icon icon--chevron">
                   <use xlink:href="src/img/sprite.svg#icon-chevron-left"></use>
                 </svg>
@@ -232,9 +238,14 @@
                   <use xlink:href="src/img/sprite.svg#icon-chevron-left"></use>
                 </svg>
                 Back
+              </button> -->
+              <button class="showMore-btn" data-page="1">
+                Show more
+                <svg class="icon icon--chevron">
+                  <use xlink:href="src/img/sprite.svg#icon-chevron-right"></use>
+                </svg>
               </button>
-              <button class="pagination-btn p-btn pagination-1 active-pagination" data-page="1">1</button>
-              <button class="pagination-btn p-btn pagination-2" data-page="2">2</button>
+              <!-- <button class="pagination-btn p-btn pagination-2" data-page="2">2</button>
               <button class="pagination-btn p-btn pagination-3" data-page="3">3</button>
               <button class="pagination-btn p-btn pagination-4" data-page="4">4</button>
               <button class="pagination-btn pagination-next">
@@ -248,7 +259,7 @@
                 <svg class="icon icon--chevron">
                   <use xlink:href="src/img/sprite.svg#icon-chevron-right"></use>
                 </svg>
-              </button>
+              </button> -->
             </div>
           </div>
         </div>

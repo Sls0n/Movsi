@@ -10,7 +10,7 @@ class ContainerView extends View {
   _data;
 
   clear() {
-    this._parentElement.querySelector('.movies').innerHTML = '';
+    this._parentElement.innerHTML = '';
   }
 
   render(data) {
@@ -44,21 +44,21 @@ class ContainerView extends View {
   `;
   }
 
-  _removeSidebar(e) {
-    if (!sidebarView._parentElement.classList.contains('hidden')) {
-      sidebarView._parentElement.classList.add('hidden');
-      this._parentElement.style.filter = 'blur(0px) brightness(1)';
-      moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'auto'));
-      navigationView._parentElement.style.filter = 'blur(0px)';
-      navigationView._parentElement.querySelector('.header__navigation').style.pointerEvents = 'auto';
-      floatingView._parentElement.style.pointerEvents = 'auto';
-      floatingView._parentElement.style.filter = 'blur(0px)';
-    }
-  }
+  // _removeSidebar(e) {
+  //   if (!sidebarView._parentElement.classList.contains('hidden')) {
+  //     sidebarView._parentElement.classList.toggle('hidden');
+  //     this._parentElement.style.filter = 'blur(0px) brightness(1)';
+  //     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'auto'));
+  //     navigationView._parentElement.style.filter = 'blur(0px)';
+  //     navigationView._parentElement.querySelector('.header__navigation').style.pointerEvents = 'auto';
+  //     floatingView._parentElement.style.pointerEvents = 'auto';
+  //     floatingView._parentElement.style.filter = 'blur(0px)';
+  //   }
+  // }
 
-  init() {
-    this._parentElement.addEventListener('click', this._removeSidebar.bind(this));
-  }
+  // init() {
+  //   // this._parentElement.addEventListener('click', this._removeSidebar.bind(this));
+  // }
 }
 
 export default new ContainerView();

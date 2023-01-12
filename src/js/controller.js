@@ -10,16 +10,23 @@ import searchView from './views/searchView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
 
+const sort = document.querySelector('.sort');
+const main = document.querySelector('.main__left');
+
+// when clicked on sort button it should toggle on sidebar
+
+
 const controlTheatreMovie = async function (page) {
   await model.loadTheatreMovies(page);
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
-    if (title.length > 45) {
-      title = title.slice(0, 45) + '...';
+    if (title.length > 40) {
+      title = title.slice(0, 40) + '...';
     }
-    containerView.render(result);
+
+    containerView.render({ ...result, title });
   });
 };
 
@@ -29,18 +36,19 @@ const init = function () {
   floatingView.init();
   navigationView.init();
   sidebarView.init();
-  containerView.init();
+  // containerView.init();
   searchView.init();
 };
 
 init();
 
-const paginationBtn = document.querySelectorAll('.pagination-btn');
+const showMoreBtn = document.querySelector('.showMore-btn');
+let page = 1;
 
-paginationBtn.forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    if (!e.target.classList.contains('p-btn')) return;
-    paginationBtn.forEach(btn => btn.classList.remove('active-pagination'));
-    e.target.classList.add('active-pagination');
-  });
+showMoreBtn.addEventListener('click', function (e) {
+  // increase page on each click
+  page = page + 1;
+  console.log(page);
+
+  controlTheatreMovie(page);
 });

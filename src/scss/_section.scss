@@ -262,7 +262,6 @@
       width: 100%;
       margin-right: 2rem;
       height: 0.8rem;
-      -webkit-appearance: none;
       background: $cs-3;
       outline: none;
       border: none;
@@ -279,21 +278,6 @@
         width: 2rem;
         border-radius: 50%;
         background: darken($cp-4, 10%);
-        cursor: pointer;
-      }
-
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-
-      &::-ms-thumb {
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
         cursor: pointer;
       }
     }
