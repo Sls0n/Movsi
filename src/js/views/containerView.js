@@ -19,7 +19,6 @@ class ContainerView extends View {
 
   clear() {
     this._parentElement.querySelector('.movies').innerHTML += '';
-
   }
 
   render(data) {
