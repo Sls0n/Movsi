@@ -27,8 +27,6 @@ class NavigationView extends View {
   _toggleActive(e) {
     const header = document.querySelector('.main__trending--header');
 
-    const markup = `<div class="main__trending--header--text-1 h3">Discove movies &nbsp;</div>
-    <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;Latest</div>`;
     if (e.target.classList.contains('ignore-click')) return;
     this._links.forEach(link => link.classList.remove('active'));
     this._iconLinks.forEach(icon => icon.classList.remove('active'));
@@ -127,13 +125,6 @@ class NavigationView extends View {
       floatingView._parentElement.style.filter = 'blur(0px)';
       this._footer.style.filter = 'blur(0px) brightness(1)';
     }
-  }
-
-  _markupHeader(header, subHeader) {
-    return `
-    <div class="main__trending--header--text-1 h3">${header} &nbsp;</div>
-    <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;${subHeader}</div>
-    `;
   }
 
   init() {

@@ -22,6 +22,7 @@ class FloatingView extends View {
     const floatingItems = this._parentElement.querySelectorAll('.floating-navbar__item');
     const navItems = document.querySelectorAll('.header__link');
     const navIcons = document.querySelectorAll('.icon--link');
+    const header = document.querySelector('.main__trending--header');
 
     floatingItems.forEach(item => {
       item.addEventListener('click', e => {
@@ -33,15 +34,19 @@ class FloatingView extends View {
         if (e.target.classList.contains('home')) {
           navItems[0].classList.add('active');
           navIcons[0].classList.add('active');
+          header.innerHTML = this._markupHeader('Discover movies', 'Latest');
         } else if (e.target.classList.contains('trending')) {
           navItems[1].classList.add('active');
           navIcons[1].classList.add('active');
+          header.innerHTML = this._markupHeader('Trending movies', '2023');
         } else if (e.target.classList.contains('toprated')) {
           navItems[2].classList.add('active');
           navIcons[2].classList.add('active');
+          header.innerHTML = this._markupHeader('Top rated movies', 'All time');
         } else if (e.target.classList.contains('tvshows')) {
           navItems[3].classList.add('active');
           navIcons[3].classList.add('active');
+          header.innerHTML = this._markupHeader('Discover TV shows', 'Popular');
         }
       });
     });
