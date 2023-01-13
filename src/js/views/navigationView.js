@@ -30,7 +30,7 @@ class NavigationView extends View {
     this._iconLinks.forEach(icon => icon.classList.remove('active'));
     e.target.classList.add('active');
 
-    //Sync it with floating navbar
+    // Syncing it with floating navbar
     floatingView._parentElement.querySelectorAll('.floating-navbar__item').forEach(item => {
       item.classList.remove('floating-active');
     });
