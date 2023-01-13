@@ -1,3 +1,3 @@
 # movsi
 Movie recommending webapp (In Progress)
-Only UI done
+Half of the functionality done! 
