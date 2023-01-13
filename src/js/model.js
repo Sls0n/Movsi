@@ -82,12 +82,27 @@ export const loadTopMovies = async function (page) {
   }
 };
 
-export const loadTvMovies = async function (page) {
+export const loadTvShows = async function (page) {
   try {
     const response = await fetch(`${API_LINK_TV}&language=en-US&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
-    console.log(data);
+    state.resultArray.results = data.results.map(result => {
+      return {
+        adult: result.adult,
+        backdropPath: result.backdrop_path,
+        firstYearPath: result.first_air_date,
+        genreIds: result.genre_ids,
+        id: result.id,
+        name: result.name,
+        originalLanguage: result.original_language,
+        originalName: result.original_name,
+        overview: result.overview,
+        posterPath: `${IMAGE_PATH}${result.poster_path}`,
+        releaseDate: result.release_date,
+        voteAverage: result.vote_average,
+      };
+    });
   } catch (err) {
     alert(err);
   }

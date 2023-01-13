@@ -8,7 +8,8 @@ import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
-import { async } from 'regenerator-runtime';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 export let currentNav = 'home';
 
@@ -52,6 +53,22 @@ export const controlTopMovie = async function (page) {
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
+    // if the title is more then 45 characters, cut it off and add `...'
+    if (title.length > 40) {
+      title = title.slice(0, 40) + '...';
+    }
+
+    containerView.render({ ...result, title });
+  });
+  containerView.removeSpinner();
+};
+
+export const controlTvShows = async function (page) {
+  containerView.renderSpinner();
+  await model.loadTvShows(page);
+
+  model.state.resultArray.results.forEach(result => {
+    let title = result.name;
     // if the title is more then 45 characters, cut it off and add `...'
     if (title.length > 40) {
       title = title.slice(0, 40) + '...';
@@ -122,5 +139,3 @@ const init = function () {
 };
 
 init();
-
-model.loadTvMovies(1);
