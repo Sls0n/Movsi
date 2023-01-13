@@ -7,10 +7,8 @@ class FloatingView extends View {
     const floatingItems = this._parentElement.querySelectorAll('.floating-navbar__item');
     floatingItems.forEach(item => {
       item.addEventListener('click', e => {
-        if (e.target.classList.contains('floating-navbar__icon')) {
-          floatingItems.forEach(el => el.classList.remove('floating-active'));
-          e.target.closest('.floating-navbar__item').classList.add('floating-active');
-        }
+        floatingItems.forEach(el => el.classList.remove('floating-active'));
+        e.target.closest('.floating-navbar__item').classList.add('floating-active');
       });
     });
   }

@@ -1033,4 +1033,8 @@ footer {
   display: none;
 }
 
+.floating-navbar__item svg {
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -13,8 +13,31 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 const links = document.querySelectorAll('.header__link');
+const floatingLinks = document.querySelectorAll('.floating-navbar__item');
 
 let currentNav = 'home';
+
+floatingLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    if (e.target.classList.contains('home')) {
+      containerView._parentElement.querySelector('.movies').innerHTML = '';
+      controlTheatreMovie(1);
+      currentNav = 'home';
+    } else if (e.target.classList.contains('trending')) {
+      containerView._parentElement.querySelector('.movies').innerHTML = '';
+      controlTrendingMovie(1);
+      currentNav = 'trending';
+    } else if (e.target.classList.contains('toprated')) {
+      containerView._parentElement.querySelector('.movies').innerHTML = '';
+      controlTopMovie(1);
+      currentNav = 'toprated';
+    } else if (e.target.classList.contains('tvshows')) {
+      containerView._parentElement.querySelector('.movies').innerHTML = '';
+      controlTvShows(1);
+      currentNav = 'tvshows';
+    }
+  });
+});
 
 links.forEach(link => {
   link.addEventListener('click', function (e) {

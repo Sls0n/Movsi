@@ -366,3 +366,7 @@
 .spinner-hidden {
   display: none;
 }
+
+.floating-navbar__item svg {
+  pointer-events: none;
+}
