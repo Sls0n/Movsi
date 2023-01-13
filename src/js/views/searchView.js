@@ -9,6 +9,7 @@ class SearchView extends View {
   _parentElement = document.querySelector('.search');
   _crossMenu_2 = document.querySelector('.icon--x-2');
   _searchIcon_2 = document.querySelector('.icon--search-2');
+  _searchInput = document.querySelector('.search__input');
 
   _removeSearch(e) {
     this._parentElement.classList.add('search-hidden');

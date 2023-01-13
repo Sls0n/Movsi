@@ -11,6 +11,28 @@ import moviesView from './views/moviesView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
+const searchInput = document.querySelector('.search__input');
+const searchIcon = document.querySelector('.icon--search-2');
+
+let query = '';
+
+searchInput.addEventListener('keydown', function (e) {
+  if (searchInput.value === '') return;
+  if (e.key === 'Enter') {
+    query = searchInput.value;
+    console.log(query);
+    searchInput.value = '';
+  }
+});
+
+searchIcon.addEventListener('click', function (e) {
+  if (searchInput.value === '') return;
+  query = searchInput.value;
+  console.log(query);
+
+  searchInput.value = '';
+});
+
 export let currentNav = 'home';
 
 export const controlTheatreMovie = async function (page) {

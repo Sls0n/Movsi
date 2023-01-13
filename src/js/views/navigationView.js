@@ -72,7 +72,7 @@ class NavigationView extends View {
   }
 
   _removeSidebar() {
-    sidebarView._parentElement.classList.toggle('hidden');
+    sidebarView._parentElement.classList.add('hidden');
     containerView._parentElement.style.filter = 'blur(0px) brightness(1)';
     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'auto'));
     this._parentElement.style.filter = 'blur(0px)';
