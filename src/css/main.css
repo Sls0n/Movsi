@@ -800,7 +800,6 @@ footer {
 }
 @media only screen and (max-width: 39.7em) {
   .icon--search {
-    margin-right: -4rem;
     width: 3.5rem;
     height: 3.5rem;
   }
@@ -897,6 +896,22 @@ footer {
 }
 .icon--chevron:hover {
   fill: #fefefe;
+}
+
+.header__search {
+  transition: all 0.3s;
+}
+@media only screen and (max-width: 39.7em) {
+  .header__search {
+    margin-right: -3rem;
+  }
+}
+.header__search:hover {
+  transform: scale(1.05) rotate(45deg);
+}
+.header__search:active {
+  fill: #fefefe;
+  transform: scale(1.2) rotate(-45deg);
 }
 
 .active {
@@ -1034,6 +1049,10 @@ footer {
 }
 
 .floating-navbar__item svg {
+  pointer-events: none;
+}
+
+.header__link svg {
   pointer-events: none;
 }
 

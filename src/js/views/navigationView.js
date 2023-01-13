@@ -7,7 +7,7 @@ import moviesView from './moviesView.js';
 class NavigationView extends View {
   _parentElement = document.querySelector('.header');
   _headerLogo = document.querySelector('.mainMenu');
-  _searchIcon = document.querySelector('.icon--search');
+  _searchIcon = document.querySelector('.header__search');
   _searchModal = document.querySelector('.search');
   _sort = document.querySelector('.sort');
   _crossIcon = document.querySelector('.icon--main');
@@ -25,9 +25,25 @@ class NavigationView extends View {
   }
 
   _toggleActive(e) {
+    if (e.target.classList.contains('ignore-click')) return;
     this._links.forEach(link => link.classList.remove('active'));
     this._iconLinks.forEach(icon => icon.classList.remove('active'));
     e.target.classList.add('active');
+
+    //Sync it with floating navbar
+    floatingView._parentElement.querySelectorAll('.floating-navbar__item').forEach(item => {
+      item.classList.remove('floating-active');
+    });
+    if (e.target.classList.contains('home')) {
+      floatingView._parentElement.querySelector('.home').classList.add('floating-active');
+    } else if (e.target.classList.contains('trending')) {
+      floatingView._parentElement.querySelector('.trending').classList.add('floating-active');
+    } else if (e.target.classList.contains('toprated')) {
+      floatingView._parentElement.querySelector('.toprated').classList.add('floating-active');
+    } else if (e.target.classList.contains('tvshows')) {
+      floatingView._parentElement.querySelector('.tvshows').classList.add('floating-active');
+    }
+
     // If _links is clicked then the svg inside link should also have active class
     if (e.target.classList.contains('header__link')) {
       e.target.querySelector('.icon--link').classList.add('active');

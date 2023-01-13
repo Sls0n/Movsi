@@ -124,7 +124,7 @@
   &--search {
     transition: all 0.3s;
     @media only screen and (max-width: $bp-small) {
-      margin-right: -4rem;
+      // margin-right: -4rem;
       width: 3.5rem;
       height: 3.5rem;
     }
@@ -229,6 +229,24 @@
     &:hover {
       fill: $cs-1;
     }
+  }
+}
+
+.header__search {
+  transition: all 0.3s;
+  @media only screen and (max-width: $bp-small) {
+    margin-right: -3rem;
+    // width: 3.5rem;
+    // height: 3.5rem;
+  }
+
+  &:hover {
+    transform: scale(1.05) rotate(45deg);
+  }
+
+  &:active {
+    fill: $cs-1;
+    transform: scale(1.2) rotate(-45deg);
   }
 }
 
@@ -369,4 +387,10 @@
 
 .floating-navbar__item svg {
   pointer-events: none;
+}
+
+.header__link {
+  svg {
+    pointer-events: none;
+  }
 }
