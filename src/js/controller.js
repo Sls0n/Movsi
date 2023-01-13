@@ -9,60 +9,10 @@ import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
 import { async } from 'regenerator-runtime';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 
-const links = document.querySelectorAll('.header__link');
-const floatingLinks = document.querySelectorAll('.floating-navbar__item');
+export let currentNav = 'home';
 
-let currentNav = 'home';
-
-floatingLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    if (e.target.classList.contains('home')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTheatreMovie(1);
-      currentNav = 'home';
-    } else if (e.target.classList.contains('trending')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTrendingMovie(1);
-      currentNav = 'trending';
-    } else if (e.target.classList.contains('toprated')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTopMovie(1);
-      currentNav = 'toprated';
-    } else if (e.target.classList.contains('tvshows')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTvShows(1);
-      currentNav = 'tvshows';
-    }
-  });
-});
-
-links.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (e.target.classList.contains('home')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTheatreMovie(1);
-      currentNav = 'home';
-    } else if (e.target.classList.contains('trending')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTrendingMovie(1);
-      currentNav = 'trending';
-    } else if (e.target.classList.contains('toprated')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTopMovie(1);
-      currentNav = 'toprated';
-    } else if (e.target.classList.contains('tvshows')) {
-      containerView._parentElement.querySelector('.movies').innerHTML = '';
-      controlTvShows(1);
-      currentNav = 'tvshows';
-    }
-  });
-});
-
-const controlTheatreMovie = async function (page) {
+export const controlTheatreMovie = async function (page) {
   containerView.renderSpinner();
   await model.loadTheatreMovies(page);
 
@@ -80,7 +30,7 @@ const controlTheatreMovie = async function (page) {
 
 controlTheatreMovie();
 
-const controlTrendingMovie = async function (page) {
+export const controlTrendingMovie = async function (page) {
   containerView.renderSpinner();
   await model.loadTrendingMovies(page);
 
@@ -96,7 +46,7 @@ const controlTrendingMovie = async function (page) {
   containerView.removeSpinner();
 };
 
-const controlTopMovie = async function (page) {
+export const controlTopMovie = async function (page) {
   containerView.renderSpinner();
   await model.loadTopMovies(page);
 
@@ -110,6 +60,38 @@ const controlTopMovie = async function (page) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+};
+
+const floatingNavSwitch = function (e) {
+  if (e.target.classList.contains('home')) {
+    floatingView.addHandlerControl(controlTheatreMovie);
+    currentNav = 'home';
+  } else if (e.target.classList.contains('trending')) {
+    floatingView.addHandlerControl(controlTrendingMovie);
+    currentNav = 'trending';
+  } else if (e.target.classList.contains('toprated')) {
+    floatingView.addHandlerControl(controlTopMovie);
+    currentNav = 'toprated';
+  } else if (e.target.classList.contains('tvshows')) {
+    floatingView.addHandlerControl(controlTvShows);
+    currentNav = 'tvshows';
+  }
+};
+
+const navSwitch = function (e) {
+  if (e.target.classList.contains('home')) {
+    navigationView.addHandlerControl(controlTheatreMovie);
+    currentNav = 'home';
+  } else if (e.target.classList.contains('trending')) {
+    navigationView.addHandlerControl(controlTrendingMovie);
+    currentNav = 'trending';
+  } else if (e.target.classList.contains('toprated')) {
+    navigationView.addHandlerControl(controlTopMovie);
+    currentNav = 'toprated';
+  } else if (e.target.classList.contains('tvshows')) {
+    navigationView.addHandlerControl(controlTvShows);
+    currentNav = 'tvshows';
+  }
 };
 
 const currentNavPage = function (page) {
@@ -135,6 +117,8 @@ const init = function () {
   sidebarView.init();
   searchView.init();
   showbtnView.addHandlerPage(currentNavPage);
+  navigationView.addHandlerSwitch(navSwitch);
+  floatingView.addHandlerSwitch(floatingNavSwitch);
 };
 
 init();

@@ -15,6 +15,15 @@ class NavigationView extends View {
   _links = document.querySelectorAll('.header__link');
   _iconLinks = document.querySelectorAll('.icon--link');
 
+  addHandlerControl(handler) {
+    moviesView.clearMovies();
+    handler(1);
+  }
+
+  addHandlerSwitch(handler) {
+    this._links.forEach(link => link.addEventListener('click', handler));
+  }
+
   _toggleActive(e) {
     this._links.forEach(link => link.classList.remove('active'));
     this._iconLinks.forEach(icon => icon.classList.remove('active'));
