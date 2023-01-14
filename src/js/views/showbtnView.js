@@ -2,6 +2,14 @@ class ShowBtnView {
   _parentElement = document.querySelector('.showMore-btn');
   _page = 1;
 
+  hideBtn() {
+    this._parentElement.style.display = 'none';
+  }
+
+  showBtn() {
+    this._parentElement.style.display = 'flex';
+  }
+
   addHandlerPage(handler) {
     this._parentElement.addEventListener(
       'click',

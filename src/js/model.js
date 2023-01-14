@@ -126,7 +126,7 @@ export const loadSearchResults = async function (page, query) {
             backdropPath: result.backdrop_path,
             genreIds: result.genre_ids,
             id: result.id,
-            name: result.name,
+            title: result.name,
             originalLanguage: result.original_language,
             overview: result.overview,
             posterPath: `${IMAGE_PATH}${result.poster_path}`,
@@ -142,7 +142,7 @@ export const loadSearchResults = async function (page, query) {
             title: result.title,
             originalLanguage: result.original_language,
             overview: result.overview,
-            posterPath: `${IMAGE_PATH}/${result.poster_path}`,
+            posterPath: `${IMAGE_PATH}${result.poster_path}`,
             releaseDate: result.release_date,
             voteAverage: result.vote_average,
           };

@@ -7,6 +7,7 @@ import moviesView from './moviesView.js';
 
 class ContainerView extends View {
   _parentElement = document.querySelector('.main__right');
+  _childElement = document.querySelector('.movies');
   _data;
 
   renderSpinner() {

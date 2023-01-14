@@ -1,4 +1,3 @@
-import icons from 'url:../img/sprite.svg';
 import * as model from './model.js';
 
 import floatingView from './views/floatingView.js';
@@ -8,6 +7,7 @@ import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
+import { INVALID_IMAGE_PATH } from './config.js';
 
 const searchInput = document.querySelector('.search__input');
 const searchIcon = document.querySelector('.icon--search-2');
@@ -18,24 +18,46 @@ searchInput.addEventListener('keydown', function (e) {
   if (searchInput.value === '') return;
   if (e.key === 'Enter') {
     query = searchInput.value;
-    console.log(query);
     searchInput.value = '';
-    model.loadSearchResults(1, query);
-    // console.log(model.state.searchResults);
+    showbtnView.hideBtn();
+    controlSearchResults(1);
+    searchView.changeHeader('Search Results', `${query}`);
   }
 });
 
 searchIcon.addEventListener('click', function (e) {
   if (searchInput.value === '') return;
   query = searchInput.value;
-  console.log(query);
-
   searchInput.value = '';
+  showbtnView.hideBtn();
+  controlSearchResults(1);
+  searchView.changeHeader('Search Results', `${query}`);
 });
+
+export const controlSearchResults = async function (page) {
+  containerView.renderSpinner();
+  await model.loadSearchResults(page, query);
+  containerView._childElement.innerHTML = '';
+
+  model.state.searchResults.result.forEach(result => {
+    if (result.posterPath === INVALID_IMAGE_PATH) return;
+
+    let title = result.title;
+    // if the title is more then 45 characters, cut it off and add `...'
+    if (title.length > 40) {
+      title = title.slice(0, 40) + '...';
+    }
+
+    containerView.render({ ...result, title });
+  });
+  containerView.removeSpinner();
+};
 
 export let currentNav = 'home';
 
 export const controlTheatreMovie = async function (page) {
+  showbtnView.showBtn();
+
   containerView.renderSpinner();
   await model.loadTheatreMovies(page);
 
@@ -53,6 +75,8 @@ export const controlTheatreMovie = async function (page) {
 controlTheatreMovie();
 
 export const controlTrendingMovie = async function (page) {
+  showbtnView.showBtn();
+
   containerView.renderSpinner();
   await model.loadTrendingMovies(page);
 
@@ -69,6 +93,8 @@ export const controlTrendingMovie = async function (page) {
 };
 
 export const controlTopMovie = async function (page) {
+  showbtnView.showBtn();
+
   containerView.renderSpinner();
   await model.loadTopMovies(page);
 
@@ -85,6 +111,8 @@ export const controlTopMovie = async function (page) {
 };
 
 export const controlTvShows = async function (page) {
+  showbtnView.showBtn();
+
   containerView.renderSpinner();
   await model.loadTvShows(page);
 
