@@ -102,6 +102,7 @@ class NavigationView extends View {
   }
 
   _toggleSearchModal() {
+    document.querySelector('.search__input').focus();
     this._searchModal.classList.remove('search-hidden');
     this._searchModal.closest('.search__wrapper').classList.remove('search-hidden-2');
     containerView._parentElement.style.filter = 'blur(10px) brightness(0.5)';

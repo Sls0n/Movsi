@@ -8,8 +8,6 @@ import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 
 const searchInput = document.querySelector('.search__input');
 const searchIcon = document.querySelector('.icon--search-2');
@@ -22,6 +20,8 @@ searchInput.addEventListener('keydown', function (e) {
     query = searchInput.value;
     console.log(query);
     searchInput.value = '';
+    model.loadSearchResults(1, query);
+    // console.log(model.state.searchResults);
   }
 });
 
@@ -45,8 +45,7 @@ export const controlTheatreMovie = async function (page) {
     if (title.length > 40) {
       title = title.slice(0, 40) + '...';
     }
-
-    containerView.render(result);
+    containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
 };
@@ -76,8 +75,8 @@ export const controlTopMovie = async function (page) {
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
-    if (title.length > 40) {
-      title = title.slice(0, 40) + '...';
+    if (title.length > 45) {
+      title = title.slice(0, 45) + '...';
     }
 
     containerView.render({ ...result, title });
