@@ -6,3 +6,13 @@ export default class View {
     `;
   }
 }
+
+{
+  /* <div class="main__trending--header--text-3 sortby-btn h3">
+      <div class="sort"> Sort by &nbsp;
+        <svg class="icon icon--link">
+          <use xlink:href="${icons}#icon-sliders"></use>
+        </svg>
+      </div>
+    </div> */
+}

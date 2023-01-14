@@ -20,6 +20,7 @@ searchInput.addEventListener('keydown', function (e) {
     query = searchInput.value;
     searchInput.value = '';
     showbtnView.hideBtn();
+    searchView.removeActiveNav();
     controlSearchResults(1);
     searchView.changeHeader('Search Results', `${query}`);
   }
@@ -30,6 +31,7 @@ searchIcon.addEventListener('click', function (e) {
   query = searchInput.value;
   searchInput.value = '';
   showbtnView.hideBtn();
+  searchView.removeActiveNav();
   controlSearchResults(1);
   searchView.changeHeader('Search Results', `${query}`);
 });

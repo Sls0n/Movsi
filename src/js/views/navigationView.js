@@ -26,7 +26,8 @@ class NavigationView extends View {
 
   _toggleActive(e) {
     const header = document.querySelector('.main__trending--header');
-
+    const mainHeader = header.querySelector('.main__trending--header--text-1');
+    const subHeader = header.querySelector('.main__trending--header--text-2');
     if (e.target.classList.contains('ignore-click')) return;
     this._links.forEach(link => link.classList.remove('active'));
     this._iconLinks.forEach(icon => icon.classList.remove('active'));
@@ -38,16 +39,20 @@ class NavigationView extends View {
     });
     if (e.target.classList.contains('home')) {
       floatingView._parentElement.querySelector('.home').classList.add('floating-active');
-      header.innerHTML = this._markupHeader('Discover movies', 'Latest');
+      mainHeader.innerHTML = 'Discover movies &nbsp;';
+      subHeader.innerHTML = '|&nbsp;&nbsp;  Latest';
     } else if (e.target.classList.contains('trending')) {
       floatingView._parentElement.querySelector('.trending').classList.add('floating-active');
-      header.innerHTML = this._markupHeader('Trending movies', '2023');
+      mainHeader.innerHTML = 'Trending movies &nbsp;';
+      subHeader.innerHTML = '|&nbsp;&nbsp;  This week';
     } else if (e.target.classList.contains('toprated')) {
       floatingView._parentElement.querySelector('.toprated').classList.add('floating-active');
-      header.innerHTML = this._markupHeader('Top rated movies', 'All time');
+      mainHeader.innerHTML = 'Top rated movies &nbsp;';
+      subHeader.innerHTML = '|&nbsp;&nbsp;  All time';
     } else if (e.target.classList.contains('tvshows')) {
       floatingView._parentElement.querySelector('.tvshows').classList.add('floating-active');
-      header.innerHTML = this._markupHeader('Discover TV shows', 'Popular');
+      mainHeader.innerHTML = 'Discover TV shows &nbsp;';
+      subHeader.innerHTML = '|&nbsp;&nbsp;  Popular';
     }
 
     // If _links is clicked then the svg inside link should also have active class

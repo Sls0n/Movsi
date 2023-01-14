@@ -298,8 +298,8 @@
   }
 
   @media only screen and (max-width: $bp-very-small) {
-    width: 2.9rem;
-    height: 2.9rem;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   &:hover {
@@ -393,4 +393,8 @@
   svg {
     pointer-events: none;
   }
+}
+
+.floating-navbar__item {
+  cursor: pointer;
 }

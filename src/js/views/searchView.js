@@ -1,7 +1,6 @@
 import View from './View.js';
 import icons from 'url:../../img/sprite.svg';
 
-import sidebarView from './sidebarView.js';
 import navigationView from './navigationView.js';
 import floatingView from './floatingView.js';
 import moviesView from './moviesView.js';
@@ -24,6 +23,7 @@ class SearchView extends View {
     navigationView._parentElement.querySelector('.header__navigation').style.pointerEvents = 'auto';
     floatingView._parentElement.style.pointerEvents = 'auto';
     floatingView._parentElement.style.filter = 'blur(0px)';
+    document.querySelector('footer').style.filter = 'blur(0px)';
   }
 
   render(data) {
@@ -33,6 +33,11 @@ class SearchView extends View {
 
   changeHeader(header, subheader) {
     document.querySelector('.main__trending--header').innerHTML = this._markupHeader(header, subheader);
+  }
+
+  removeActiveNav() {
+    navigationView._links.forEach(link => link.classList.remove('active'));
+    navigationView._iconLinks.forEach(icon => icon.classList.remove('active'));
   }
 
   _generateMarkup() {
