@@ -148,8 +148,6 @@ export const loadSearchResults = async function (page, query) {
           };
         }
       });
-
-    console.log(state.searchResults);
   } catch (err) {
     alert(err);
   }

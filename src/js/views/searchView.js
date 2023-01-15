@@ -5,6 +5,7 @@ import navigationView from './navigationView.js';
 import floatingView from './floatingView.js';
 import moviesView from './moviesView.js';
 import containerView from './containerView.js';
+import showbtnView from './showbtnView.js';
 
 class SearchView extends View {
   _parentElement = document.querySelector('.search');
@@ -24,6 +25,30 @@ class SearchView extends View {
     floatingView._parentElement.style.pointerEvents = 'auto';
     floatingView._parentElement.style.filter = 'blur(0px)';
     document.querySelector('footer').style.filter = 'blur(0px)';
+  }
+
+  addHandlerSearch(handler) {
+    this._searchInput.addEventListener('keydown', e => {
+      if (this._searchInput.value === '') return;
+      if (e.key === 'Enter') {
+        let query = this._searchInput.value;
+        this.changeHeader('Search Results', `${query}`);
+        showbtnView.hideBtn();
+        this.removeActiveNav();
+        this._searchInput.value = '';
+        handler(1, query);
+      }
+    });
+
+    this._searchIcon_2.addEventListener('click', e => {
+      if (this._searchInput.value === '') return;
+      let query = this._searchInput.value;
+      this.changeHeader('Search Results', `${query}`);
+      showbtnView.hideBtn();
+      this.removeActiveNav();
+      this._searchInput.value = '';
+      handler(1, query);
+    });
   }
 
   render(data) {

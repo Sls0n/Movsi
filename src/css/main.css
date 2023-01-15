@@ -973,6 +973,10 @@ footer {
   fill: #fefefe;
 }
 
+.eighteen-plus {
+  margin-top: 2rem;
+}
+
 .floating-active {
   transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
   padding: 2rem 2rem;

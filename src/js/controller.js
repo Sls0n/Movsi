@@ -9,34 +9,9 @@ import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
 
-const searchInput = document.querySelector('.search__input');
-const searchIcon = document.querySelector('.icon--search-2');
+let currentNav = 'home';
 
-let query = '';
-
-searchInput.addEventListener('keydown', function (e) {
-  if (searchInput.value === '') return;
-  if (e.key === 'Enter') {
-    query = searchInput.value;
-    searchInput.value = '';
-    showbtnView.hideBtn();
-    searchView.removeActiveNav();
-    controlSearchResults(1);
-    searchView.changeHeader('Search Results', `${query}`);
-  }
-});
-
-searchIcon.addEventListener('click', function (e) {
-  if (searchInput.value === '') return;
-  query = searchInput.value;
-  searchInput.value = '';
-  showbtnView.hideBtn();
-  searchView.removeActiveNav();
-  controlSearchResults(1);
-  searchView.changeHeader('Search Results', `${query}`);
-});
-
-export const controlSearchResults = async function (page) {
+export const controlSearchResults = async function (page, query) {
   containerView.renderSpinner();
   await model.loadSearchResults(page, query);
   containerView._childElement.innerHTML = '';
@@ -54,8 +29,6 @@ export const controlSearchResults = async function (page) {
   });
   containerView.removeSpinner();
 };
-
-export let currentNav = 'home';
 
 export const controlTheatreMovie = async function (page) {
   showbtnView.showBtn();
@@ -187,6 +160,7 @@ const init = function () {
   showbtnView.addHandlerPage(currentNavPage);
   navigationView.addHandlerSwitch(navSwitch);
   floatingView.addHandlerSwitch(floatingNavSwitch);
+  searchView.addHandlerSearch(controlSearchResults);
 };
 
 init();
