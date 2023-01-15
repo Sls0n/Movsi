@@ -1,0 +1,65 @@
+const movieGenres = {
+  action: 28,
+  adventure: 12,
+  animation: 16,
+  comedy: 35,
+  crime: 80,
+  documentary: 99,
+  drama: 18,
+  family: 10751,
+  fantasy: 14,
+  history: 36,
+  horror: 27,
+  music: 10402,
+  mystery: 9648,
+  romance: 10749,
+  scienceFiction: 878,
+  thriller: 53,
+  war: 10752,
+  western: 37,
+  filmnoir: 10753,
+};
+
+export const {
+  action,
+  adventure,
+  animation,
+  comedy,
+  crime,
+  documentary,
+  drama,
+  family,
+  fantasy,
+  history,
+  horror,
+  music,
+  mystery,
+  romance,
+  scienceFiction,
+  thriller,
+  war,
+  western,
+} = movieGenres;
+
+// const tvGenres = {
+//   action: 10759,
+//   animation: 16,
+//   comedy: 35,
+//   crime: 80,
+//   documentary: 99,
+//   drama: 18,
+//   family: 10751,
+//   kids: 10762,
+//   mystery: 9648,
+//   news: 10763,
+//   reality: 10764,
+//   scifi: 10765,
+//   soap: 10766,
+//   talk: 10767,
+//   war: 10768,
+//   western: 37,
+// };
+
+// export const { action, animation, comedy, crime, documentary, drama, family, kids, mystery, news, reality, scifi, soap, talk, war, western } = tvGenres;
+
+

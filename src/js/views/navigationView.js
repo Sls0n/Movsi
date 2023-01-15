@@ -20,8 +20,14 @@ class NavigationView extends View {
     handler(1);
   }
 
+  addHandlerControlGenre(handler) {
+    moviesView.clearMovies();
+    handler(1);
+  }
+
   addHandlerSwitch(handler) {
     this._links.forEach(link => link.addEventListener('click', handler));
+    document.querySelectorAll('.main__button').forEach(button => button.addEventListener('click', handler));
   }
 
   _toggleActive(e) {
@@ -74,7 +80,6 @@ class NavigationView extends View {
 
   _sortSidebar() {
     this._toggleSidebar();
-    
   }
 
   _removeSidebar() {

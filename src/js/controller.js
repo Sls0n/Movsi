@@ -9,30 +9,52 @@ import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
 
+const genreButtons = document.querySelectorAll('.main__button');
+let page = 1;
 let currentNav = 'home';
 
-const genreButtons = document.querySelectorAll('.main__button');
+let selectedGenres = [];
 
 genreButtons.forEach(button => {
+  button.removeEventListener('click', this);
   button.addEventListener('click', function (e) {
-    console.log(e.target.dataset.genre);
+    if (e.target.classList.contains('block')) return;
+    button.classList.toggle('active-genre');
+
+    let genreID = Number(e.target.dataset.id);
+    if (button.classList.contains('active-genre')) {
+      selectedGenres.push(genreID);
+    } else {
+      selectedGenres = selectedGenres.filter(val => val !== genreID);
+    }
+    controlGenre(1, selectedGenres);
   });
 });
 
-export const controlSearchResults = async function (page, query) {
+// genreButtons.forEach(button => {
+//   button.addEventListener('click', function (e) {
+//     if (e.target.classList.contains('block')) return;
+//     button.classList.toggle('active-genre');
+
+//     let genreID = Number(e.target.dataset.id);
+//     selectedArray.push(genreID);
+//     // model.loadGenreMovies(1, genreID);
+//     model.loadGenre(genreID);
+//   });
+// });
+
+export const controlGenre = async function (page, genre) {
+  showbtnView.showBtn();
+
   containerView.renderSpinner();
-  await model.loadSearchResults(page, query);
-  containerView._childElement.innerHTML = '';
+  await model.loadGenre(page, genre);
 
-  model.state.searchResults.result.forEach(result => {
-    if (result.posterPath === INVALID_IMAGE_PATH) return;
-
+  model.state.resultArray.results.forEach(result => {
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
     if (title.length > 40) {
       title = title.slice(0, 40) + '...';
     }
-
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
@@ -111,6 +133,25 @@ export const controlTvShows = async function (page) {
   containerView.removeSpinner();
 };
 
+export const controlSearchResults = async function (page, query) {
+  containerView.renderSpinner();
+  await model.loadSearchResults(page, query);
+  containerView._childElement.innerHTML = '';
+
+  model.state.searchResults.result.forEach(result => {
+    if (result.posterPath === INVALID_IMAGE_PATH) return;
+
+    let title = result.title;
+    // if the title is more then 45 characters, cut it off and add `...'
+    if (title.length > 40) {
+      title = title.slice(0, 40) + '...';
+    }
+
+    containerView.render({ ...result, title });
+  });
+  containerView.removeSpinner();
+};
+
 const floatingNavSwitch = function (e) {
   if (e.target.classList.contains('home')) {
     floatingView.addHandlerControl(controlTheatreMovie);
@@ -140,6 +181,10 @@ const navSwitch = function (e) {
   } else if (e.target.classList.contains('tvshows')) {
     navigationView.addHandlerControl(controlTvShows);
     currentNav = 'tvshows';
+  } else if (e.target.classList.contains('main__button')) {
+    moviesView.clearMovies();
+    controlGenre(1, selectedGenres);
+    currentNav = 'genre';
   }
 };
 
@@ -156,6 +201,9 @@ const currentNavPage = function (page) {
       break;
     case 'tvshows':
       controlTvShows(page);
+      break;
+    case 'genre':
+      controlGenre(page, selectedGenres);
       break;
   }
 };

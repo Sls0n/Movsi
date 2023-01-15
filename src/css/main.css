@@ -131,7 +131,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background-color: #262629;
   border: 1px solid rgba(113, 115, 118, 0.15);
   border-radius: 1rem;
-  padding: 0.8rem;
+  padding: 0.9rem;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
