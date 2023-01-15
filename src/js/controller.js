@@ -11,6 +11,14 @@ import { INVALID_IMAGE_PATH } from './config.js';
 
 let currentNav = 'home';
 
+const genreButtons = document.querySelectorAll('.main__button');
+
+genreButtons.forEach(button => {
+  button.addEventListener('click', function (e) {
+    console.log(e.target.dataset.genre);
+  });
+});
+
 export const controlSearchResults = async function (page, query) {
   containerView.renderSpinner();
   await model.loadSearchResults(page, query);

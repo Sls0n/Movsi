@@ -6,7 +6,7 @@
 
   width: 100%;
   padding: 2rem;
-  background-color: rgba($cp-1, 0.9);
+  background-color: rgba($cp-1, 0.95);
 
   backdrop-filter: blur(10px);
   border-bottom: 2px solid $cp-2;
@@ -32,7 +32,8 @@
   }
 
   &__logo {
-    font-size: $fs-1;
+    font-size: $fs-2;
+    color: $cs-2;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -46,7 +47,7 @@
 
   &__link {
     font-weight: 500;
-    font-size: $fs-3;
+    font-size: 1.7rem;
     text-decoration: none;
     letter-spacing: 0.2px;
 

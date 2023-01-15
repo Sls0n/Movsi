@@ -222,7 +222,7 @@
   &--chevron {
     width: 2.5rem;
     height: 2.5rem;
-    fill: $cs-3;
+    fill: $cs-2;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -253,8 +253,8 @@
 .active {
   transition: all 0.3s $ts-1;
 
-  fill: $cs-1;
-  color: $cs-1;
+  fill: lighten($cs-2, 10%);
+  color: lighten($cs-2, 10%);
 }
 
 .fixed {
@@ -307,7 +307,7 @@
   }
 }
 
-.eighteen-plus {
+.restrictions {
   margin-top: 2rem;
 }
 

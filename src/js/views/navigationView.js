@@ -74,6 +74,7 @@ class NavigationView extends View {
 
   _sortSidebar() {
     this._toggleSidebar();
+    
   }
 
   _removeSidebar() {

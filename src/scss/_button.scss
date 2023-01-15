@@ -1,16 +1,25 @@
 .btn {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: $cs-2;
-  background-color: transparent;
+  background-color: $cp-3;
 
-  border: 1px solid #252528;
+  border: 1px solid rgba($cs-3, 0.15);
+
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
 
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s $ts-1;
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 1.6rem !important;
+  }
+
+  @media only screen and (max-width: $bp-very-small) {
+    font-size: 1.6rem !important;
+  }
 
   &:hover {
     background-color: #2f2f34;
@@ -18,15 +27,21 @@
   }
 
   &:active {
-    position: relative;
-    overflow: hidden;
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
+}
 
-  &:first-child {
-    color: $cs-1;
-    border: none;
-    background-color: #2f2f34;
+.active-genre {
+  color: $cp-2;
+  border: 3px solid lighten($cs-3, 5%);
+  border: 3px solid $cs-3;
+  background-color: darken($cs-2, 20%);
+
+  transition: all 0.2s $ts-1;
+
+  &:hover {
+    background-color: darken($cs-2, 20%);
+    color: $cp-1;
   }
 }
 
@@ -40,7 +55,14 @@
   padding: 1rem;
   background-color: #2f2f34;
   border: 1px solid #252528;
-  color: $cs-1;
+  color: $cs-2;
+  border: 3px solid $cp-4;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 2rem !important;
+
+    font-size: 2rem !important;
+  }
 
   svg {
     fill: $cs-2;

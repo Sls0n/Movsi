@@ -147,33 +147,31 @@
 
             <div class="main__header">
               <div class="main__trending--header--text-1 h3">Sort by</div>
-              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;Genre</div>
+              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;Genre</div>
             </div>
 
             <div class="main__buttons">
-              <button class="main__button btn">Action</button>
-              <button class="main__button btn">Comedy</button>
-              <button class="main__button btn">Drama</button>
-              <button class="main__button btn">Horror</button>
-              <button class="main__button btn">Romance</button>
-              <button class="main__button btn">Thriller</button>
-              <button class="main__button btn">Sci-fi</button>
-              <button class="main__button btn">Fantasy</button>
-              <button class="main__button btn">Animation</button>
-              <button class="main__button btn">Adventure</button>
-              <button class="main__button btn">Crime</button>
-              <button class="main__button btn">Mystery</button>
-              <button class="main__button btn">Family</button>
-              <button class="main__button btn">History</button>
-              <button class="main__button btn">Western</button>
-              <button class="main__button btn">Film-Noir</button>
-              <button class="main__button btn">War</button>
-              <button class="main__button btn">Documentry</button>
+              <button class="main__button action active-genre btn" data-genre="action">Action</button>
+              <button class="main__button comedy btn" data-genre="comedy">Comedy</button>
+              <button class="main__button drama btn" data-genre="drama">Drama</button>
+              <button class="main__button horror btn" data-genre="horror">Horror</button>
+              <button class="main__button romance btn" data-genre="romance">Romance</button>
+              <button class="main__button thriller btn" data-genre="thriller">Thriller</button>
+              <button class="main__button scifi btn" data-genre="scifi">Sci-fi</button>
+              <button class="main__button fantasy btn" data-genre="fantasy">Fantasy</button>
+              <button class="main__button animation btn" data-genre="animation">Animation</button>
+              <button class="main__button adventure active-genre btn" data-genre="adventure">Adventure</button>
+              <button class="main__button crime btn" data-genre="crime">Crime</button>
+              <button class="main__button mystery btn" data-genre="mystery">Mystery</button>
+              <button class="main__button family active-genre btn" data-genre="family">Family</button>
+              <button class="main__button history btn" data-genre="history">History</button>
+              <button class="main__button filmnoir btn" data-genre="filmnoir">Film-Noir</button>
+              <button class="main__button documentary btn" data-genre="documentary">Documentary</button>
             </div>
 
             <div class="main__header main__header-2">
               <div class="main__trending--header--text-1 h3">Sort by</div>
-              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;Minimum ratings</div>
+              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;Minimum ratings</div>
             </div>
 
             <div class="main__slider">
@@ -194,9 +192,12 @@
               </div>
             </div>
 
-            <div class="main__header eighteen-plus">
-              <div class="main__trending--header--text-1 h3">Include</div>
-              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;&nbsp;18+ content</div>
+            <div class="main__header restrictions">
+              <div class="main__trending--header--text-1 h3">Settings</div>
+              <div class="main__trending--header--text-2 h3">| &nbsp;&nbsp;Restrictions</div>
+            </div>
+            <div class="main__buttons">
+              <button class="main__button block btn">Block 18+</button>
             </div>
           </div>
           <!-- <div class="main__down">Down</div> -->
@@ -212,7 +213,7 @@
                 <div class="sort">
                   Sort by &nbsp;
                   <svg class="icon icon--link">
-                    <use xlink:href="src/img/sprite.svg#icon-sliders"></use>
+                    <use xlink:href="src/img/sprite.svg#icon-settings"></use>
                   </svg>
                 </div>
               </div>

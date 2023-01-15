@@ -126,28 +126,43 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 .btn {
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #c0c0c1;
-  background-color: transparent;
-  border: 1px solid #252528;
+  background-color: #262629;
+  border: 1px solid rgba(113, 115, 118, 0.15);
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media only screen and (max-width: 39.7em) {
+  .btn {
+    font-size: 1.6rem !important;
+  }
+}
+@media only screen and (max-width: 29em) {
+  .btn {
+    font-size: 1.6rem !important;
+  }
 }
 .btn:hover {
   background-color: #2f2f34;
   color: #fefefe;
 }
 .btn:active {
-  position: relative;
-  overflow: hidden;
-  transform: scale(0.95);
+  transform: scale(1.05);
 }
-.btn:first-child {
-  color: #fefefe;
-  border: none;
-  background-color: #2f2f34;
+
+.active-genre {
+  color: #1c1c1f;
+  border: 3px solid #7e8083;
+  border: 3px solid #717376;
+  background-color: #8d8d8e;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.active-genre:hover {
+  background-color: #8d8d8e;
+  color: #17171b;
 }
 
 .showMore-btn {
@@ -160,7 +175,14 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   padding: 1rem;
   background-color: #2f2f34;
   border: 1px solid #252528;
-  color: #fefefe;
+  color: #c0c0c1;
+  border: 3px solid #3f4044;
+}
+@media only screen and (max-width: 39.7em) {
+  .showMore-btn {
+    margin-top: 2rem !important;
+    font-size: 2rem !important;
+  }
 }
 .showMore-btn svg {
   fill: #c0c0c1;
@@ -227,7 +249,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   align-items: center;
   width: 100%;
   padding: 2rem;
-  background-color: rgba(23, 23, 27, 0.9);
+  background-color: rgba(23, 23, 27, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid #1c1c1f;
   z-index: 100000;
@@ -252,7 +274,8 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   font-size: 3rem !important;
 }
 .header__logo {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  color: #c0c0c1;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -264,7 +287,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 }
 .header__link {
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   text-decoration: none;
   letter-spacing: 0.2px;
   color: #717376;
@@ -526,7 +549,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 
 .main__left {
   height: 122vh;
-  width: 37rem;
+  width: 43rem;
   top: -10rem;
   position: fixed;
   display: flex;
@@ -571,8 +594,9 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 
 .main__buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
+  grid-template-columns: repeat(3, 12rem);
+  grid-template-rows: repeat(6, 4.5rem);
+  gap: 0.85rem;
 }
 
 .main__down {
@@ -890,7 +914,7 @@ footer {
 .icon--chevron {
   width: 2.5rem;
   height: 2.5rem;
-  fill: #717376;
+  fill: #c0c0c1;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -916,8 +940,8 @@ footer {
 
 .active {
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  fill: #fefefe;
-  color: #fefefe;
+  fill: #dadada;
+  color: #dadada;
 }
 
 .fixed {
@@ -973,7 +997,7 @@ footer {
   fill: #fefefe;
 }
 
-.eighteen-plus {
+.restrictions {
   margin-top: 2rem;
 }
 
