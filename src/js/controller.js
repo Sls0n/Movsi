@@ -31,23 +31,11 @@ genreButtons.forEach(button => {
   });
 });
 
-// genreButtons.forEach(button => {
-//   button.addEventListener('click', function (e) {
-//     if (e.target.classList.contains('block')) return;
-//     button.classList.toggle('active-genre');
-
-//     let genreID = Number(e.target.dataset.id);
-//     selectedArray.push(genreID);
-//     // model.loadGenreMovies(1, genreID);
-//     model.loadGenre(genreID);
-//   });
-// });
-
 export const controlGenre = async function (page, genre) {
   showbtnView.showBtn();
 
   containerView.renderSpinner();
-  await model.loadGenre(page, genre);
+  await model.loadGenreHome(page, genre);
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
@@ -220,3 +208,5 @@ const init = function () {
 };
 
 init();
+
+
