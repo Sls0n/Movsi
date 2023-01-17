@@ -185,7 +185,7 @@ export const loadGenreHome = async function (page, genres) {
 export const loadGenreTop = async function (page, genres) {
   try {
     const genreString = genres.join(',');
-    const response = await fetch(`${API_LINK_DISCOVER}&sort_by=vote_average.desc&vote_count.gte=100&include_adult=true&with_genres=${genreString}&page=${page}`);
+    const response = await fetch(`${API_LINK_DISCOVER}&sort_by=vote_average.desc&vote_count.gte=200&with_genres=${genreString}&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
     console.log(data);

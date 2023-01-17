@@ -17,6 +17,7 @@ class NavigationView extends View {
 
   addHandlerControl(handler) {
     moviesView.clearMovies();
+    sidebarView.restartGenre();
     handler(1);
   }
 

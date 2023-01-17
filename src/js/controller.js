@@ -26,6 +26,10 @@ genreButtons.forEach(button => {
     } else {
       selectedGenres = selectedGenres.filter(val => val !== genreID);
     }
+    if (selectedGenres.length === 0) {
+      moviesView.clearMovies();
+      controlTheatreMovie(1);
+    }
 
     controlGenreMovies(1, selectedGenres);
   });
