@@ -18,20 +18,22 @@ let selectedGenres = [];
 genreButtons.forEach(button => {
   button.removeEventListener('click', this);
   button.addEventListener('click', function (e) {
-    button.classList.toggle('active-genre');
-
     let genreID = Number(e.target.dataset.id);
-    if (button.classList.contains('active-genre')) {
+    if (!button.classList.contains('active-genre')) {
       selectedGenres.push(genreID);
+      currentNav = 'genre';
     } else {
+      moviesView.clearMovies();
+
       selectedGenres = selectedGenres.filter(val => val !== genreID);
     }
-    if (selectedGenres.length === 0) {
-      moviesView.clearMovies();
-      controlTheatreMovie(1);
+    button.classList.toggle('active-genre');
+    if (selectedGenres.length > 0) {
+      controlGenreMovies(1, selectedGenres);
+    } else {
+      currentNav = 'home';
+      navigationView.addHandlerControl(controlTheatreMovie);
     }
-
-    controlGenreMovies(1, selectedGenres);
   });
 });
 
@@ -179,8 +181,8 @@ const navSwitch = function (e) {
     selectedGenres = [];
   } else if (e.target.classList.contains('main__button')) {
     moviesView.clearMovies();
-    controlGenreMovies(1, selectedGenres);
-    currentNav = 'genre';
+    // controlGenreMovies(1, selectedGenres);
+    // currentNav = 'genre';
   }
 };
 
