@@ -18,7 +18,6 @@ let selectedGenres = [];
 genreButtons.forEach(button => {
   button.removeEventListener('click', this);
   button.addEventListener('click', function (e) {
-    if (e.target.classList.contains('block')) return;
     button.classList.toggle('active-genre');
 
     let genreID = Number(e.target.dataset.id);
@@ -27,16 +26,17 @@ genreButtons.forEach(button => {
     } else {
       selectedGenres = selectedGenres.filter(val => val !== genreID);
     }
-    controlGenre(1, selectedGenres);
+
+    controlGenreMovies(1, selectedGenres);
   });
 });
 
-export const controlGenre = async function (page, genre) {
+export const controlGenreMovies = async function (page, genre) {
   showbtnView.showBtn();
 
   containerView.renderSpinner();
-  await model.loadGenreHome(page, genre);
 
+  await model.loadGenreTop(page, genre);
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
@@ -160,18 +160,22 @@ const navSwitch = function (e) {
   if (e.target.classList.contains('home')) {
     navigationView.addHandlerControl(controlTheatreMovie);
     currentNav = 'home';
+    selectedGenres = [];
   } else if (e.target.classList.contains('trending')) {
     navigationView.addHandlerControl(controlTrendingMovie);
     currentNav = 'trending';
+    selectedGenres = [];
   } else if (e.target.classList.contains('toprated')) {
     navigationView.addHandlerControl(controlTopMovie);
     currentNav = 'toprated';
+    selectedGenres = [];
   } else if (e.target.classList.contains('tvshows')) {
     navigationView.addHandlerControl(controlTvShows);
     currentNav = 'tvshows';
+    selectedGenres = [];
   } else if (e.target.classList.contains('main__button')) {
     moviesView.clearMovies();
-    controlGenre(1, selectedGenres);
+    controlGenreMovies(1, selectedGenres);
     currentNav = 'genre';
   }
 };
@@ -191,7 +195,7 @@ const currentNavPage = function (page) {
       controlTvShows(page);
       break;
     case 'genre':
-      controlGenre(page, selectedGenres);
+      controlGenreMovies(page, selectedGenres);
       break;
   }
 };
@@ -199,7 +203,7 @@ const currentNavPage = function (page) {
 const init = function () {
   floatingView.init();
   navigationView.init();
-  sidebarView.init();
+  // sidebarView.init();
   searchView.init();
   showbtnView.addHandlerPage(currentNavPage);
   navigationView.addHandlerSwitch(navSwitch);
@@ -208,5 +212,3 @@ const init = function () {
 };
 
 init();
-
-
