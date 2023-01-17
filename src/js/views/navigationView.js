@@ -21,6 +21,16 @@ class NavigationView extends View {
     handler(1);
   }
 
+  removeActiveAll() {
+    this._links.forEach(link => link.classList.remove('active'));
+    this._iconLinks.forEach(icon => icon.classList.remove('active'));
+
+    // Syncing it with floating navbar
+    floatingView._parentElement.querySelectorAll('.floating-navbar__item').forEach(item => {
+      item.classList.remove('floating-active');
+    });
+  }
+
   addHandlerControlGenre(handler) {
     moviesView.clearMovies();
     handler(1);

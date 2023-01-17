@@ -14,20 +14,27 @@ let page = 1;
 let currentNav = 'home';
 
 let selectedGenres = [];
+let genreName = [];
 
 genreButtons.forEach(button => {
   button.removeEventListener('click', this);
   button.addEventListener('click', function (e) {
     let genreID = Number(e.target.dataset.id);
+
     if (!button.classList.contains('active-genre')) {
       selectedGenres.push(genreID);
       currentNav = 'genre';
+      navigationView.removeActiveAll();
+      genreName.push(e.target.dataset.genre);
     } else {
       moviesView.clearMovies();
-
       selectedGenres = selectedGenres.filter(val => val !== genreID);
+      genreName = genreName.filter(val => val !== e.target.dataset.genre);
     }
     button.classList.toggle('active-genre');
+
+    navigationView.updateHeader('Selected genres', genreName.join(', '));
+
     if (selectedGenres.length > 0) {
       controlGenreMovies(1, selectedGenres);
     } else {
