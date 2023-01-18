@@ -6,6 +6,7 @@ import floatingView from './floatingView.js';
 import moviesView from './moviesView.js';
 import containerView from './containerView.js';
 import showbtnView from './showbtnView.js';
+import genreView from './genreView.js';
 
 class SearchView extends View {
   _parentElement = document.querySelector('.search');
@@ -36,6 +37,9 @@ class SearchView extends View {
         showbtnView.hideBtn();
         this.removeActiveNav();
         this._searchInput.value = '';
+        genreView.resetGenre();
+        genreView.disableGenre();
+        this.updateGenreHeader('Not available on search', '😔');
         handler(1, query);
       }
     });
@@ -47,6 +51,8 @@ class SearchView extends View {
       showbtnView.hideBtn();
       this.removeActiveNav();
       this._searchInput.value = '';
+      genreView.disableGenre();
+      genreView.resetGenre();
       handler(1, query);
     });
   }
@@ -57,7 +63,7 @@ class SearchView extends View {
   }
 
   changeHeader(header, subheader) {
-    document.querySelector('.main__trending--header').innerHTML = this._markupHeader(header, subheader);
+    this.updateHeader(header, subheader);
   }
 
   removeActiveNav() {

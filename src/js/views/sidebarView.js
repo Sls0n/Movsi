@@ -6,12 +6,6 @@ class SidebarView extends View {
   _value = document.querySelector('.main__slider--text');
   _genreButtons = document.querySelectorAll('.main__button');
 
-  restartGenre() {
-    this._genreButtons.forEach(button => {
-      button.classList.remove('active-genre');
-    });
-  }
-
   _updateSlider(e) {
     this._value.textContent = this._slider.value;
   }

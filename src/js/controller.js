@@ -7,42 +7,13 @@ import containerView from './views/containerView.js';
 import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
+import genreView from './views/genreView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
 
-const genreButtons = document.querySelectorAll('.main__button');
-let page = 1;
 let currentNav = 'home';
 
 let selectedGenres = [];
 let genreName = [];
-
-genreButtons.forEach(button => {
-  button.removeEventListener('click', this);
-  button.addEventListener('click', function (e) {
-    let genreID = Number(e.target.dataset.id);
-
-    if (!button.classList.contains('active-genre')) {
-      selectedGenres.push(genreID);
-      currentNav = 'genre';
-      navigationView.removeActiveAll();
-      genreName.push(e.target.dataset.genre);
-    } else {
-      moviesView.clearMovies();
-      selectedGenres = selectedGenres.filter(val => val !== genreID);
-      genreName = genreName.filter(val => val !== e.target.dataset.genre);
-    }
-    button.classList.toggle('active-genre');
-
-    navigationView.updateHeader('Selected genres', genreName.join(', '));
-
-    if (selectedGenres.length > 0) {
-      controlGenreMovies(1, selectedGenres);
-    } else {
-      currentNav = 'home';
-      navigationView.addHandlerControl(controlTheatreMovie);
-    }
-  });
-});
 
 export const controlGenreMovies = async function (page, genre) {
   showbtnView.showBtn();
@@ -153,6 +124,31 @@ export const controlSearchResults = async function (page, query) {
   containerView.removeSpinner();
 };
 
+const controlActiveGenre = function (e) {
+  const genreID = Number(e.target.dataset.id);
+
+  if (!e.target.classList.contains('active-genre')) {
+    currentNav = 'genre';
+    selectedGenres.push(genreID);
+    navigationView.removeActiveAll();
+    genreName.push(e.target.dataset.genre);
+  } else {
+    moviesView.clearMovies();
+    selectedGenres = selectedGenres.filter(val => val !== genreID);
+    genreName = genreName.filter(val => val !== e.target.dataset.genre);
+  }
+
+  genreView.toggleActiveGenre(e);
+  genreView.updateHeader('Selected genres', genreName.join(', '));
+
+  if (selectedGenres.length > 0) {
+    controlGenreMovies(1, selectedGenres);
+  } else {
+    currentNav = 'home';
+    navigationView.addHandlerControl(controlTheatreMovie);
+  }
+};
+
 const floatingNavSwitch = function (e) {
   if (e.target.classList.contains('home')) {
     floatingView.addHandlerControl(controlTheatreMovie);
@@ -174,20 +170,25 @@ const navSwitch = function (e) {
     navigationView.addHandlerControl(controlTheatreMovie);
     currentNav = 'home';
     selectedGenres = [];
+    genreView.enableGenre();
   } else if (e.target.classList.contains('trending')) {
     navigationView.addHandlerControl(controlTrendingMovie);
     currentNav = 'trending';
     selectedGenres = [];
+    genreView.enableGenre();
   } else if (e.target.classList.contains('toprated')) {
     navigationView.addHandlerControl(controlTopMovie);
     currentNav = 'toprated';
     selectedGenres = [];
+    genreView.enableGenre();
   } else if (e.target.classList.contains('tvshows')) {
     navigationView.addHandlerControl(controlTvShows);
     currentNav = 'tvshows';
     selectedGenres = [];
+    genreView.enableGenre();
   } else if (e.target.classList.contains('main__button')) {
     moviesView.clearMovies();
+    genreView.enableGenre();
     // controlGenreMovies(1, selectedGenres);
     // currentNav = 'genre';
   }
@@ -222,6 +223,7 @@ const init = function () {
   navigationView.addHandlerSwitch(navSwitch);
   floatingView.addHandlerSwitch(floatingNavSwitch);
   searchView.addHandlerSearch(controlSearchResults);
+  genreView.addHandlerGenre(controlActiveGenre);
 };
 
 init();

@@ -3,6 +3,7 @@ import sidebarView from './sidebarView.js';
 import containerView from './containerView.js';
 import floatingView from './floatingView.js';
 import moviesView from './moviesView.js';
+import genreView from './genreView.js';
 
 class NavigationView extends View {
   _parentElement = document.querySelector('.header');
@@ -17,7 +18,7 @@ class NavigationView extends View {
 
   addHandlerControl(handler) {
     moviesView.clearMovies();
-    sidebarView.restartGenre();
+    genreView.resetGenre();
     handler(1);
   }
 

@@ -249,7 +249,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   align-items: center;
   width: 100%;
   padding: 2rem;
-  background-color: rgba(23, 23, 27, 0.95);
+  background-color: rgba(23, 23, 27, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid #1c1c1f;
   z-index: 100000;
