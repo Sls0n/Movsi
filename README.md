@@ -1,3 +1,2 @@
 # movsi
-Movie recommending webapp (In Progress)
-Half of the functionality done! 
+Movie showing webapp i guess (In Progress)
