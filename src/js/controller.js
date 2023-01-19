@@ -171,20 +171,24 @@ const navSwitch = function (e) {
     currentNav = 'home';
     selectedGenres = [];
     genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('trending')) {
     navigationView.addHandlerControl(controlTrendingMovie);
     currentNav = 'trending';
     selectedGenres = [];
     genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('toprated')) {
     navigationView.addHandlerControl(controlTopMovie);
     currentNav = 'toprated';
     selectedGenres = [];
     genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('tvshows')) {
     navigationView.addHandlerControl(controlTvShows);
     currentNav = 'tvshows';
     selectedGenres = [];
+    genreName = [];
     genreView.enableGenre();
   } else if (e.target.classList.contains('main__button')) {
     moviesView.clearMovies();
