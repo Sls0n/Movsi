@@ -12,7 +12,7 @@ class GenreView extends View {
 
   disableGenre() {
     this._parentElement.forEach(el => (el.style.pointerEvents = 'none'));
-    this._container.forEach(el => (el.style.opacity = '0.5'));
+    this._container.forEach(el => (el.style.opacity = '0.3'));
     this.updateGenreHeader('Not available here yet', '⚠');
   }
 

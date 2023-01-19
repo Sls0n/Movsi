@@ -165,6 +165,7 @@
     width: 2.3rem;
     height: 2.3rem;
     fill: $cs-2;
+    filter: drop-shadow(0 0 0.5rem rgba($cp-1, 0.5));
 
     @media only screen and (max-width: $bp-small) {
       width: 3.5rem;
@@ -408,3 +409,24 @@
 .floating-navbar__item {
   cursor: pointer;
 }
+
+.bookmark-svg {
+  svg {
+    pointer-events: none;
+  }
+}
+
+// .trash {
+//   width: 2.3rem !important;
+//   height: 2.3rem !important;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   @media only screen and (max-width: $bp-small) {
+//     position: relative;
+//     top: 0.15rem;
+//     width: 2.6rem !important;
+//     height: 2.6rem !important;
+//   }
+// }

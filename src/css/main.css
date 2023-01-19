@@ -857,6 +857,7 @@ footer {
   width: 2.3rem;
   height: 2.3rem;
   fill: #c0c0c1;
+  filter: drop-shadow(0 0 0.5rem rgba(23, 23, 27, 0.5));
 }
 @media only screen and (max-width: 39.7em) {
   .icon--heart {
@@ -1089,6 +1090,10 @@ footer {
 
 .floating-navbar__item {
   cursor: pointer;
+}
+
+.bookmark-svg svg {
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=main.css.map */
