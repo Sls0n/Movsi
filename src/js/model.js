@@ -1,5 +1,5 @@
 import { async } from 'regenerator-runtime';
-import { API_LINK_THEATRE, API_LINK_TRENDING, API_LINK_TOP, API_LINK_TV, IMAGE_PATH, API_LINK_SEARCH, API_LINK_DISCOVER } from './config.js';
+import { API_LINK_THEATRE, API_LINK_GROSS, API_LINK_TOP, API_LINK_TV, IMAGE_PATH, API_LINK_SEARCH, API_LINK_DISCOVER, API_LINK_DISCOVER_TV } from './config.js';
 
 export const state = {
   search: {},
@@ -38,9 +38,9 @@ export const loadTheatreMovies = async function (page) {
   }
 };
 
-export const loadTrendingMovies = async function (page) {
+export const loadGrossMovies = async function (page) {
   try {
-    const response = await fetch(`${API_LINK_TRENDING}&language=en-US&page=${page}`);
+    const response = await fetch(`${API_LINK_GROSS}&language=en-US&page=${page}&vote_count.gte=100`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
     state.resultArray.results = data.results.map(result => {
@@ -90,7 +90,7 @@ export const loadTopMovies = async function (page) {
 
 export const loadTvShows = async function (page) {
   try {
-    const response = await fetch(`${API_LINK_TV}&language=en-US&page=${page}`);
+    const response = await fetch(`${API_LINK_TV}&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
     console.log(data.results);
@@ -155,12 +155,13 @@ export const loadSearchResults = async function (page, query) {
   }
 };
 
-export const loadGenreHome = async function (page, genres) {
+export const loadGenreTop = async function (page, genres) {
   try {
     const genreString = genres.join(',');
-    const response = await fetch(`${API_LINK_DISCOVER}&sort_by=popularity.desc&with_genres=${genreString}&page=${page}`);
+    const response = await fetch(`${API_LINK_DISCOVER}&sort_by=vote_average.desc&vote_count.gte=200&with_genres=${genreString}&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
+    console.log(data);
 
     state.resultArray.results = data.results.map(result => {
       return {
@@ -182,10 +183,10 @@ export const loadGenreHome = async function (page, genres) {
   }
 };
 
-export const loadGenreTop = async function (page, genres) {
+export const loadGenreTv = async function (page, genres) {
   try {
     const genreString = genres.join(',');
-    const response = await fetch(`${API_LINK_DISCOVER}&sort_by=vote_average.desc&vote_count.gte=200&with_genres=${genreString}&page=${page}`);
+    const response = await fetch(`${API_LINK_DISCOVER_TV}&sort_by=vote_average.desc&vote_count.gte=200&with_genres=${genreString}&page=${page}`);
     if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
     const data = await response.json();
     console.log(data);
@@ -196,12 +197,12 @@ export const loadGenreTop = async function (page, genres) {
         backdropPath: result.backdrop_path,
         genreIds: result.genre_ids,
         id: result.id,
+        title: result.name,
         originalLanguage: result.original_language,
-        originalTitle: result.original_title,
+        originalTitle: result.original_name,
         overview: result.overview,
-        posterPath: `${IMAGE_PATH}/${result.poster_path}`,
-        releaseDate: result.release_date,
-        title: result.title,
+        posterPath: `${IMAGE_PATH}${result.poster_path}`,
+        releaseDate: result.first_air_date,
         voteAverage: result.vote_average,
       };
     });

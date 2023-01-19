@@ -149,9 +149,6 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   background-color: #2f2f34;
   color: #fefefe;
 }
-.btn:active {
-  transform: scale(1.05);
-}
 
 .active-genre {
   color: #1c1c1f;
@@ -709,6 +706,10 @@ footer {
   transform: translateX(-50rem);
 }
 
+.display-none {
+  display: none;
+}
+
 .search-hidden {
   transform: translateY(-200rem);
 }
@@ -875,9 +876,11 @@ footer {
   }
 }
 .icon--maximize {
-  width: 4rem;
-  height: 4rem;
+  width: 8rem;
+  height: 8rem;
   fill: #c0c0c1;
+  background-color: #1c1c1f;
+  padding: 1rem;
 }
 @media only screen and (max-width: 39.7em) {
   .icon--maximize {

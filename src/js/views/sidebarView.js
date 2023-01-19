@@ -1,3 +1,4 @@
+import navigationView from './navigationView.js';
 import View from './View.js';
 
 class SidebarView extends View {
@@ -8,6 +9,23 @@ class SidebarView extends View {
 
   _updateSlider(e) {
     this._value.textContent = this._slider.value;
+  }
+
+  switchGenre() {
+    const movieGenre = document.querySelector('.movie-genre');
+    const TvGenre = document.querySelector('.tv-genre');
+    navigationView._links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        if (e.target.classList.contains('ignore-click')) return;
+        if (e.target.classList.contains('tvshows')) {
+          movieGenre.classList.add('display-none');
+          TvGenre.classList.remove('display-none');
+        } else {
+          movieGenre.classList.remove('display-none');
+          TvGenre.classList.add('display-none');
+        }
+      });
+    });
   }
 
   _changeSliderValue(e) {

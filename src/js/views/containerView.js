@@ -38,17 +38,20 @@ class ContainerView extends View {
           ${this._data.voteAverage}
         </div>
         <svg class="icon--heart movie__heart">
-          <use xlink:href="${icons}#icon-heart"></use>
+          <use xlink:href="${icons}#icon-bookmark"></use>
         </svg>
 
-        <svg class="icon--maximize movie__maximize">
-          <use xlink:href="${icons}#icon-maximize"></use>
-        </svg>
+        
         <div class="movie__info--title">${this._data.title}</div>
       </div>
     </div>
   `;
   }
 }
+//<svg class="icon--maximize movie__maximize">
+{
+  /* <use xlink:href="${icons}#icon-bookmark"></use> */
+}
+// </svg>
 
 export default new ContainerView();

@@ -50,12 +50,12 @@
         </div>
         <div class="floating-navbar__item trending">
           <svg class="floating-navbar__icon">
-            <use class="floating-navbar__icon" xlink:href="src/img/sprite.svg#icon-star"></use>
+            <use class="floating-navbar__icon" xlink:href="src/img/sprite.svg#icon-dollar-sign"></use>
           </svg>
         </div>
         <div class="floating-navbar__item toprated">
           <svg class="floating-navbar__icon">
-            <use class="floating-navbar__icon" xlink:href="src/img/sprite.svg#icon-thumbs-up"></use>
+            <use class="floating-navbar__icon" xlink:href="src/img/sprite.svg#icon-star"></use>
           </svg>
         </div>
         <div class="floating-navbar__item tvshows">
@@ -98,14 +98,14 @@
           </a>
           <a href="#" class="header__link nav-control trending">
             <svg class="icon--link">
-              <use xlink:href="src/img/sprite.svg#icon-star"></use>
+              <use xlink:href="src/img/sprite.svg#icon-dollar-sign"></use>
             </svg>
-            Trending</a
+            Biggest Hits</a
           >
 
           <a href="#" class="header__link nav-control toprated">
             <svg class="icon--link">
-              <use xlink:href="src/img/sprite.svg#icon-thumbs-up"></use>
+              <use xlink:href="src/img/sprite.svg#icon-star"></use>
             </svg>
             Top rated</a
           >
@@ -146,11 +146,11 @@
             </svg>
 
             <div class="main__header">
-              <div class="main__trending--header--text-1 genre-header h3">Sort by</div>
-              <div class="main__trending--header--text-2 genre-subheader h3">| &nbsp;&nbsp;Genre</div>
+              <div class="main__trending--header--text-1 genre-header h3">Sort by genre</div>
+              <div class="main__trending--header--text-2 genre-subheader h3">| &nbsp;&nbsp;Movies</div>
             </div>
 
-            <div class="main__buttons">
+            <div class="main__buttons movie-genre">
               <button class="main__button action btn" data-genre="Action" data-id="28">Action</button>
               <button class="main__button comedy btn" data-genre="Comedy" data-id="35">Comedy</button>
               <button class="main__button drama btn" data-genre="Drama" data-id="18">Drama</button>
@@ -167,6 +167,24 @@
               <button class="main__button history btn" data-genre="History" data-id="36">History</button>
               <button class="main__button filmnoir btn" data-genre="Documentary" data-id="99">Documentary</button>
               <button class="main__button documentary btn" data-genre="Western" data-id="37">Western</button>
+            </div>
+
+            <div class="main__buttons tv-genre display-none">
+              <button class="main__button action btn tv" data-genre="Action" data-tv="10759">Action</button>
+              <button class="main__button animation btn tv" data-genre="Animation" data-tv="16">Animation</button>
+              <button class="main__button comedy btn tv" data-genre="Comedy" data-tv="35">Comedy</button>
+              <button class="main__button documentary btn tv" data-genre="Documentary" data-tv="99">Documentary</button>
+              <button class="main__button drama btn tv" data-genre="Drama" data-tv="18">Drama</button>
+              <button class="main__button family btn tv" data-genre="Family" data-tv="10751">Family</button>
+              <button class="main__button kids btn tv" data-genre="Kids" data-tv="10762">Kids</button>
+              <button class="main__button mystery btn tv" data-genre="Mystery" data-tv="9648">Mystery</button>
+              <button class="main__button news btn tv" data-genre="News" data-tv="10763">News</button>
+              <button class="main__button reality btn tv" data-genre="Reality" data-tv="10764">Reality</button>
+              <button class="main__button scifi btn tv" data-genre="Scifi" data-tv="10765">Sci-fi</button>
+              <button class="main__button soap btn tv" data-genre="Soap" data-tv="10766">Soap</button>
+              <button class="main__button talk btn tv" data-genre="Talk" data-tv="10767">Talk</button>
+              <button class="main__button war btn tv" data-genre="War" data-tv="10768">War</button>
+              <button class="main__button western btn tv" data-genre="Western" data-tv="37">Western</button>
             </div>
 
             <!-- <div class="main__header main__header-2">
@@ -213,7 +231,7 @@
                 <div class="sort">
                   Sort by &nbsp;
                   <svg class="icon icon--link">
-                    <use xlink:href="src/img/sprite.svg#icon-settings"></use>
+                    <use xlink:href="src/img/sprite.svg#icon-grid"></use>
                   </svg>
                 </div>
               </div>

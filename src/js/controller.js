@@ -21,6 +21,7 @@ export const controlGenreMovies = async function (page, genre) {
   containerView.renderSpinner();
 
   await model.loadGenreTop(page, genre);
+
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
     // if the title is more then 45 characters, cut it off and add `...'
@@ -30,6 +31,32 @@ export const controlGenreMovies = async function (page, genre) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+};
+
+const controlActiveGenre = function (e) {
+  const genreID = Number(e.target.dataset.id);
+  const genreIDTv = Number(e.target.dataset.tv);
+
+  if (!e.target.classList.contains('active-genre') && !e.target.classList.contains('tv')) {
+    currentNav = 'genre';
+    selectedGenres.push(genreID);
+    navigationView.removeActiveAll();
+    genreName.push(e.target.dataset.genre);
+  } else if (e.target.classList.contains('active-genre') && !e.target.classList.contains('tv')) {
+    moviesView.clearMovies();
+    selectedGenres = selectedGenres.filter(val => val !== genreID);
+    genreName = genreName.filter(val => val !== e.target.dataset.genre);
+  }
+
+  genreView.toggleActiveGenre(e);
+  genreView.updateHeader('Selected genres', genreName.join(', '));
+
+  if (selectedGenres.length > 0) {
+    controlGenreMovies(1, selectedGenres);
+  } else {
+    currentNav = 'home';
+    navigationView.addHandlerControl(controlTheatreMovie);
+  }
 };
 
 export const controlTheatreMovie = async function (page) {
@@ -51,11 +78,11 @@ export const controlTheatreMovie = async function (page) {
 
 controlTheatreMovie();
 
-export const controlTrendingMovie = async function (page) {
+export const controlGrossMovie = async function (page) {
   showbtnView.showBtn();
 
   containerView.renderSpinner();
-  await model.loadTrendingMovies(page);
+  await model.loadGrossMovies(page);
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
@@ -124,44 +151,31 @@ export const controlSearchResults = async function (page, query) {
   containerView.removeSpinner();
 };
 
-const controlActiveGenre = function (e) {
-  const genreID = Number(e.target.dataset.id);
-
-  if (!e.target.classList.contains('active-genre')) {
-    currentNav = 'genre';
-    selectedGenres.push(genreID);
-    navigationView.removeActiveAll();
-    genreName.push(e.target.dataset.genre);
-  } else {
-    moviesView.clearMovies();
-    selectedGenres = selectedGenres.filter(val => val !== genreID);
-    genreName = genreName.filter(val => val !== e.target.dataset.genre);
-  }
-
-  genreView.toggleActiveGenre(e);
-  genreView.updateHeader('Selected genres', genreName.join(', '));
-
-  if (selectedGenres.length > 0) {
-    controlGenreMovies(1, selectedGenres);
-  } else {
-    currentNav = 'home';
-    navigationView.addHandlerControl(controlTheatreMovie);
-  }
-};
-
 const floatingNavSwitch = function (e) {
   if (e.target.classList.contains('home')) {
     floatingView.addHandlerControl(controlTheatreMovie);
     currentNav = 'home';
+    selectedGenres = [];
+    genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('trending')) {
-    floatingView.addHandlerControl(controlTrendingMovie);
+    floatingView.addHandlerControl(controlGrossMovie);
     currentNav = 'trending';
+    selectedGenres = [];
+    genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('toprated')) {
     floatingView.addHandlerControl(controlTopMovie);
     currentNav = 'toprated';
+    selectedGenres = [];
+    genreView.enableGenre();
+    genreName = [];
   } else if (e.target.classList.contains('tvshows')) {
     floatingView.addHandlerControl(controlTvShows);
     currentNav = 'tvshows';
+    selectedGenres = [];
+    genreName = [];
+    genreView.disableGenre();
   }
 };
 
@@ -173,7 +187,7 @@ const navSwitch = function (e) {
     genreView.enableGenre();
     genreName = [];
   } else if (e.target.classList.contains('trending')) {
-    navigationView.addHandlerControl(controlTrendingMovie);
+    navigationView.addHandlerControl(controlGrossMovie);
     currentNav = 'trending';
     selectedGenres = [];
     genreView.enableGenre();
@@ -189,7 +203,7 @@ const navSwitch = function (e) {
     currentNav = 'tvshows';
     selectedGenres = [];
     genreName = [];
-    genreView.enableGenre();
+    genreView.disableGenre();
   } else if (e.target.classList.contains('main__button')) {
     moviesView.clearMovies();
     genreView.enableGenre();
@@ -204,7 +218,7 @@ const currentNavPage = function (page) {
       controlTheatreMovie(page);
       break;
     case 'trending':
-      controlTrendingMovie(page);
+      controlGrossMovie(page);
       break;
     case 'toprated':
       controlTopMovie(page);
@@ -221,7 +235,7 @@ const currentNavPage = function (page) {
 const init = function () {
   floatingView.init();
   navigationView.init();
-  // sidebarView.init();
+  sidebarView.switchGenre();
   searchView.init();
   showbtnView.addHandlerPage(currentNavPage);
   navigationView.addHandlerSwitch(navSwitch);

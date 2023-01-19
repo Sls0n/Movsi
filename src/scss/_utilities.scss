@@ -4,6 +4,10 @@
   transform: translateX(-50rem);
 }
 
+.display-none {
+  display: none;
+}
+
 .search-hidden {
   transform: translateY(-200rem);
 }
@@ -180,9 +184,11 @@
   }
 
   &--maximize {
-    width: 4rem;
-    height: 4rem;
+    width: 8rem;
+    height: 8rem;
     fill: $cs-2;
+    background-color: rgba($cp-2, 1);
+    padding: 1rem;
 
     @media only screen and (max-width: $bp-small) {
       width: 5rem;

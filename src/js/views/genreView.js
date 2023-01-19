@@ -2,7 +2,7 @@ import View from './View.js';
 
 class GenreView extends View {
   _parentElement = document.querySelectorAll('.main__button');
-  _container = document.querySelector('.main__buttons');
+  _container = document.querySelectorAll('.main__buttons');
 
   resetGenre() {
     this._parentElement.forEach(button => {
@@ -12,13 +12,13 @@ class GenreView extends View {
 
   disableGenre() {
     this._parentElement.forEach(el => (el.style.pointerEvents = 'none'));
-    this._container.style.opacity = '0.4';
-    this.updateGenreHeader('Not available on search', '😔');
+    this._container.forEach(el => (el.style.opacity = '0.5'));
+    this.updateGenreHeader('Not available here yet', '⚠');
   }
 
   enableGenre() {
     this._parentElement.forEach(el => (el.style.pointerEvents = 'auto'));
-    this._container.style.opacity = '1';
+    this._container.forEach(el => (el.style.opacity = '1'));
     this.updateGenreHeader('Sort by', 'Genre');
   }
 
@@ -34,36 +34,6 @@ class GenreView extends View {
   toggleActiveGenre(e) {
     e.target.classList.toggle('active-genre');
   }
-
-  // addHandlerButton(handler) {
-  //   this._parentElement.forEach(button => {
-  //     button.removeEventListener('click', this._parentElement);
-  //     button.addEventListener('click', function (e) {
-  //       e.preventDefault();
-  //       let genreID = Number(e.target.dataset.id);
-  //       if (!button.classList.contains('active-genre')) {
-  //         selectedGenres.push(genreID);
-  //         currentNav = 'genre';
-  //         navigationView.removeActiveAll();
-  //         genreName.push(e.target.dataset.genre);
-  //       } else {
-  //         moviesView.clearMovies();
-  //         selectedGenres = selectedGenres.filter(val => val !== genreID);
-  //         genreName = genreName.filter(val => val !== e.target.dataset.genre);
-  //       }
-  //       button.classList.toggle('active-genre');
-
-  //       navigationView.updateHeader('Selected genres', genreName.join(', '));
-
-  //       if (selectedGenres.length > 0) {
-  //         controlGenreMovies(1, selectedGenres);
-  //       } else {
-  //         currentNav = 'home';
-  //         navigationView.addHandlerControl(controlTheatreMovie);
-  //       }
-  //     });
-  //   });
-  // }
 }
 
 export default new GenreView();
