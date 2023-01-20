@@ -1,15 +1,66 @@
 import { async } from 'regenerator-runtime';
-import { API_LINK_THEATRE, API_LINK_GROSS, API_LINK_TOP, API_LINK_TV, IMAGE_PATH, API_LINK_SEARCH, API_LINK_DISCOVER, API_LINK_DISCOVER_TV } from './config.js';
+import { API_KEY } from './API_KEY.js';
+import {
+  API_LINK_THEATRE,
+  API_LINK_GROSS,
+  API_LINK_TOP,
+  API_LINK_TV,
+  IMAGE_PATH,
+  API_LINK_SEARCH,
+  API_LINK_DISCOVER,
+  API_LINK_DISCOVER_TV,
+  API_LINK_MOVIE,
+  API_LINK_SHOW,
+} from './config.js';
 
 export const state = {
   search: {},
-  result: {},
+  bookmarksMovie: {},
+  bookmarksShow: {},
   resultArray: {
     results: [],
   },
   searchResults: {
     result: [],
   },
+};
+
+export const loadBookmarkMovie = async function (id) {
+  try {
+    const response = await fetch(`${API_LINK_MOVIE}${id}?api_key=${API_KEY}&language=en-US`);
+    if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
+    const data = await response.json();
+    state.bookmarksMovie = {
+      title: data.title,
+      posterPath: `${IMAGE_PATH}/${data.poster_path}`,
+      overview: data.overview,
+      releaseDate: data.release_date,
+      voteAverage: data.vote_average,
+      id: data.id,
+    };
+    console.log(data);
+  } catch (err) {
+    alert(err);
+  }
+};
+
+export const loadBookmarkShow = async function (id) {
+  try {
+    const response = await fetch(`${API_LINK_SHOW}${id}?api_key=${API_KEY}&language=en-US`);
+    if (!response.ok) throw new Error(`Problem getting movie data (${response.status})`);
+    const data = await response.json();
+    state.bookmarksShow = {
+      title: data.name,
+      posterPath: `${IMAGE_PATH}/${data.poster_path}`,
+      overview: data.overview,
+      releaseDate: data.release_date,
+      voteAverage: data.vote_average,
+      id: data.id,
+    };
+    console.log(data);
+  } catch (err) {
+    alert(err);
+  }
 };
 
 export const loadTheatreMovies = async function (page) {

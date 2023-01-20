@@ -10,35 +10,6 @@ import moviesView from './views/moviesView.js';
 import genreView from './views/genreView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
 
-const movie = document.querySelector('.movies');
-
-movie.addEventListener('click', e => {
-  if (!e.target.classList.contains('movie__heart')) return;
-  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  if (!currentMovies.includes(e.target.id)) {
-    currentMovies.push(e.target.id);
-    e.target.querySelector('.book').classList.add('display-none');
-    e.target.querySelector('.trash').classList.remove('display-none');
-  } else {
-    currentMovies = currentMovies.filter(m => m !== e.target.id);
-    e.target.querySelector('.book').classList.remove('display-none');
-    e.target.querySelector('.trash').classList.add('display-none');
-  }
-
-  localStorage.setItem('movies', JSON.stringify(currentMovies));
-});
-
-window.addEventListener('DOMNodeInserted', e => {
-  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  currentMovies.forEach(movieId => {
-    let movie = document.getElementById(movieId);
-    if (movie) {
-      movie.querySelector('.book').classList.add('display-none');
-      movie.querySelector('.trash').classList.remove('display-none');
-    }
-  });
-});
-
 let currentNav = 'home';
 
 let selectedGenres = [];
@@ -274,3 +245,109 @@ const init = function () {
 };
 
 init();
+
+// If you're seeing this, Implementing this on MVC pattern tomorrow :)
+const movie = document.querySelector('.movies');
+
+movie.addEventListener('click', e => {
+  if (currentNav === 'tvshows') return;
+
+  if (!e.target.classList.contains('movie__heart')) return;
+  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
+  if (!currentMovies.includes(e.target.id)) {
+    currentMovies.push(e.target.id);
+    e.target.querySelector('.book').classList.add('display-none');
+    e.target.querySelector('.trash').classList.remove('display-none');
+  } else {
+    currentMovies = currentMovies.filter(m => m !== e.target.id);
+    e.target.querySelector('.book').classList.remove('display-none');
+    e.target.querySelector('.trash').classList.add('display-none');
+  }
+
+  localStorage.setItem('movies', JSON.stringify(currentMovies));
+});
+
+movie.addEventListener('click', e => {
+  if (currentNav === 'tvshows') {
+    if (!e.target.classList.contains('movie__heart')) return;
+    let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+    if (!currentShows.includes(e.target.id)) {
+      currentShows.push(e.target.id);
+      e.target.querySelector('.book').classList.add('display-none');
+      e.target.querySelector('.trash').classList.remove('display-none');
+    } else {
+      currentShows = currentShows.filter(s => s !== e.target.id);
+      e.target.querySelector('.book').classList.remove('display-none');
+      e.target.querySelector('.trash').classList.add('display-none');
+    }
+
+    localStorage.setItem('shows', JSON.stringify(currentShows));
+  }
+});
+
+window.addEventListener('DOMNodeInserted', e => {
+  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
+  currentMovies.forEach(movieId => {
+    let movie = document.getElementById(movieId);
+    if (movie) {
+      movie.querySelector('.book').classList.add('display-none');
+      movie.querySelector('.trash').classList.remove('display-none');
+    }
+  });
+  let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+  currentShows.forEach(showId => {
+    let show = document.getElementById(showId);
+    if (show) {
+      show.querySelector('.book').classList.add('display-none');
+      show.querySelector('.trash').classList.remove('display-none');
+    }
+  });
+});
+
+const controlBookmarkMovie = async function (ids) {
+  showbtnView.hideBtn();
+  containerView._childElement.innerHTML = '';
+  containerView.updateHeader('Bookmarks', 'All');
+  genreView.resetGenre();
+  genreView.disableGenre();
+  navigationView.removeActiveAll();
+
+  containerView.renderSpinner();
+  ids.forEach(async id => {
+    await model.loadBookmarkMovie(id);
+    let result = model.state.bookmarksMovie;
+    containerView.render(result);
+  });
+
+  containerView.removeSpinner();
+};
+
+const controlBookmarkShow = async function (ids) {
+  showbtnView.hideBtn();
+  containerView._childElement.innerHTML = '';
+  containerView.updateHeader('Bookmarks', 'All');
+  genreView.resetGenre();
+  genreView.disableGenre();
+  navigationView.removeActiveAll();
+
+  containerView.renderSpinner();
+  ids.forEach(async id => {
+    await model.loadBookmarkShow(id);
+    let result = model.state.bookmarksShow;
+    containerView.render(result);
+  });
+
+  containerView.removeSpinner();
+};
+
+const bookmarkNavBtn = document.querySelectorAll('.bookmarks');
+
+bookmarkNavBtn.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
+    controlBookmarkMovie(currentMovies);
+    let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+    controlBookmarkShow(currentShows);
+  });
+});

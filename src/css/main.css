@@ -743,6 +743,19 @@ footer {
     display: none;
   }
 }
+.icon--sorting {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 39.7em) {
+  .icon--sorting {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+}
 .icon--x-2 {
   transition: all 0.3s;
   width: 3.5rem;

@@ -8,5 +8,7 @@ export const API_LINK_TV = `https://api.themoviedb.org/3/discover/tv?api_key=${A
 export const API_LINK_SEARCH = `  https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}`;
 export const API_LINK_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 export const API_LINK_DISCOVER_TV = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}`;
+export const API_LINK_MOVIE = ` https://api.themoviedb.org/3/movie/`;
+export const API_LINK_SHOW = ` https://api.themoviedb.org/3/tv/`;
 export const IMAGE_PATH = `https://image.tmdb.org/t/p/w500`;
 export const INVALID_IMAGE_PATH = `https://image.tmdb.org/t/p/w500null`;

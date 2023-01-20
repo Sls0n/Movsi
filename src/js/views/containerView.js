@@ -29,17 +29,17 @@ class ContainerView extends View {
     return `
     <div class="movie">
       <img class="movie__image" src="${this._data.posterPath}" alt="${this._data.title}">
-
       <div class="movie__info">
         <div class="movie__info--rating">
           <svg class="icon icon--title">
             <use xlink:href="${icons}#icon-star"></use>
           </svg>
           ${this._data.voteAverage}
+          
         </div>
         <div class="bookmark-svg movie__heart" id="${this._data.id}">
           <svg class="icon--heart book">
-            <use xlink:href="${icons}#icon-bookmark"></use>
+            <use xlink:href="${icons}#icon-bookmark1"></use>
           </svg>
           <svg class="icon--heart trash display-none">
             <use xlink:href="${icons}#icon-trash"></use>
