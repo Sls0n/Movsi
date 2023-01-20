@@ -28,46 +28,16 @@ movie.addEventListener('click', e => {
   localStorage.setItem('movies', JSON.stringify(currentMovies));
 });
 
-window.addEventListener('load', e => {
-  console.log('loaded');
+window.addEventListener('DOMNodeInserted', e => {
   let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  console.log(currentMovies);
-  setTimeout(() => {
-    currentMovies.forEach(movieId => {
-      let movie = document.getElementById(movieId);
-      if (movie) {
-        movie.querySelector('.book').classList.add('display-none');
-        movie.querySelector('.trash').classList.remove('display-none');
-      }
-    });
-  }, 1000);
+  currentMovies.forEach(movieId => {
+    let movie = document.getElementById(movieId);
+    if (movie) {
+      movie.querySelector('.book').classList.add('display-none');
+      movie.querySelector('.trash').classList.remove('display-none');
+    }
+  });
 });
-
-window.addEventListener('hashchange', e => {
-  console.log('hash changed, yay!');
-  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  console.log(currentMovies);
-  setTimeout(() => {
-    currentMovies.forEach(movieId => {
-      let movie = document.getElementById(movieId);
-      if (movie) {
-        movie.querySelector('.book').classList.add('display-none');
-        movie.querySelector('.trash').classList.remove('display-none');
-      }
-    });
-  }, 1000);
-});
-
-// setInterval(() => {
-//   let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-//   currentMovies.forEach(movieId => {
-//     let movie = document.getElementById(movieId);
-//     if (movie) {
-//       movie.querySelector('.book').classList.add('display-none');
-//       movie.querySelector('.trash').classList.remove('display-none');
-//     }
-//   });
-// }, 5000);
 
 let currentNav = 'home';
 
