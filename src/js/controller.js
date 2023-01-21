@@ -8,6 +8,7 @@ import searchView from './views/searchView.js';
 import showbtnView from './views/showbtnView.js';
 import moviesView from './views/moviesView.js';
 import genreView from './views/genreView.js';
+import bookmarkView from './views/bookmarkView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
 
 let currentNav = 'home';
@@ -35,7 +36,6 @@ export const controlGenreMovies = async function (page, genre) {
 
 const controlActiveGenre = function (e) {
   const genreID = Number(e.target.dataset.id);
-  const genreIDTv = Number(e.target.dataset.tv);
 
   if (!e.target.classList.contains('active-genre') && !e.target.classList.contains('tv')) {
     currentNav = 'genre';
@@ -232,77 +232,35 @@ const currentNavPage = function (page) {
   }
 };
 
-const init = function () {
-  floatingView.init();
-  navigationView.init();
-  sidebarView.switchGenre();
-  searchView.init();
-  showbtnView.addHandlerPage(currentNavPage);
-  navigationView.addHandlerSwitch(navSwitch);
-  floatingView.addHandlerSwitch(floatingNavSwitch);
-  searchView.addHandlerSearch(controlSearchResults);
-  genreView.addHandlerGenre(controlActiveGenre);
-};
-
-init();
-
-// If you're seeing this, Implementing this on MVC pattern tomorrow :)
-const movie = document.querySelector('.movies');
-
-movie.addEventListener('click', e => {
+const controlStorageMovie = function (e) {
   if (currentNav === 'tvshows') return;
 
-  if (!e.target.classList.contains('movie__heart')) return;
   let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
   if (!currentMovies.includes(e.target.id)) {
     currentMovies.push(e.target.id);
-    e.target.querySelector('.book').classList.add('display-none');
-    e.target.querySelector('.trash').classList.remove('display-none');
+    bookmarkView.toggleBookmarkIcon(e.target.querySelector('.book'), e.target.querySelector('.trash'));
   } else {
     currentMovies = currentMovies.filter(m => m !== e.target.id);
-    e.target.querySelector('.book').classList.remove('display-none');
-    e.target.querySelector('.trash').classList.add('display-none');
+    bookmarkView.toggleBookmarkIcon(e.target.querySelector('.trash'), e.target.querySelector('.book'));
   }
 
   localStorage.setItem('movies', JSON.stringify(currentMovies));
-});
+};
 
-movie.addEventListener('click', e => {
-  if (currentNav === 'tvshows') {
-    if (!e.target.classList.contains('movie__heart')) return;
-    let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
-    if (!currentShows.includes(e.target.id)) {
-      currentShows.push(e.target.id);
-      e.target.querySelector('.book').classList.add('display-none');
-      e.target.querySelector('.trash').classList.remove('display-none');
-    } else {
-      currentShows = currentShows.filter(s => s !== e.target.id);
-      e.target.querySelector('.book').classList.remove('display-none');
-      e.target.querySelector('.trash').classList.add('display-none');
-    }
+const controlStorageShow = function (e) {
+  if (currentNav !== 'tvshows') return;
 
-    localStorage.setItem('shows', JSON.stringify(currentShows));
-  }
-});
-
-window.addEventListener('DOMNodeInserted', e => {
-  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  currentMovies.forEach(movieId => {
-    let movie = document.getElementById(movieId);
-    if (movie) {
-      movie.querySelector('.book').classList.add('display-none');
-      movie.querySelector('.trash').classList.remove('display-none');
-    }
-  });
   let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
-  currentShows.forEach(showId => {
-    let show = document.getElementById(showId);
-    if (show) {
-      show.querySelector('.book').classList.add('display-none');
-      show.querySelector('.trash').classList.remove('display-none');
-    }
-  });
-});
+  if (!currentShows.includes(e.target.id)) {
+    currentShows.push(e.target.id);
+    bookmarkView.toggleBookmarkIcon(e.target.querySelector('.book'), e.target.querySelector('.trash'));
+  } else {
+    currentShows = currentShows.filter(s => s !== e.target.id);
+    bookmarkView.toggleBookmarkIcon(e.target.querySelector('.trash'), e.target.querySelector('.book'));
+  }
+
+  localStorage.setItem('shows', JSON.stringify(currentShows));
+};
 
 const controlBookmarkMovie = async function (ids) {
   showbtnView.hideBtn();
@@ -340,14 +298,44 @@ const controlBookmarkShow = async function (ids) {
   containerView.removeSpinner();
 };
 
-const bookmarkNavBtn = document.querySelectorAll('.bookmarks');
-
-bookmarkNavBtn.forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-    controlBookmarkMovie(currentMovies);
-    let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
-    controlBookmarkShow(currentShows);
+const controlBookmarkIcon = function (e) {
+  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
+  currentMovies.forEach(movieId => {
+    let movie = document.getElementById(movieId);
+    if (movie) {
+      bookmarkView.toggleBookmarkIcon(movie.querySelector('.book'), movie.querySelector('.trash'));
+    }
   });
-});
+  let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+  currentShows.forEach(showId => {
+    let show = document.getElementById(showId);
+    if (show) {
+      bookmarkView.toggleBookmarkIcon(show.querySelector('.book'), show.querySelector('.trash'));
+    }
+  });
+};
+
+const controlBookmarkNavigation = function () {
+  let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
+  controlBookmarkMovie(currentMovies);
+  let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+  controlBookmarkShow(currentShows);
+};
+
+const init = function () {
+  floatingView.init();
+  navigationView.init();
+  sidebarView.switchGenre();
+  searchView.init();
+  showbtnView.addHandlerPage(currentNavPage);
+  navigationView.addHandlerSwitch(navSwitch);
+  floatingView.addHandlerSwitch(floatingNavSwitch);
+  searchView.addHandlerSearch(controlSearchResults);
+  genreView.addHandlerGenre(controlActiveGenre);
+  bookmarkView.addHandlerStorage(controlStorageMovie);
+  bookmarkView.addHandlerStorage(controlStorageShow);
+  bookmarkView.addHandlerDOM(controlBookmarkIcon);
+  bookmarkView.addHandlerBookmarkNav(controlBookmarkNavigation);
+};
+
+init();
