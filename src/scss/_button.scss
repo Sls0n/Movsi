@@ -29,8 +29,9 @@
 
 .active-genre {
   color: $cp-2;
-  border: 3px solid lighten($cs-3, 5%);
-  border: 3px solid $cs-3;
+
+  // border: 3px solid $cs-3;
+  border: 1px solid rgba($cs-3, 0.15);
   background-color: darken($cs-2, 20%);
 
   transition: all 0.2s $ts-1;

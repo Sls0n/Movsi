@@ -152,8 +152,7 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 
 .active-genre {
   color: #1c1c1f;
-  border: 3px solid #7e8083;
-  border: 3px solid #717376;
+  border: 1px solid rgba(113, 115, 118, 0.15);
   background-color: #8d8d8e;
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -672,6 +671,13 @@ footer {
   border-top: 1px solid #1c1c1f;
   width: 100%;
 }
+footer .footer__link {
+  color: #8b8d8f;
+  transition: all 0.2s ease-in-out;
+}
+footer .footer__link:hover {
+  color: #fefefe;
+}
 @media only screen and (max-width: 60.625em) {
   footer {
     font-size: 2rem;
@@ -817,6 +823,18 @@ footer {
 .icon--main:active {
   fill: #fefefe;
   transform: rotate(90deg);
+}
+.icon--error {
+  margin-left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #c0c0c1;
+}
+@media only screen and (max-width: 39.7em) {
+  .icon--error {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 .icon--moon {
   transition: all 0.3s;
@@ -1107,6 +1125,24 @@ footer {
 
 .bookmark-svg svg {
   pointer-events: none;
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  pointer-events: none;
+}
+@media only screen and (max-width: 39.7em) {
+  .error {
+    font-size: 3rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

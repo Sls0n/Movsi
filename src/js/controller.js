@@ -1,4 +1,5 @@
 import * as model from './model.js';
+import icons from 'url:../img/sprite.svg';
 
 import floatingView from './views/floatingView.js';
 import navigationView from './views/navigationView.js';
@@ -42,6 +43,7 @@ const controlActiveGenre = function (e) {
     selectedGenres.push(genreID);
     navigationView.removeActiveAll();
     genreName.push(e.target.dataset.genre);
+
   } else if (e.target.classList.contains('active-genre') && !e.target.classList.contains('tv')) {
     moviesView.clearMovies();
     selectedGenres = selectedGenres.filter(val => val !== genreID);
@@ -74,6 +76,7 @@ export const controlTheatreMovie = async function (page) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+  containerView.renderError(false);
 };
 
 controlTheatreMovie();
@@ -94,6 +97,7 @@ export const controlGrossMovie = async function (page) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+  containerView.renderError(false);
 };
 
 export const controlTopMovie = async function (page) {
@@ -112,6 +116,7 @@ export const controlTopMovie = async function (page) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+  containerView.renderError(false);
 };
 
 export const controlTvShows = async function (page) {
@@ -130,12 +135,19 @@ export const controlTvShows = async function (page) {
     containerView.render({ ...result, title });
   });
   containerView.removeSpinner();
+  containerView.renderError(false);
 };
 
 export const controlSearchResults = async function (page, query) {
+  containerView.renderError(false);
+
   containerView.renderSpinner();
   await model.loadSearchResults(page, query);
   containerView._childElement.innerHTML = '';
+
+  if (model.state.searchResults.result.length === 0) {
+    bookmarkView.renderError(true, 'No results found');
+  }
 
   model.state.searchResults.result.forEach(result => {
     if (result.posterPath === INVALID_IMAGE_PATH) return;
@@ -271,6 +283,7 @@ const controlBookmarkMovie = async function (ids) {
   navigationView.removeActiveAll();
 
   containerView.renderSpinner();
+
   ids.forEach(async id => {
     await model.loadBookmarkMovie(id);
     let result = model.state.bookmarksMovie;
@@ -317,8 +330,15 @@ const controlBookmarkIcon = function (e) {
 
 const controlBookmarkNavigation = function () {
   let currentMovies = JSON.parse(localStorage.getItem('movies')) || [];
-  controlBookmarkMovie(currentMovies);
   let currentShows = JSON.parse(localStorage.getItem('shows')) || [];
+
+  if (currentMovies.length === 0 && currentShows.length === 0) {
+    containerView.renderError(true, 'No bookmarks yet!');
+  } else {
+    containerView.renderError(false, 'No bookmarks yet!');
+  }
+
+  controlBookmarkMovie(currentMovies);
   controlBookmarkShow(currentShows);
 };
 

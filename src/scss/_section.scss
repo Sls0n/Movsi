@@ -315,6 +315,15 @@ footer {
   border-top: 1px solid $cp-2;
   width: 100%;
 
+  .footer__link {
+    color: lighten($cs-3, 10%);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $cs-1;
+    }
+  }
+
   @media only screen and (max-width: $bp-medium) {
     font-size: 2rem;
   }
