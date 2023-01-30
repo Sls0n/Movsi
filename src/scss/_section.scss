@@ -26,6 +26,10 @@
   @media only screen and (max-width: $bp-small) {
     padding: 1rem;
   }
+
+  @media only screen and (max-width: 29rem) {
+    padding: 1rem 0.5rem;
+  }
 }
 
 .main__trending {

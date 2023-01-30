@@ -80,14 +80,14 @@ class NavigationView extends View {
   }
 
   _toggleSidebar() {
-    this._parentElement.style.filter = 'blur(5px)';
+    this._parentElement.style.filter = 'blur(2px)';
     this._parentElement.querySelector('.header__navigation').style.pointerEvents = 'none';
     floatingView._parentElement.style.pointerEvents = 'none';
-    floatingView._parentElement.style.filter = 'blur(5px)';
+    floatingView._parentElement.style.filter = 'blur(2px)';
     sidebarView._parentElement.classList.toggle('hidden');
-    containerView._parentElement.style.filter = 'blur(5px) brightness(0.8)';
+    containerView._parentElement.style.filter = 'blur(2px) brightness(0.7)';
     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'none'));
-    this._footer.style.filter = 'blur(5px) brightness(0.8)';
+    this._footer.style.filter = 'blur(2px) brightness(0.7)';
   }
 
   _sortSidebar() {
@@ -132,9 +132,9 @@ class NavigationView extends View {
     moviesView._parentElement.forEach(movie => (movie.style.pointerEvents = 'none'));
     this._parentElement.style.filter = 'blur(10px)';
     floatingView._parentElement.style.pointerEvents = 'none';
-    floatingView._parentElement.style.filter = 'blur(5px)';
+    floatingView._parentElement.style.filter = 'blur(2px)';
     this._parentElement.querySelector('.header__navigation').style.pointerEvents = 'none';
-    this._footer.style.filter = 'blur(10px) brightness(0.5)';
+    this._footer.style.filter = 'blur(5px) brightness(0.5)';
   }
 
   _removeSearchModal(e) {

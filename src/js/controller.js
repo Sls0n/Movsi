@@ -1,5 +1,4 @@
 import * as model from './model.js';
-import icons from 'url:../img/sprite.svg';
 
 import floatingView from './views/floatingView.js';
 import navigationView from './views/navigationView.js';
@@ -11,6 +10,8 @@ import moviesView from './views/moviesView.js';
 import genreView from './views/genreView.js';
 import bookmarkView from './views/bookmarkView.js';
 import { INVALID_IMAGE_PATH } from './config.js';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 let currentNav = 'home';
 
@@ -23,6 +24,18 @@ export const controlGenreMovies = async function (page, genre) {
   containerView.renderSpinner();
 
   await model.loadGenreTop(page, genre);
+
+  // if (model.state.resultArray.page === 1) {
+  //   showbtnView.hideBtn();
+  // }
+
+  if (model.state.resultArray.results.length === 0) {
+    containerView.renderError(true, 'No movies found');
+    showbtnView.hideBtn();
+  } else {
+    containerView.renderError(false);
+    showbtnView.showBtn();
+  }
 
   model.state.resultArray.results.forEach(result => {
     let title = result.title;
@@ -43,7 +56,6 @@ const controlActiveGenre = function (e) {
     selectedGenres.push(genreID);
     navigationView.removeActiveAll();
     genreName.push(e.target.dataset.genre);
-
   } else if (e.target.classList.contains('active-genre') && !e.target.classList.contains('tv')) {
     moviesView.clearMovies();
     selectedGenres = selectedGenres.filter(val => val !== genreID);

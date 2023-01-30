@@ -224,18 +224,29 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
   margin-bottom: 3rem;
   width: 60%;
   height: 12rem;
-  gap: 3rem;
+  gap: 2rem;
 }
 @media only screen and (max-width: 45em) {
   .floating-navbar__container {
-    gap: 3rem;
+    gap: 2rem;
   }
 }
 @media only screen and (max-width: 33em) {
   .floating-navbar__container {
-    padding: 2.5rem 2.5rem;
-    gap: 4rem;
-    width: 80%;
+    padding: 1.5rem;
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 29rem) {
+  .floating-navbar__container {
+    padding: 1rem;
+    width: 78%;
+  }
+}
+@media only screen and (max-width: 27rem) {
+  .floating-navbar__container {
+    padding: 1rem;
+    width: 85%;
   }
 }
 
@@ -405,6 +416,11 @@ body::-webkit-scrollbar-thumb:window-inactive:hover {
 @media only screen and (max-width: 39.7em) {
   .main__right {
     padding: 1rem;
+  }
+}
+@media only screen and (max-width: 29rem) {
+  .main__right {
+    padding: 1rem 0.5rem;
   }
 }
 
@@ -1028,6 +1044,12 @@ footer .footer__link:hover {
     height: 3.2rem;
   }
 }
+@media only screen and (max-width: 27rem) {
+  .floating-navbar__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
 .floating-navbar__icon:hover {
   fill: #fefefe;
 }
@@ -1046,6 +1068,11 @@ footer .footer__link:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media only screen and (max-width: 27rem) {
+  .floating-active {
+    padding: 1.6rem;
+  }
 }
 .floating-active svg {
   fill: #fefefe;
