@@ -61,8 +61,8 @@ class NavigationView extends View {
       subHeader.innerHTML = '|&nbsp;&nbsp;  Latest';
     } else if (e.target.classList.contains('trending')) {
       floatingView._parentElement.querySelector('.trending').classList.add('floating-active');
-      mainHeader.innerHTML = 'Trending movies &nbsp;';
-      subHeader.innerHTML = '|&nbsp;&nbsp;  This week';
+      mainHeader.innerHTML = 'Highest grossing &nbsp;';
+      subHeader.innerHTML = '|&nbsp;&nbsp;  All time';
     } else if (e.target.classList.contains('toprated')) {
       floatingView._parentElement.querySelector('.toprated').classList.add('floating-active');
       mainHeader.innerHTML = 'Top rated movies &nbsp;';
