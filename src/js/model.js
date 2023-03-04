@@ -40,7 +40,7 @@ export const loadBookmarkMovie = async function (id) {
     };
     console.log(data);
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -59,7 +59,7 @@ export const loadBookmarkShow = async function (id) {
     };
     console.log(data);
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -85,7 +85,7 @@ export const loadTheatreMovies = async function (page) {
     });
     console.log(state.resultArray.results);
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -110,7 +110,7 @@ export const loadGrossMovies = async function (page) {
       };
     });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -135,7 +135,7 @@ export const loadTopMovies = async function (page) {
       };
     });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -161,7 +161,7 @@ export const loadTvShows = async function (page) {
       };
     });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -202,7 +202,7 @@ export const loadSearchResults = async function (page, query) {
         }
       });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -230,7 +230,7 @@ export const loadGenreTop = async function (page, genres) {
       };
     });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
@@ -258,6 +258,6 @@ export const loadGenreTv = async function (page, genres) {
       };
     });
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
